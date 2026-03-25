@@ -10,6 +10,7 @@
     "dev:api": "npm run dev --workspace=@inmo-joven/api",
     "dev:worker": "npm run dev --workspace=@inmo-joven/worker",
     "build:web": "npm run build --workspace=@inmo-joven/web",
-    "lint:web": "npm run lint --workspace=@inmo-joven/web"
+    "lint:web": "npm run lint --workspace=@inmo-joven/web",
+    "tokko:smoke": "npm run tokko:smoke --workspace=@inmo-joven/api"
   }
 }

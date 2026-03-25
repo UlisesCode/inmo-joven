@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "node --watch src/main.js",
-    "start": "node src/main.js"
+    "start": "node src/main.js",
+    "tokko:smoke": "node scripts/tokko-smoke.mjs"
   },
   "dependencies": {
     "@inmo-joven/shared": "*"
