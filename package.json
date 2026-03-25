@@ -1,0 +1,15 @@
+{
+  "name": "inmo-joven",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:web": "npm run dev --workspace=@inmo-joven/web",
+    "dev:api": "npm run dev --workspace=@inmo-joven/api",
+    "dev:worker": "npm run dev --workspace=@inmo-joven/worker",
+    "build:web": "npm run build --workspace=@inmo-joven/web",
+    "lint:web": "npm run lint --workspace=@inmo-joven/web"
+  }
+}

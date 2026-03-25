@@ -1,0 +1,13 @@
+{
+  "name": "@inmo-joven/api",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/main.js",
+    "start": "node src/main.js"
+  },
+  "dependencies": {
+    "@inmo-joven/shared": "*"
+  }
+}
