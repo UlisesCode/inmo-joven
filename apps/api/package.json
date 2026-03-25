@@ -9,6 +9,10 @@
     "tokko:smoke": "node scripts/tokko-smoke.mjs"
   },
   "dependencies": {
-    "@inmo-joven/shared": "*"
+    "@fastify/cors": "^10.0.2",
+    "@inmo-joven/database": "*",
+    "@inmo-joven/shared": "*",
+    "dotenv": "^16.4.7",
+    "fastify": "^5.2.1"
   }
 }

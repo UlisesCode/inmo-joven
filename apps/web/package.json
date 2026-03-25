@@ -6,16 +6,21 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "tokko:smoke": "node ../api/scripts/tokko-smoke.mjs"
   },
   "dependencies": {
+    "@auth/prisma-adapter": "^2.7.4",
+    "@inmo-joven/database": "*",
     "@react-google-maps/api": "^2.20.6",
     "axios": "^1.7.9",
+    "bcryptjs": "^2.4.3",
     "bootstrap": "^5.3.2",
     "chart.js": "^4.4.7",
     "gsap": "^3.12.7",
     "gsap-trial": "^3.12.7",
     "next": "15.1.7",
+    "next-auth": "^5.0.0-beta.25",
     "odometer": "^0.4.8",
     "photoswipe": "^5.4.4",
     "rc-slider": "^11.1.8",

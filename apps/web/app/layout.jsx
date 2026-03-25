@@ -10,6 +10,7 @@ import MobileMenu from "@/components/headers/MobileMenu";
 import SettingsHandler from "@/components/common/SettingsHandler";
 import Login from "@/components/modals/Login";
 import Register from "@/components/modals/Register";
+import AuthSessionProvider from "@/components/providers/AuthSessionProvider";
 
 export default function RootLayout({ children }) {
   const pathname = usePathname();
@@ -73,7 +74,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="popup-loader">
-        {children}
+        <AuthSessionProvider>{children}</AuthSessionProvider>
         <MobileMenu />
         <BackToTop />
         <SettingsHandler />
