@@ -9,8 +9,8 @@ import React from "react";
 import { allProperties } from "@/data/properties";
 
 export const metadata = {
-  title: "Property Details 01 || Proty - Real Estate React Nextjs Template",
-  description: "Proty - Real Estate React Nextjs Template",
+  title: "Detalle de propiedad | Inmo Joven",
+  description: "Información de la propiedad.",
 };
 export default async function page({ params }) {
   const { id } = await params;

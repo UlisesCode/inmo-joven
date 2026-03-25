@@ -20,29 +20,35 @@ export default function Nav() {
     );
   return (
     <>
-      <li
-        className={`has-child ${
-          homes.some((elm) => elm.href == pathname) ? "current-menu" : ""
-        }`}
-      >
-        <a href="#">Home</a>
-        <ul className="submenu">
-          {homes.map((item, index) => (
-            <li
-              key={index}
-              className={pathname == item.href ? "current-item" : ""}
-            >
-              <Link href={item.href}>{item.label}</Link>
-            </li>
-          ))}
-        </ul>
-      </li>
+      {homes.length === 1 ? (
+        <li className={pathname === homes[0].href ? "current-menu" : ""}>
+          <Link href={homes[0].href}>{homes[0].label}</Link>
+        </li>
+      ) : (
+        <li
+          className={`has-child ${
+            homes.some((elm) => elm.href == pathname) ? "current-menu" : ""
+          }`}
+        >
+          <a href="#">Home</a>
+          <ul className="submenu">
+            {homes.map((item, index) => (
+              <li
+                key={index}
+                className={pathname == item.href ? "current-item" : ""}
+              >
+                <Link href={item.href}>{item.label}</Link>
+              </li>
+            ))}
+          </ul>
+        </li>
+      )}
       <li
         className={`has-child style-2 ${
           isParentActive(propertyLinks) ? "current-menu" : ""
         } `}
       >
-        <a href="#">Listing</a>
+        <a href="#">Propiedades</a>
         <ul className="submenu">
           {propertyLinks.map((menu, index) => (
             <li key={index}>
@@ -70,7 +76,7 @@ export default function Nav() {
           isParentActive(otherPages) ? "current-menu" : ""
         } `}
       >
-        <a href="#">Pages</a>
+        <a href="#">Más</a>
         <ul className="submenu">
           {otherPages.map((menu, index) => (
             <li
@@ -108,27 +114,29 @@ export default function Nav() {
           ))}
         </ul>
       </li>
-      <li
-        className={`has-child ${
-          isParentActive(blogMenu) ? "current-menu" : ""
-        } `}
-      >
-        <a href="#">Blog</a>
-        <ul className="submenu">
-          {blogMenu.map((item, index) => (
-            <li
-              key={index}
-              className={
-                item.href.split("/")[1] == pathname.split("/")[1]
-                  ? "current-item"
-                  : ""
-              }
-            >
-              <Link href={item.href}>{item.label}</Link>
-            </li>
-          ))}
-        </ul>
-      </li>
+      {blogMenu.length > 0 ? (
+        <li
+          className={`has-child ${
+            isParentActive(blogMenu) ? "current-menu" : ""
+          } `}
+        >
+          <a href="#">Blog</a>
+          <ul className="submenu">
+            {blogMenu.map((item, index) => (
+              <li
+                key={index}
+                className={
+                  item.href.split("/")[1] == pathname.split("/")[1]
+                    ? "current-item"
+                    : ""
+                }
+              >
+                <Link href={item.href}>{item.label}</Link>
+              </li>
+            ))}
+          </ul>
+        </li>
+      ) : null}
       <li className={"/contact" == pathname ? "current-menu" : ""}>
         <Link href={`/contact`}>Contact</Link>
       </li>

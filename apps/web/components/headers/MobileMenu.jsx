@@ -44,43 +44,55 @@ export default function MobileMenu() {
       <div className="offcanvas-body inner-mobile-nav">
         <div className="mb-body">
           <ul id="menu-mobile-menu">
-            <li
-              className={`menu-item menu-item-has-children-mobile  ${
-                homes.some((elm) => elm.href == pathname)
-                  ? "current-menu-item"
-                  : ""
-              } `}
-            >
-              <a
-                href="#dropdown-menu-one"
-                className="item-menu-mobile collapsed"
-                data-bs-toggle="collapse"
-                aria-expanded="true"
-                aria-controls="dropdown-menu-one"
+            {homes.length === 1 ? (
+              <li
+                className={`menu-item ${
+                  pathname === homes[0].href ? "current-item" : ""
+                }`}
               >
-                Home
-              </a>
-              <div
-                id="dropdown-menu-one"
-                className="collapse"
-                data-bs-parent="#menu-mobile-menu"
+                <Link href={homes[0].href} className="tem-menu-mobile">
+                  {homes[0].label}
+                </Link>
+              </li>
+            ) : (
+              <li
+                className={`menu-item menu-item-has-children-mobile  ${
+                  homes.some((elm) => elm.href == pathname)
+                    ? "current-menu-item"
+                    : ""
+                } `}
               >
-                <ul className="sub-mobile">
-                  {homes.map((link, i) => (
-                    <li
-                      key={i}
-                      className={
-                        pathname == link.href
-                          ? "menu-item current-item"
-                          : "menu-item "
-                      }
-                    >
-                      <Link href={link.href}>{link.label}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </li>
+                <a
+                  href="#dropdown-menu-one"
+                  className="item-menu-mobile collapsed"
+                  data-bs-toggle="collapse"
+                  aria-expanded="true"
+                  aria-controls="dropdown-menu-one"
+                >
+                  Home
+                </a>
+                <div
+                  id="dropdown-menu-one"
+                  className="collapse"
+                  data-bs-parent="#menu-mobile-menu"
+                >
+                  <ul className="sub-mobile">
+                    {homes.map((link, i) => (
+                      <li
+                        key={i}
+                        className={
+                          pathname == link.href
+                            ? "menu-item current-item"
+                            : "menu-item "
+                        }
+                      >
+                        <Link href={link.href}>{link.label}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </li>
+            )}
             <li
               className={`menu-item menu-item-has-children-mobile  ${
                 isParentActive(propertyLinks) ? "current-menu-item" : ""
@@ -93,7 +105,7 @@ export default function MobileMenu() {
                 aria-expanded="true"
                 aria-controls="dropdown-menu-two"
               >
-                Listing
+                Propiedades
               </a>
               <div
                 id="dropdown-menu-two"
@@ -160,7 +172,7 @@ export default function MobileMenu() {
                 aria-expanded="true"
                 aria-controls="dropdown-menu-four"
               >
-                Pages
+                Más
               </a>
               <div
                 id="dropdown-menu-four"
@@ -230,41 +242,43 @@ export default function MobileMenu() {
                 </ul>
               </div>
             </li>
-            <li
-              className={`menu-item menu-item-has-children-mobile ${
-                isParentActive(blogMenu) ? "current-menu-item" : ""
-              } `}
-            >
-              <a
-                href="#dropdown-menu-five"
-                className="item-menu-mobile collapsed"
-                data-bs-toggle="collapse"
-                aria-expanded="true"
-                aria-controls="dropdown-menu-five"
+            {blogMenu.length > 0 ? (
+              <li
+                className={`menu-item menu-item-has-children-mobile ${
+                  isParentActive(blogMenu) ? "current-menu-item" : ""
+                } `}
               >
-                Blogs
-              </a>
-              <div
-                id="dropdown-menu-five"
-                className="collapse"
-                data-bs-parent="#menu-mobile-menu"
-              >
-                <ul className="sub-mobile">
-                  {blogMenu.map((link, i) => (
-                    <li
-                      key={i}
-                      className={
-                        link.href.split("/")[1] == pathname.split("/")[1]
-                          ? "menu-item current-item"
-                          : "menu-item"
-                      }
-                    >
-                      <Link href={link.href}>{link.label}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </li>
+                <a
+                  href="#dropdown-menu-five"
+                  className="item-menu-mobile collapsed"
+                  data-bs-toggle="collapse"
+                  aria-expanded="true"
+                  aria-controls="dropdown-menu-five"
+                >
+                  Blogs
+                </a>
+                <div
+                  id="dropdown-menu-five"
+                  className="collapse"
+                  data-bs-parent="#menu-mobile-menu"
+                >
+                  <ul className="sub-mobile">
+                    {blogMenu.map((link, i) => (
+                      <li
+                        key={i}
+                        className={
+                          link.href.split("/")[1] == pathname.split("/")[1]
+                            ? "menu-item current-item"
+                            : "menu-item"
+                        }
+                      >
+                        <Link href={link.href}>{link.label}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </li>
+            ) : null}
             <li
               className={`menu-item ${
                 "/contact" == pathname ? "current-item" : ""
