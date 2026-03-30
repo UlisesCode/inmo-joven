@@ -18,8 +18,11 @@ model User {
   image         String?
   /// Hash bcrypt; solo usuarios con email/contraseña.
   password      String?
+  /// Preferencias inmobiliarias (zonas, presupuesto, etc.) — evolución MVP.
+  preferences   Json?
   accounts      Account[]
   sessions      Session[]
+  leads         Lead[]
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 }
@@ -57,4 +60,101 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model Agency {
+  id               String            @id @default(cuid())
+  name             String
+  slug             String?           @unique
+  email            String?
+  phone            String?
+  website          String?
+  properties       Property[]
+  crmIntegrations  CrmIntegration[]
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+}
+
+model Property {
+  id                String    @id @default(cuid())
+  publicationId     String
+  crmSource         String    @default("tokko")
+  status            String    @default("active")
+  title             String?
+  slug              String?   @unique
+  operation         String?
+  price             Decimal?  @db.Decimal(14, 2)
+  currency          String?   @default("USD")
+  address           String?
+  city              String?
+  region            String?
+  country           String?
+  lat               Float?
+  lng               Float?
+  bedrooms          Int?
+  bathrooms         Int?
+  areaSqm           Float?
+  description       String?   @db.Text
+  images            Json?
+  rawPayload        Json?
+  externalUpdatedAt DateTime?
+  agencyId          String?
+  agency            Agency?   @relation(fields: [agencyId], references: [id], onDelete: SetNull)
+  leads             Lead[]
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  @@unique([publicationId, crmSource])
+  @@index([status])
+  @@index([city])
+}
+
+model CrmIntegration {
+  id         String       @id @default(cuid())
+  agencyId   String?
+  agency     Agency?      @relation(fields: [agencyId], references: [id], onDelete: Cascade)
+  provider   String
+  paused     Boolean      @default(false)
+  lastSyncAt DateTime?
+  lastSyncOk Boolean?
+  lastError  String?      @db.Text
+  logs       ImportLog[]
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+
+  @@index([provider])
+  @@index([agencyId])
+}
+
+model ImportLog {
+  id                 String          @id @default(cuid())
+  crmIntegrationId   String?
+  integration        CrmIntegration? @relation(fields: [crmIntegrationId], references: [id], onDelete: SetNull)
+  provider           String?
+  startedAt          DateTime        @default(now())
+  finishedAt         DateTime?
+  status             String          @default("running")
+  importedCount      Int?
+  updatedCount       Int?
+  delistedCount      Int?
+  errorMessage       String?         @db.Text
+  meta               Json?
+}
+
+model Lead {
+  id         String   @id @default(cuid())
+  userId     String?
+  user       User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  propertyId String
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  name       String?
+  email      String?
+  phone      String?
+  message    String   @db.Text
+  status     String   @default("new")
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([propertyId])
+  @@index([userId])
 }
