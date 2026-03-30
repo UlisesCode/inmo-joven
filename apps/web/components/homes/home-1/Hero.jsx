@@ -4,10 +4,10 @@ import React, { useState } from "react";
 
 export default function Hero() {
   // State to track the active item
-  const [activeItem, setActiveItem] = useState("For sale");
+  const [activeItem, setActiveItem] = useState("Venta");
 
   // Array of items to render
-  const items = ["For sale", "For rent"];
+  const items = ["Venta", "Alquiler"];
 
   return (
     <div className="page-title home01">
@@ -16,10 +16,9 @@ export default function Hero() {
           <div className="col-lg-8 ">
             <div className="content-inner">
               <div className="heading-title">
-                <h1 className="title">Search Luxury Homes</h1>
+                <h1 className="title">Buscá tu mono ambiente</h1>
                 <p className="h6 fw-4">
-                  Thousands of luxury home enthusiasts just like you visit our
-                  website.
+                 Encontrá tu mono ambiente con Inmo Joven 
                 </p>
               </div>
               <div className="wg-filter">

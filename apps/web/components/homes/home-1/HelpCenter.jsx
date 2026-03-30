@@ -15,8 +15,7 @@ export default function HelpCenter() {
                 <SplitTextAnimation text="Discover how we can help" />
               </h2>
               <p className="text-1 split-text split-lines-transform">
-                Thousands of luxury home enthusiasts just like you visit our
-                website.
+                Guías y tips para tu primera compra, alquiler o inversión.
               </p>
             </div>
             <div className="widget-tabs style-2 style-border-primary">
