@@ -14,11 +14,6 @@ import AuthSessionProvider from "@/components/providers/AuthSessionProvider";
 
 export default function RootLayout({ children }) {
   const pathname = usePathname();
-  if (typeof window !== "undefined") {
-    import("bootstrap/dist/js/bootstrap.esm").then((module) => {
-      // Module is imported, you can access any exported functionality if
-    });
-  }
   useEffect(() => {
     // Close any open modal
     const bootstrap = require("bootstrap"); // dynamically import bootstrap

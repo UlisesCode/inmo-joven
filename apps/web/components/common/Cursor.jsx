@@ -52,7 +52,7 @@ export default function Cursor() {
   return (
     <div className="custom-cursor style-2 md-hide">
       <i className="icon-cursor" />
-      Drang
+      Drag
     </div>
   );
 }
