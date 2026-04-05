@@ -22,7 +22,7 @@ export default async function page({ params }) {
     <>
       <div id="wrapper">
         <Header1 />
-        <Breadcumb pageName="Property Details 01" />
+        <Breadcumb pageName="Detalle de propiedad" />
         <div className="main-content">
           <Slider1 />
           <Details1 property={property} />

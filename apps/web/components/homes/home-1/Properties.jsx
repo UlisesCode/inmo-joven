@@ -13,11 +13,10 @@ export default function Properties() {
           <div className="col-12">
             <div className="heading-section text-center ">
               <h2 className="title split-text effect-right">
-                <SplitTextAnimation text="Today’s Luxury Listings" />
+                <SplitTextAnimation text="Propiedades destacadas" />
               </h2>
               <p className="text-1 split-text split-lines-transform">
-                Thousands of luxury home enthusiasts just like you visit our
-                website.
+                Miles de personas como vos buscan su primer hogar con Inmo Joven.
               </p>
             </div>
             <div
@@ -43,20 +42,20 @@ export default function Properties() {
                         </Link>
                         <ul className="box-tag flex gap-8 ">
                           <li className="flat-tag text-4 bg-main fw-6 text_white">
-                            Featured
+                            Destacado
                           </li>
                           <li className="flat-tag text-4 bg-3 fw-6 text_white">
-                            For Sale
+                            En venta
                           </li>
                         </ul>
                         <div className="list-btn flex gap-8 ">
                           <a href="#" className="btn-icon save hover-tooltip">
                             <i className="icon-save" />
-                            <span className="tooltip">Add Favorite</span>
+                            <span className="tooltip">Guardar favorito</span>
                           </a>
                           <a href="#" className="btn-icon find hover-tooltip">
                             <i className="icon-find-plus" />
-                            <span className="tooltip">Quick View</span>
+                            <span className="tooltip">Vista rápida</span>
                           </a>
                         </div>
                       </div>
@@ -71,13 +70,13 @@ export default function Properties() {
                         </p>
                         <ul className="meta-list flex">
                           <li className="text-1 flex">
-                            <span>{property.beds}</span>Beds
+                            <span>{property.beds}</span>Dorm.
                           </li>
                           <li className="text-1 flex">
-                            <span>{property.baths}</span>Baths
+                            <span>{property.baths}</span>Baños
                           </li>
                           <li className="text-1 flex">
-                            <span>{property.sqft}</span>Sqft
+                            <span>{property.sqft}</span>m²
                           </li>
                         </ul>
                         <div className="bot flex justify-between items-center">
@@ -96,7 +95,7 @@ export default function Properties() {
                               href={`/property-detail-v1/${property.id}`}
                               className="tf-btn style-border pd-4"
                             >
-                              Details
+                              Ver detalle
                             </Link>
                           </div>
                         </div>
@@ -132,20 +131,20 @@ export default function Properties() {
                       </Link>
                       <ul className="box-tag flex gap-8 ">
                         <li className="flat-tag text-4 bg-main fw-6 text_white">
-                          Featured
+                          Destacado
                         </li>
                         <li className="flat-tag text-4 bg-3 fw-6 text_white">
-                          For Sale
+                          En venta
                         </li>
                       </ul>
                       <div className="list-btn flex gap-8 ">
                         <a href="#" className="btn-icon save hover-tooltip">
                           <i className="icon-save" />
-                          <span className="tooltip">Add Favorite</span>
+                          <span className="tooltip">Guardar favorito</span>
                         </a>
                         <a href="#" className="btn-icon find hover-tooltip">
                           <i className="icon-find-plus" />
-                          <span className="tooltip">Quick View</span>
+                          <span className="tooltip">Vista rápida</span>
                         </a>
                       </div>
                     </div>
@@ -160,13 +159,13 @@ export default function Properties() {
                       </p>
                       <ul className="meta-list flex">
                         <li className="text-1 flex">
-                          <span>{property.beds}</span>Beds
+                          <span>{property.beds}</span>Dorm.
                         </li>
                         <li className="text-1 flex">
-                          <span>{property.baths}</span>Baths
+                          <span>{property.baths}</span>Baños
                         </li>
                         <li className="text-1 flex">
-                          <span>{property.sqft}</span>Sqft
+                          <span>{property.sqft}</span>m²
                         </li>
                       </ul>
                       <div className="bot flex justify-between items-center">
@@ -185,7 +184,7 @@ export default function Properties() {
                             href={`/property-detail-v1/${property.id}`}
                             className="tf-btn style-border pd-4"
                           >
-                            Details
+                            Ver detalle
                           </Link>
                         </div>
                       </div>

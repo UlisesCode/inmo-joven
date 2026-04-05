@@ -4,18 +4,17 @@ export default function ExtraInfo() {
   return (
     <>
       <div className="wg-title text-11 fw-6 text-color-heading">
-        Property Details
+        Detalle de la propiedad
       </div>
       <div className="content">
         <p className="description text-1">
-          3 Units in North Hollywood with upside potential through construction
-          of an ADU (buyer to verify). Unit mix consists of (3) 3+1 bath units.
-          The building is a total of 2, 660 square feet and situated on a 6, 001
-          square foot lot. Easy access to the 101, 170, and 134 freeways. The
-          building is separately metered for gas and electricity.
+          Propiedad de ejemplo en Inmo Joven: luminosa, buena orientación y
+          accesos a transporte. Los datos reales se mostrarán cuando la
+          publicación esté conectada a tu CRM o base de datos. Consultá
+          superficies, estado y documentación con el asesor.
         </p>
         <a href="#" className="tf-btn-link style-hover-rotate">
-          <span>Read More </span>
+          <span>Leer más </span>
           <svg
             width={20}
             height={20}
@@ -66,41 +65,41 @@ export default function ExtraInfo() {
             <p>#1234</p>
           </li>
           <li className="flex">
-            <p className="fw-6">Price</p>
+            <p className="fw-6">Precio</p>
             <p>$7,500</p>
           </li>
           <li className="flex">
-            <p className="fw-6">Size</p>
-            <p>150 sqft</p>
+            <p className="fw-6">Superficie</p>
+            <p>150 m²</p>
           </li>
           <li className="flex">
-            <p className="fw-6">Rooms</p>
+            <p className="fw-6">Ambientes</p>
             <p>9</p>
           </li>
           <li className="flex">
-            <p className="fw-6">Baths</p>
+            <p className="fw-6">Baños</p>
             <p>3</p>
           </li>
         </ul>
         <ul>
           <li className="flex">
-            <p className="fw-6">Beds</p>
+            <p className="fw-6">Dormitorios</p>
             <p>7.328</p>
           </li>
           <li className="flex">
-            <p className="fw-6">Year buit</p>
+            <p className="fw-6">Año</p>
             <p>2022</p>
           </li>
           <li className="flex">
-            <p className="fw-6">Type</p>
-            <p>Villa</p>
+            <p className="fw-6">Tipo</p>
+            <p>Casa</p>
           </li>
           <li className="flex">
-            <p className="fw-6">Status</p>
-            <p>For sale</p>
+            <p className="fw-6">Estado</p>
+            <p>En venta</p>
           </li>
           <li className="flex">
-            <p className="fw-6">Garage</p>
+            <p className="fw-6">Cochera</p>
             <p>1</p>
           </li>
         </ul>

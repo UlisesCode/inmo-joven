@@ -11,18 +11,18 @@ export default function Topbar() {
                 <li>
                   <i className="icon-phone-1" />
                   <p>
-                    Phone: <span className="fw-7">(603) 555-0123</span>
+                    Teléfono: <span className="fw-7">(603) 555-0123</span>
                   </p>
                 </li>
                 <li>
                   <i className="icon-mail" />
                   <p>
-                    Email: <a href="#">themesflat@gmail.com</a>
+                    Correo: <a href="#">hola@inmojoven.com</a>
                   </p>
                 </li>
               </ul>
               <div className="wrap-social">
-                <p>Follow us</p>
+                <p>Seguinos</p>
                 <ul className="tf-social style-2">
                   <li>
                     <a href="#">

@@ -26,30 +26,30 @@ export default function Contact() {
                 className="form-contact"
               >
                 <div className="heading-section">
-                  <h2 className="title">We Would Love to Hear From You</h2>
+                  <h2 className="title">Queremos conocerte</h2>
                   <p className="text-1">
-                    We'll get to know you to understand your selling goals,
-                    explain the selling process so you know what to expect.
+                    Contanos qué buscás: compra, alquiler o inversión. Te
+                    acompañamos en cada paso.
                   </p>
                 </div>
                 <div className="cols">
                   <fieldset>
-                    <label htmlFor="name">Name:</label>
+                    <label htmlFor="name">Nombre:</label>
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="Your name"
+                      placeholder="Tu nombre"
                       name="name"
                       id="name"
                       required
                     />
                   </fieldset>
                   <fieldset>
-                    <label htmlFor="email">Email:</label>
+                    <label htmlFor="email">Correo:</label>
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="Email"
+                      placeholder="tu@email.com"
                       name="email"
                       id="email-contact"
                       required
@@ -58,11 +58,11 @@ export default function Contact() {
                 </div>
                 <div className="cols">
                   <fieldset className="phone">
-                    <label htmlFor="phone">Phone number:</label>
+                    <label htmlFor="phone">Teléfono:</label>
                     <input
                       type="text"
                       className="form-control"
-                      placeholder="Your phone number"
+                      placeholder="Tu número de contacto"
                       name="phone"
                       id="phone"
                       required
@@ -70,22 +70,27 @@ export default function Contact() {
                   </fieldset>
                   <div className="select">
                     <label className="text-1 fw-6 mb-12">
-                      What are you interested in?
+                      ¿Qué te interesa?
                     </label>
 
                     <DropdownSelect
-                      options={["Select", "Location", "Rent", "Sale"]}
+                      options={[
+                        "Elegí una opción",
+                        "Ubicación / zona",
+                        "Alquiler",
+                        "Compra",
+                      ]}
                       addtionalParentClass=""
                     />
                   </div>
                 </div>
                 <fieldset>
-                  <label htmlFor="message">Your Message:</label>
+                  <label htmlFor="message">Tu mensaje:</label>
                   <textarea
                     name="message"
                     cols={30}
                     rows={10}
-                    placeholder="Message"
+                    placeholder="Escribí tu consulta"
                     id="message"
                     required
                     defaultValue={""}
@@ -96,7 +101,7 @@ export default function Contact() {
                     className="tf-btn bg-color-primary fw-7 pd-8"
                     type="submit"
                   >
-                    Contact our experts
+                    Enviar consulta
                   </button>
                 </div>
               </form>

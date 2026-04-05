@@ -12,13 +12,13 @@ export default function LoanCalculator() {
             <div className="content">
               <div className="heading-section ">
                 <h2 className="title split-text effect-right">
-                  <SplitTextAnimation text="Do you need a home loan?" />
+                  <SplitTextAnimation text="¿Necesitás un crédito hipotecario?" />
                   <br />
-                  <SplitTextAnimation text=" Get pre-approved" />
+                  <SplitTextAnimation text="Simulá tu cuota" />
                 </h2>
                 <p className="text-1 split-text split-lines-transform">
-                  Find a lender who can offer competitive mortgage rates and
-                  help you with pre-approval.
+                  Estimá montos aproximados; la oferta final depende del banco o
+                  mutuo que elijas.
                 </p>
               </div>
               <form
@@ -28,14 +28,14 @@ export default function LoanCalculator() {
                 <div className="cols ">
                   <fieldset>
                     <label className=" text-1 fw-6 mb-12" htmlFor="amount">
-                      Total Amount
+                      Monto total
                     </label>
                     <input type="number" id="amount" placeholder={1000} />
                   </fieldset>
                   <div className="wrap-input">
                     <fieldset className="payment">
                       <label className="text-1 fw-6 mb-12" htmlFor="payment">
-                        Down Payment
+                        Entrega inicial
                       </label>
                       <input type="number" id="payment" placeholder={2000} />
                     </fieldset>
@@ -51,23 +51,23 @@ export default function LoanCalculator() {
                 <div className="cols">
                   <fieldset className="interest-rate">
                     <label className="text-1 fw-6 mb-12" htmlFor="interestRate">
-                      Interest Rate
+                      Tasa de interés (%)
                     </label>
                     <input type="number" id="interestRate" placeholder={0} />
                   </fieldset>
                   <div className="select">
                     <label className="text-1 fw-6 mb-12">
-                      Amortization Period (months)
+                      Plazo (meses)
                     </label>
 
                     <DropdownSelect
                       options={[
-                        "Select amortization period",
-                        "1 month",
-                        "2 months",
-                        "3 months",
-                        "4 months",
-                        "5 months",
+                        "Elegí el plazo",
+                        "1 mes",
+                        "2 meses",
+                        "3 meses",
+                        "4 meses",
+                        "5 meses",
                       ]}
                       addtionalParentClass=""
                     />
@@ -76,26 +76,26 @@ export default function LoanCalculator() {
                 <div className="cols">
                   <fieldset>
                     <label className=" text-1 fw-6 mb-12" htmlFor="tax">
-                      Property Tax
+                      Impuestos / expensas
                     </label>
                     <input type="number" id="tax" placeholder="$3000" />
                   </fieldset>
                   <fieldset>
                     <label className=" text-1 fw-6 mb-12" htmlFor="insurance">
-                      Home Insurance
+                      Seguro del hogar
                     </label>
                     <input type="number" id="insurance" placeholder="$3000" />
                   </fieldset>
                 </div>
                 <p className="text-1">
-                  Your estimated monthly payment: <span>8000</span>
+                  Cuota mensual estimada: <span>8000</span>
                 </p>
                 <div className="wrap-btn">
                   <a href="#" className="tf-btn bg-color-primary pd-6 fw-7">
-                    Calculate now
+                    Calcular
                   </a>
                   <a href="#" className="tf-btn style-border pd-7 fw-7 ">
-                    Start over
+                    Limpiar
                   </a>
                 </div>
               </form>

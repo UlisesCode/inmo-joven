@@ -3,8 +3,8 @@ import Header1 from "@/components/headers/Header1";
 import React from "react";
 
 export const metadata = {
-  title: "Dashboard || Proty - Real Estate React Nextjs Template",
-  description: "Proty - Real Estate React Nextjs Template",
+  title: "Mi cuenta | Inmo Joven",
+  description: "Panel de usuario: perfil, favoritos y propiedades en Inmo Joven.",
 };
 export default function page({ children }) {
   return (

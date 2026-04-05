@@ -67,7 +67,7 @@ export default function RootLayout({ children }) {
     window.addEventListener("scroll", handleSticky);
   }, []);
   return (
-    <html lang="en">
+    <html lang="es">
       <body className="popup-loader">
         <AuthSessionProvider>{children}</AuthSessionProvider>
         <MobileMenu />

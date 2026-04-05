@@ -270,7 +270,7 @@ export default function MapComponent({ zoom = 16 }) {
                     </a>
                     <ul className="box-tag flex gap-8">
                       <li className="flat-tag text-4 bg-main fw-6 text-white">
-                        For Sale
+                        En venta
                       </li>
                     </ul>
                     <div className="list-btn flex gap-8">

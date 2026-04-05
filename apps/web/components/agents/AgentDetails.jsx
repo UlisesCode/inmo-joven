@@ -118,7 +118,7 @@ export default function AgentDetails({ agent }) {
                   </li>
                 </ul>
                 <div className="content">
-                  <h6 className="title">About Cameron Williamson</h6>
+                  <h6 className="title">Sobre el agente</h6>
                   <p className="text-1">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Aliquam risus leo, blandit vitae diam a, vestibulum viverra
@@ -205,7 +205,7 @@ export default function AgentDetails({ agent }) {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="Your name"
+                    placeholder="Tu nombre"
                     name="name"
                     id="name"
                     required
@@ -215,7 +215,7 @@ export default function AgentDetails({ agent }) {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="Email"
+                    placeholder="Correo electrónico"
                     name="email"
                     id="email-contact"
                     required
@@ -225,7 +225,7 @@ export default function AgentDetails({ agent }) {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="Your phone number"
+                    placeholder="Tu teléfono"
                     name="phone"
                     id="phone"
                     required
@@ -236,7 +236,7 @@ export default function AgentDetails({ agent }) {
                     name="message"
                     cols={30}
                     rows={10}
-                    placeholder="Message"
+                    placeholder="Mensaje"
                     id="message"
                     required
                     defaultValue={""}
@@ -282,7 +282,7 @@ export default function AgentDetails({ agent }) {
                 </div>
               </form>
               <div className="sidebar-item sidebar-featured style-2 pb-36 mb-28">
-                <h4 className="sidebar-title mb-28">Featured Listings</h4>
+                <h4 className="sidebar-title mb-28">Propiedades destacadas</h4>
                 <ul>
                   {properties4.map((listing, i) => (
                     <li key={i} className="box-listings style-2 hover-img">

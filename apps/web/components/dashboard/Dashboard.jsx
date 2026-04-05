@@ -9,7 +9,7 @@ export default function Dashboard() {
     <div className="main-content w-100">
       <div className="main-content-inner">
         <div className="button-show-hide show-mb">
-          <span className="body-1">Show Dashboard</span>
+          <span className="body-1">Ver panel</span>
         </div>
         <div className="flat-counter-v2 tf-counter">
           <div className="counter-box">
@@ -272,7 +272,7 @@ export default function Dashboard() {
                                       strokeLinejoin="round"
                                     />
                                   </svg>
-                                  Edit
+                                  Editar
                                 </a>
                               </li>
                               <li>
@@ -310,7 +310,7 @@ export default function Dashboard() {
                                       strokeLinejoin="round"
                                     />
                                   </svg>
-                                  Delete
+                                  Eliminar
                                 </a>
                               </li>
                             </ul>
@@ -362,7 +362,7 @@ export default function Dashboard() {
                         type="text"
                         id="datepicker3"
                         className="ip-datepicker icon"
-                        placeholder="From Date"
+                        placeholder="Desde"
                       />
                     </fieldset>
                   </form>
@@ -372,7 +372,7 @@ export default function Dashboard() {
                         type="text"
                         id="datepicker4"
                         className="ip-datepicker icon"
-                        placeholder="To Date"
+                        placeholder="Hasta"
                       />
                     </fieldset>
                   </form>

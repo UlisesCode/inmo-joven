@@ -8,8 +8,8 @@ import { agenciesData } from "@/data/agency";
 import React from "react";
 
 export const metadata = {
-  title: "Agency Details || Proty - Real Estate React Nextjs Template",
-  description: "Proty - Real Estate React Nextjs Template",
+  title: "Detalle de inmobiliaria | Inmo Joven",
+  description: "Información de la inmobiliaria y sus propiedades.",
 };
 export default async function page({ params }) {
   const { id } = await params;
@@ -22,7 +22,7 @@ export default async function page({ params }) {
       <div id="wrapper">
         <Header1 />
         <div className="main-content tf-spacing-4">
-          <Breadcumb pageName="Agency Details" />
+          <Breadcumb pageName="Detalle de inmobiliaria" />
           <AgencyDetails agency={agency} />
           <Cta />
         </div>

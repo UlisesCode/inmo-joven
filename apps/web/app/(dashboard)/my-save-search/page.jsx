@@ -2,8 +2,8 @@ import SaveSearch from "@/components/dashboard/SaveSearch";
 import React from "react";
 
 export const metadata = {
-  title: "My Save Search || Proty - Real Estate React Nextjs Template",
-  description: "Proty - Real Estate React Nextjs Template",
+  title: "Búsquedas guardadas | Inmo Joven",
+  description: "Tus filtros y búsquedas guardadas para no perder de vista lo que buscás.",
 };
 export default function page() {
   return (

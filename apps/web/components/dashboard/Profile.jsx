@@ -6,7 +6,7 @@ export default function Profile() {
     <div className="main-content style-2">
       <div className="main-content-inner wrap-dashboard-content-2">
         <div className="button-show-hide show-mb">
-          <span className="body-1">Show Dashboard</span>
+          <span className="body-1">Ver panel</span>
         </div>
         <div className="widget-box-2">
           <div className="box">
@@ -80,7 +80,7 @@ export default function Profile() {
             </fieldset>
             <fieldset className="box box-fieldset">
               <label>
-                Description:<span>*</span>
+                Descripción:<span>*</span>
               </label>
               <textarea
                 defaultValue={
@@ -171,7 +171,7 @@ export default function Profile() {
             </div>
             <div className="box box-fieldset">
               <label htmlFor="location">
-                Location:<span>*</span>
+                Ubicación:<span>*</span>
               </label>
               <input
                 type="text"
@@ -229,7 +229,7 @@ export default function Profile() {
                     type="password"
                     id="old-pass"
                     className="form-contact password-field"
-                    placeholder="Password"
+                    placeholder="Contraseña"
                   />
                   <span className="show-pass">
                     <i className="icon-pass icon-hide" />
@@ -246,7 +246,7 @@ export default function Profile() {
                     type="password"
                     id="new-pass"
                     className="form-contact password-field2"
-                    placeholder="Password"
+                    placeholder="Contraseña"
                   />
                   <span className="show-pass2">
                     <i className="icon-pass icon-hide" />
@@ -263,7 +263,7 @@ export default function Profile() {
                     type="password"
                     id="confirm-pass"
                     className="form-contact password-field3"
-                    placeholder="Password"
+                    placeholder="Contraseña"
                   />
                   <span className="show-pass3">
                     <i className="icon-pass icon-hide" />

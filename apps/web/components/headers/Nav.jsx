@@ -30,7 +30,7 @@ export default function Nav() {
             homes.some((elm) => elm.href == pathname) ? "current-menu" : ""
           }`}
         >
-          <a href="#">Home</a>
+          <a href="#">Inicio</a>
           <ul className="submenu">
             {homes.map((item, index) => (
               <li

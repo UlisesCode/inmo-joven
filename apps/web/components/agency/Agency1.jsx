@@ -300,7 +300,7 @@ export default function Agency1() {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="Your name"
+                    placeholder="Tu nombre"
                     name="name"
                     id="name"
                     required
@@ -310,7 +310,7 @@ export default function Agency1() {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="Email"
+                    placeholder="Correo electrónico"
                     name="email"
                     id="email-contact"
                     required
@@ -320,7 +320,7 @@ export default function Agency1() {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="Phone"
+                    placeholder="Teléfono"
                     name="phone"
                     id="phone"
                     required
@@ -331,7 +331,7 @@ export default function Agency1() {
                     name="message"
                     cols={30}
                     rows={10}
-                    placeholder="Message"
+                    placeholder="Mensaje"
                     id="message"
                     required
                     defaultValue={""}
@@ -377,7 +377,7 @@ export default function Agency1() {
                 </div>
               </form>
               <div className="sidebar-item sidebar-featured style-2 mb-28 pb-36">
-                <h4 className="sidebar-title mb-28">Featured Listings</h4>
+                <h4 className="sidebar-title mb-28">Propiedades destacadas</h4>
                 <ul>
                   {properties4.map((listing, i) => (
                     <li key={i} className="box-listings style-2 hover-img">

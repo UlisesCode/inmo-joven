@@ -37,7 +37,7 @@ export default function MobileMenu() {
             />
           </Link>
         </div>
-        <div data-bs-dismiss="offcanvas" aria-label="Close">
+        <div data-bs-dismiss="offcanvas" aria-label="Cerrar">
           <i className="icon-close" />
         </div>
       </div>
@@ -69,7 +69,7 @@ export default function MobileMenu() {
                   aria-expanded="true"
                   aria-controls="dropdown-menu-one"
                 >
-                  Home
+                  Inicio
                 </a>
                 <div
                   id="dropdown-menu-one"

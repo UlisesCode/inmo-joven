@@ -9,11 +9,11 @@ export default function About() {
             <div className="box-contact">
               <div className="heading-section mb-48">
                 <h2 className="title split-text split-lines-transform">
-                  We provide the most suitable and quality real estate.
+                  Te ayudamos a encontrar el hogar adecuado para vos.
                 </h2>
                 <p className="text-1">
-                  Estimate your payment with our easy-to-use loan calculator.
-                  Then get pre-qualified to buy by a local lender.
+                  Usá nuestras herramientas y el asesoramiento del equipo para
+                  planificar tu compra o alquiler con confianza.
                 </p>
               </div>
               <ul className="list-info">
@@ -47,7 +47,7 @@ export default function About() {
                     </svg>
                   </div>
                   <div className="content">
-                    <div className="sub">Office address</div>
+                    <div className="sub">Dirección</div>
                     <p>102 Ingraham St, Brooklyn, NY 11237</p>
                   </div>
                 </li>
@@ -91,7 +91,7 @@ export default function About() {
                     </svg>
                   </div>
                   <div className="content">
-                    <div className="sub">Office address</div>
+                    <div className="sub">Teléfono</div>
                     <div className="phone">(603) 555-0123</div>
                   </div>
                 </li>
@@ -167,8 +167,8 @@ export default function About() {
                     </svg>
                   </div>
                   <div className="content">
-                    <div className="sub">Office address</div>
-                    <a href="#">themesflat@gmail.com</a>
+                    <div className="sub">Correo</div>
+                    <a href="#">hola@inmojoven.com</a>
                   </div>
                 </li>
               </ul>

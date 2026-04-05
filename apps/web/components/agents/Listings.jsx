@@ -39,10 +39,10 @@ export default function Listings() {
                 </Link>
                 <ul className="box-tag flex gap-8">
                   <li className="flat-tag text-4 bg-main fw-6 text_white">
-                    Featured
+                    Destacado
                   </li>
                   <li className="flat-tag text-4 bg-3 fw-6 text_white">
-                    For Sale
+                    En venta
                   </li>
                 </ul>
                 <div className="list-btn flex gap-8">
@@ -52,7 +52,7 @@ export default function Listings() {
                   </a>
                   <a href="#" className="btn-icon find hover-tooltip">
                     <i className="icon-find-plus" />
-                    <span className="tooltip">Quick View</span>
+                    <span className="tooltip">Vista rápida</span>
                   </a>
                 </div>
               </div>

@@ -76,7 +76,7 @@ export default function Login() {
               ) : null}
               <div className="box">
                 <fieldset className="box-fieldset">
-                  <label htmlFor="loginEmail">Email</label>
+                  <label htmlFor="loginEmail">Correo electrónico</label>
                   <div className="ip-field">
                     <svg
                       className="icon"

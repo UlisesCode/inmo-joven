@@ -27,7 +27,7 @@ export default function DashboardNav({ color = "" }) {
         </svg>
       </div>
       <div className={`name ${color} `}>
-        Themesflat
+        Mi cuenta
         <i className="icon-CaretDown" />
       </div>
       <div className=" menu-user">
@@ -68,7 +68,7 @@ export default function DashboardNav({ color = "" }) {
               strokeLinejoin="round"
             />
           </svg>
-          Dashboards
+          Panel
         </Link>
         <Link className="dropdown-item" href={`/my-profile`}>
           <svg
@@ -156,7 +156,7 @@ export default function DashboardNav({ color = "" }) {
               strokeLinejoin="round"
             />
           </svg>
-          My profile
+          Mi perfil
         </Link>
         <Link className="dropdown-item" href={`/my-package`}>
           <svg
@@ -188,7 +188,7 @@ export default function DashboardNav({ color = "" }) {
               strokeLinejoin="round"
             />
           </svg>
-          My package
+          Mi plan
         </Link>
         <Link className="dropdown-item" href={`/my-favorites`}>
           <svg
@@ -220,7 +220,7 @@ export default function DashboardNav({ color = "" }) {
               strokeLinejoin="round"
             />
           </svg>
-          My favorites (1)
+          Mis favoritos (1)
         </Link>
         <Link className="dropdown-item" href={`/my-save-search`}>
           <svg
@@ -252,7 +252,7 @@ export default function DashboardNav({ color = "" }) {
               strokeLinejoin="round"
             />
           </svg>
-          My save searches
+          Búsquedas guardadas
         </Link>
         <Link className="dropdown-item" href={`/review`}>
           <svg
@@ -284,7 +284,7 @@ export default function DashboardNav({ color = "" }) {
               strokeLinejoin="round"
             />
           </svg>
-          Reviews
+          Reseñas
         </Link>
         <Link className="dropdown-item" href={`/my-property`}>
           <svg
@@ -330,7 +330,7 @@ export default function DashboardNav({ color = "" }) {
               strokeLinejoin="round"
             />
           </svg>
-          My properties
+          Mis propiedades
         </Link>
         <Link className="dropdown-item " href={`/add-property`}>
           <svg
@@ -362,7 +362,7 @@ export default function DashboardNav({ color = "" }) {
               strokeLinejoin="round"
             />
           </svg>
-          Add property
+          Publicar propiedad
         </Link>
         <div className="dropdown-item ">
           <svg
@@ -382,11 +382,11 @@ export default function DashboardNav({ color = "" }) {
           </svg>
           <div className="d-flex wrap-login">
             <a href="#modalLogin" data-bs-toggle="modal">
-              login
+              Ingresar
             </a>
             <span>/</span>
             <a href="#modalRegister" data-bs-toggle="modal">
-              register{" "}
+              Registrate{" "}
             </a>
           </div>
         </div>
@@ -420,7 +420,7 @@ export default function DashboardNav({ color = "" }) {
               strokeLinejoin="round"
             />
           </svg>
-          Logout
+          Salir
         </Link>
       </div>
     </div>

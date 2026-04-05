@@ -2,7 +2,7 @@
 import SplitTextAnimation from "@/components/common/SplitTextAnimation";
 import { useState } from "react";
 
-const items = ["Buying", "Rating", "Selling"];
+const items = ["Comprar", "Finanzas", "Vender"];
 export default function HelpCenter() {
   const [activeIndex, setActiveIndex] = useState(0);
   return (
@@ -12,7 +12,7 @@ export default function HelpCenter() {
           <div className="col-12">
             <div className="heading-section text-center">
               <h2 className="title split-text effect-right">
-                <SplitTextAnimation text="Discover how we can help" />
+                <SplitTextAnimation text="Descubrí cómo podemos ayudarte" />
               </h2>
               <p className="text-1 split-text split-lines-transform">
                 Guías y tips para tu primera compra, alquiler o inversión.
@@ -61,20 +61,20 @@ export default function HelpCenter() {
                         </div>
                         <h4 className="title text-center">
                           <a href="#">
-                            Find out how much you <br />
-                            can afford
+                            Descubrí cuánto podés <br />
+                            invertir
                           </a>
                         </h4>
                         <p className="text-center text-1">
-                          We’ll help you estimate your budget range. Save to
-                          your buyer profile to help
-                          <br /> in your search
+                          Te ayudamos a estimar tu presupuesto. Guardalo en tu
+                          perfil
+                          <br /> para orientar tu búsqueda
                         </p>
                         <a
                           href="#"
                           className="tf-btn style-border pd-5 mx-auto"
                         >
-                          Learn More
+                          Saber más
                         </a>
                       </div>
                       <div className="icons-box default effec-icon ">
@@ -102,20 +102,19 @@ export default function HelpCenter() {
                         </div>
                         <h4 className="title text-center">
                           <a href="#">
-                            Understand your <br />
-                            monthly costs
+                            Conocé tus costos <br />
+                            mensuales
                           </a>
                         </h4>
                         <p className="text-center text-1">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit. Ut sollicitudin ipsum eu massa sollicitudin
-                          facilisis.{" "}
+                          Información sobre cuotas, gastos fijos y qué tener en
+                          cuenta al planificar tu mudanza.{" "}
                         </p>
                         <a
                           href="#"
                           className="tf-btn style-border pd-5 mx-auto"
                         >
-                          Learn More
+                          Saber más
                         </a>
                       </div>
                       <div className="icons-box default effec-icon ">
@@ -139,20 +138,19 @@ export default function HelpCenter() {
                         </div>
                         <h4 className="title text-center">
                           <a href="#">
-                            Get help with your down <br />
-                            payment
+                            Ayuda con la entrega <br />
+                            inicial
                           </a>
                         </h4>
                         <p className="text-center text-1">
-                          In fermentum dignissim mauris et blandit. Fusce
-                          efficitur libero sit amet ullamcorper, nec volutpat
-                          justo fringilla
+                          Guías sobre créditos hipotecarios y pasos para tu
+                          primera vivienda.
                         </p>
                         <a
                           href="#"
                           className="tf-btn style-border pd-5 mx-auto"
                         >
-                          Learn More
+                          Saber más
                         </a>
                       </div>
                     </div>
@@ -186,20 +184,20 @@ export default function HelpCenter() {
                         </div>
                         <h4 className="title text-center">
                           <a href="#">
-                            Find out how much you <br />
-                            can afford
+                            Descubrí cuánto podés <br />
+                            invertir
                           </a>
                         </h4>
                         <p className="text-center text-1">
-                          We’ll help you estimate your budget range. Save to
-                          your buyer profile to help
-                          <br /> in your search
+                          Te ayudamos a estimar tu presupuesto. Guardalo en tu
+                          perfil
+                          <br /> para orientar tu búsqueda
                         </p>
                         <a
                           href="#"
                           className="tf-btn style-border pd-5 mx-auto"
                         >
-                          Learn More
+                          Saber más
                         </a>
                       </div>
                       <div className="icons-box default effec-icon ">
@@ -227,20 +225,19 @@ export default function HelpCenter() {
                         </div>
                         <h4 className="title text-center">
                           <a href="#">
-                            Understand your <br />
-                            monthly costs
+                            Conocé tus costos <br />
+                            mensuales
                           </a>
                         </h4>
                         <p className="text-center text-1">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit. Ut sollicitudin ipsum eu massa sollicitudin
-                          facilisis.{" "}
+                          Información sobre cuotas, gastos fijos y qué tener en
+                          cuenta al planificar tu mudanza.{" "}
                         </p>
                         <a
                           href="#"
                           className="tf-btn style-border pd-5 mx-auto"
                         >
-                          Learn More
+                          Saber más
                         </a>
                       </div>
                       <div className="icons-box default effec-icon ">
@@ -264,20 +261,19 @@ export default function HelpCenter() {
                         </div>
                         <h4 className="title text-center">
                           <a href="#">
-                            Get help with your down <br />
-                            payment
+                            Ayuda con la entrega <br />
+                            inicial
                           </a>
                         </h4>
                         <p className="text-center text-1">
-                          In fermentum dignissim mauris et blandit. Fusce
-                          efficitur libero sit amet ullamcorper, nec volutpat
-                          justo fringilla
+                          Guías sobre créditos hipotecarios y pasos para tu
+                          primera vivienda.
                         </p>
                         <a
                           href="#"
                           className="tf-btn style-border pd-5 mx-auto"
                         >
-                          Learn More
+                          Saber más
                         </a>
                       </div>
                     </div>
@@ -311,20 +307,20 @@ export default function HelpCenter() {
                         </div>
                         <h4 className="title text-center">
                           <a href="#">
-                            Find out how much you <br />
-                            can afford
+                            Descubrí cuánto podés <br />
+                            invertir
                           </a>
                         </h4>
                         <p className="text-center text-1">
-                          We’ll help you estimate your budget range. Save to
-                          your buyer profile to help
-                          <br /> in your search
+                          Te ayudamos a estimar tu presupuesto. Guardalo en tu
+                          perfil
+                          <br /> para orientar tu búsqueda
                         </p>
                         <a
                           href="#"
                           className="tf-btn style-border pd-5 mx-auto"
                         >
-                          Learn More
+                          Saber más
                         </a>
                       </div>
                       <div className="icons-box default effec-icon ">
@@ -352,20 +348,19 @@ export default function HelpCenter() {
                         </div>
                         <h4 className="title text-center">
                           <a href="#">
-                            Understand your <br />
-                            monthly costs
+                            Conocé tus costos <br />
+                            mensuales
                           </a>
                         </h4>
                         <p className="text-center text-1">
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit. Ut sollicitudin ipsum eu massa sollicitudin
-                          facilisis.{" "}
+                          Información sobre cuotas, gastos fijos y qué tener en
+                          cuenta al planificar tu mudanza.{" "}
                         </p>
                         <a
                           href="#"
                           className="tf-btn style-border pd-5 mx-auto"
                         >
-                          Learn More
+                          Saber más
                         </a>
                       </div>
                       <div className="icons-box default effec-icon ">
@@ -389,20 +384,19 @@ export default function HelpCenter() {
                         </div>
                         <h4 className="title text-center">
                           <a href="#">
-                            Get help with your down <br />
-                            payment
+                            Ayuda con la entrega <br />
+                            inicial
                           </a>
                         </h4>
                         <p className="text-center text-1">
-                          In fermentum dignissim mauris et blandit. Fusce
-                          efficitur libero sit amet ullamcorper, nec volutpat
-                          justo fringilla
+                          Guías sobre créditos hipotecarios y pasos para tu
+                          primera vivienda.
                         </p>
                         <a
                           href="#"
                           className="tf-btn style-border pd-5 mx-auto"
                         >
-                          Learn More
+                          Saber más
                         </a>
                       </div>
                     </div>
@@ -411,9 +405,9 @@ export default function HelpCenter() {
               </div>
             </div>
             <p className="text text-center text-1 " data-wow-duration="2s">
-              Looking to spotlight a unique property with expert marketing?
+              ¿Querés destacar una propiedad con marketing profesional?
               <a href="#" className="fw-7">
-                Let’s chat
+                Escribinos
               </a>
             </p>
           </div>

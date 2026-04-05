@@ -17,7 +17,7 @@ export default function Agents() {
                   <input
                     className=""
                     type="text"
-                    placeholder="Agent name"
+                    placeholder="Nombre del agente"
                     name="name"
                     tabIndex={2}
                     aria-required="true"

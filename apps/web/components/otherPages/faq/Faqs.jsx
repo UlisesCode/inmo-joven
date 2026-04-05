@@ -9,10 +9,10 @@ export default function Faqs() {
         <div className="row">
           <div className="col-xl-8 col-lg-7">
             <div className="heading-section mb-48">
-              <h2 className="title">Frequently Asked Questions</h2>
+              <h2 className="title">Preguntas frecuentes</h2>
             </div>
             <div className="tf-faq mb-49">
-              <h3 className="fw-8 title mb-24">Overview</h3>
+              <h3 className="fw-8 title mb-24">Resumen</h3>
               <ul className="box-faq" id="wrapper-faq">
                 <li className="faq-item">
                   <a
@@ -22,7 +22,7 @@ export default function Faqs() {
                     aria-expanded="false"
                     aria-controls="accordion-faq-one"
                   >
-                    Why Should I Use Your Services?
+                    ¿Por qué elegir Inmo Joven?
                     <i className="icon-CaretDown" />
                   </a>
                   <div
@@ -31,11 +31,10 @@ export default function Faqs() {
                     data-bs-parent="#wrapper-faq"
                   >
                     <p className="faq-body">
-                      Once your account is set up and you've familiarized
-                      yourself with the platform, you are ready to start using
-                      our services. Whether it's accessing specific features,
-                      making transactions, or utilizing our tools, you'll find
-                      everything you need at your fingertips.
+                      Porque reunimos búsqueda, información y contacto con el
+                      equipo en un solo lugar, con foco en tu primera experiencia
+                      de alquiler o compra y recursos para que tomes decisiones con
+                      más tranquilidad.
                     </p>
                   </div>
                 </li>
@@ -47,7 +46,7 @@ export default function Faqs() {
                     aria-expanded="false"
                     aria-controls="accordion-faq-two"
                   >
-                    Why Should I Use Your Services?
+                    ¿Para quién está pensado Inmo Joven?
                     <i className="icon-CaretDown" />
                   </a>
                   <div
@@ -56,11 +55,10 @@ export default function Faqs() {
                     data-bs-parent="#wrapper-faq"
                   >
                     <p className="faq-body">
-                      Once your account is set up and you've familiarized
-                      yourself with the platform, you are ready to start using
-                      our services. Whether it's accessing specific features,
-                      making transactions, or utilizing our tools, you'll find
-                      everything you need at your fingertips.
+                      Para quienes recién empiezan en el mercado inmobiliario:
+                      estudiantes, jóvenes profesionales, familias que buscan
+                      mudarse o quienes quieren invertir con información clara y
+                      sin tecnicismos de más.
                     </p>
                   </div>
                 </li>
@@ -72,7 +70,7 @@ export default function Faqs() {
                     aria-expanded="false"
                     aria-controls="accordion-faq-three"
                   >
-                    How Secure Are Your Services?
+                    ¿Qué tan seguros están mis datos?
                     <i className="icon-CaretDown" />
                   </a>
                   <div
@@ -81,11 +79,10 @@ export default function Faqs() {
                     data-bs-parent="#wrapper-faq"
                   >
                     <p className="faq-body">
-                      Once your account is set up and you've familiarized
-                      yourself with the platform, you are ready to start using
-                      our services. Whether it's accessing specific features,
-                      making transactions, or utilizing our tools, you'll find
-                      everything you need at your fingertips.
+                      Trabajamos con buenas prácticas de seguridad y cifrado en
+                      tránsito. Tus datos se usan solo para prestar el servicio y
+                      según nuestra política de privacidad; podés consultar por
+                      acceso o rectificación escribiendo al equipo.
                     </p>
                   </div>
                 </li>
@@ -97,7 +94,7 @@ export default function Faqs() {
                     aria-expanded="false"
                     aria-controls="accordion-faq-four"
                   >
-                    Is There Customer Support Available?
+                    ¿Hay soporte o asesoramiento humano?
                     <i className="icon-CaretDown" />
                   </a>
                   <div
@@ -106,11 +103,9 @@ export default function Faqs() {
                     data-bs-parent="#wrapper-faq"
                   >
                     <p className="faq-body">
-                      Once your account is set up and you've familiarized
-                      yourself with the platform, you are ready to start using
-                      our services. Whether it's accessing specific features,
-                      making transactions, or utilizing our tools, you'll find
-                      everything you need at your fingertips.
+                      Sí. Podés escribirnos por el formulario de contacto, correo
+                      o los canales que figuren en el sitio; en horario hábil te
+                      responde una persona del equipo de Inmo Joven.
                     </p>
                   </div>
                 </li>
@@ -122,7 +117,7 @@ export default function Faqs() {
                     aria-expanded="false"
                     aria-controls="accordion-faq-five"
                   >
-                    How Can I Update My Account Information?
+                    ¿Cómo actualizo los datos de mi cuenta?
                     <i className="icon-CaretDown" />
                   </a>
                   <div
@@ -131,18 +126,17 @@ export default function Faqs() {
                     data-bs-parent="#wrapper-faq"
                   >
                     <p className="faq-body">
-                      Once your account is set up and you've familiarized
-                      yourself with the platform, you are ready to start using
-                      our services. Whether it's accessing specific features,
-                      making transactions, or utilizing our tools, you'll find
-                      everything you need at your fingertips.
+                      Iniciá sesión, entrá a Mi perfil o al panel de usuario y
+                      editá los campos permitidos (nombre, correo, etc.). Guardá
+                      los cambios antes de salir; si algo no se puede modificar
+                      online, pedinos ayuda por contacto.
                     </p>
                   </div>
                 </li>
               </ul>
             </div>
             <div className="tf-faq mb-49">
-              <h3 className="fw-8 title mb-24">Costs and Payments</h3>
+              <h3 className="fw-8 title mb-24">Costos y pagos</h3>
               <ul className="box-faq" id="wrapper-faq-2">
                 <li className="faq-item">
                   <a
@@ -152,7 +146,7 @@ export default function Faqs() {
                     aria-expanded="false"
                     aria-controls="accordion2-faq-one"
                   >
-                    How Do You Calculate Fees?
+                    ¿Cómo se calculan honorarios o comisiones?
                     <i className="icon-CaretDown" />
                   </a>
                   <div
@@ -161,11 +155,10 @@ export default function Faqs() {
                     data-bs-parent="#wrapper-faq-2"
                   >
                     <p className="faq-body">
-                      Once your account is set up and you've familiarized
-                      yourself with the platform, you are ready to start using
-                      our services. Whether it's accessing specific features,
-                      making transactions, or utilizing our tools, you'll find
-                      everything you need at your fingertips.
+                      Dependen del tipo de servicio (publicación, plan o
+                      intermediación). Te enviamos el detalle por escrito antes de
+                      contratar; no hay sorpresas fuera de lo acordado en el
+                      presupuesto o contrato.
                     </p>
                   </div>
                 </li>
@@ -177,7 +170,7 @@ export default function Faqs() {
                     aria-expanded="false"
                     aria-controls="accordion2-faq-two"
                   >
-                    How Do I Pay My Invoices?
+                    ¿Cómo pago facturas o publicaciones?
                     <i className="icon-CaretDown" />
                   </a>
                   <div
@@ -186,11 +179,10 @@ export default function Faqs() {
                     data-bs-parent="#wrapper-faq-2"
                   >
                     <p className="faq-body">
-                      Once your account is set up and you've familiarized
-                      yourself with the platform, you are ready to start using
-                      our services. Whether it's accessing specific features,
-                      making transactions, or utilizing our tools, you'll find
-                      everything you need at your fingertips.
+                      Las formas de pago disponibles (transferencia, tarjeta u
+                      otras) se confirman al contratar el plan o servicio. Si
+                      necesitás factura o comprobante, indicalo al momento del
+                      pago o por correo.
                     </p>
                   </div>
                 </li>
@@ -202,7 +194,7 @@ export default function Faqs() {
                     aria-expanded="false"
                     aria-controls="accordion2-faq-three"
                   >
-                    Are There Opportunities For Discounts Or Promotions?
+                    ¿Hay descuentos o promociones?
                     <i className="icon-CaretDown" />
                   </a>
                   <div
@@ -211,11 +203,9 @@ export default function Faqs() {
                     data-bs-parent="#wrapper-faq-2"
                   >
                     <p className="faq-body">
-                      Once your account is set up and you've familiarized
-                      yourself with the platform, you are ready to start using
-                      our services. Whether it's accessing specific features,
-                      making transactions, or utilizing our tools, you'll find
-                      everything you need at your fingertips.
+                      Cuando haya campañas activas, las publicamos en el sitio o
+                      por los canales oficiales. Escribinos para saber si hay
+                      promociones vigentes para tu caso.
                     </p>
                   </div>
                 </li>
@@ -227,8 +217,7 @@ export default function Faqs() {
                     aria-expanded="false"
                     aria-controls="accordion2-faq-four"
                   >
-                    Are There Any Hidden Fees Not Displayed In The Pricing
-                    Table?
+                    ¿Existen cargos que no figuren en la tabla de precios?
                     <i className="icon-CaretDown" />
                   </a>
                   <div
@@ -237,11 +226,9 @@ export default function Faqs() {
                     data-bs-parent="#wrapper-faq-2"
                   >
                     <p className="faq-body">
-                      Once your account is set up and you've familiarized
-                      yourself with the platform, you are ready to start using
-                      our services. Whether it's accessing specific features,
-                      making transactions, or utilizing our tools, you'll find
-                      everything you need at your fingertips.
+                      No cobramos conceptos que no estén informados en el precio
+                      del plan o en el presupuesto que aceptes. Siempre revisá el
+                      detalle del contrato o la factura antes de pagar.
                     </p>
                   </div>
                 </li>
@@ -253,7 +240,7 @@ export default function Faqs() {
                     aria-expanded="false"
                     aria-controls="accordion2-faq-five"
                   >
-                    What Is The Refund Procedure?
+                    ¿Cuál es el procedimiento de reintegro o devolución?
                     <i className="icon-CaretDown" />
                   </a>
                   <div
@@ -262,11 +249,9 @@ export default function Faqs() {
                     data-bs-parent="#wrapper-faq-2"
                   >
                     <p className="faq-body">
-                      Once your account is set up and you've familiarized
-                      yourself with the platform, you are ready to start using
-                      our services. Whether it's accessing specific features,
-                      making transactions, or utilizing our tools, you'll find
-                      everything you need at your fingertips.
+                      Las devoluciones o reintegros se rigen por los términos del
+                      servicio contratado y la normativa aplicable. Iniciá el
+                      trámite por contacto indicando número de operación o factura.
                     </p>
                   </div>
                 </li>
@@ -278,7 +263,7 @@ export default function Faqs() {
                     aria-expanded="false"
                     aria-controls="accordion2-faq-six"
                   >
-                    Is There Financial Or Accounting Support?
+                    ¿Ofrecen apoyo financiero o contable?
                     <i className="icon-CaretDown" />
                   </a>
                   <div
@@ -287,18 +272,17 @@ export default function Faqs() {
                     data-bs-parent="#wrapper-faq-2"
                   >
                     <p className="faq-body">
-                      Once your account is set up and you've familiarized
-                      yourself with the platform, you are ready to start using
-                      our services. Whether it's accessing specific features,
-                      making transactions, or utilizing our tools, you'll find
-                      everything you need at your fingertips.
+                      No somos estudio contable ni asesor financiero regulado.
+                      Podemos orientarte en el uso de la plataforma y, si aplica,
+                      sugerirte consultar a un profesional independiente. La
+                      decisión financiera es siempre tuya.
                     </p>
                   </div>
                 </li>
               </ul>
             </div>
             <div className="tf-faq">
-              <h3 className="fw-8 title mb-24">Safety and Security</h3>
+              <h3 className="fw-8 title mb-24">Seguridad</h3>
               <ul className="box-faq" id="wrapper-faq-3">
                 <li className="faq-item">
                   <a
@@ -308,7 +292,7 @@ export default function Faqs() {
                     aria-expanded="false"
                     aria-controls="accordion3-faq-one"
                   >
-                    What Languages Does Your Service Support?
+                    ¿En qué idiomas atienden?
                     <i className="icon-CaretDown" />
                   </a>
                   <div
@@ -317,11 +301,8 @@ export default function Faqs() {
                     data-bs-parent="#wrapper-faq-3"
                   >
                     <p className="faq-body">
-                      Once your account is set up and you've familiarized
-                      yourself with the platform, you are ready to start using
-                      our services. Whether it's accessing specific features,
-                      making transactions, or utilizing our tools, you'll find
-                      everything you need at your fingertips.
+                      Atendemos principalmente en español. Si necesitás otro idioma
+                      para un caso puntual, consultanos y vemos cómo ayudarte.
                     </p>
                   </div>
                 </li>
@@ -333,7 +314,7 @@ export default function Faqs() {
                     aria-expanded="false"
                     aria-controls="accordion3-faq-two"
                   >
-                    How Do I Integrate Your Service Into My System?
+                    ¿Puedo integrar Inmo Joven con otros sistemas?
                     <i className="icon-CaretDown" />
                   </a>
                   <div
@@ -342,11 +323,9 @@ export default function Faqs() {
                     data-bs-parent="#wrapper-faq-3"
                   >
                     <p className="faq-body">
-                      Once your account is set up and you've familiarized
-                      yourself with the platform, you are ready to start using
-                      our services. Whether it's accessing specific features,
-                      making transactions, or utilizing our tools, you'll find
-                      everything you need at your fingertips.
+                      Evaluamos integraciones según volumen y necesidad. Escribinos
+                      describiendo tu CRM u otro sistema y te contamos viabilidad y
+                      próximos pasos.
                     </p>
                   </div>
                 </li>
@@ -358,7 +337,7 @@ export default function Faqs() {
                     aria-expanded="false"
                     aria-controls="accordion3-faq-three"
                   >
-                    What Are The Safety Features Of Your System?
+                    ¿Qué medidas de seguridad tiene la plataforma?
                     <i className="icon-CaretDown" />
                   </a>
                   <div
@@ -367,11 +346,9 @@ export default function Faqs() {
                     data-bs-parent="#wrapper-faq-3"
                   >
                     <p className="faq-body">
-                      Once your account is set up and you've familiarized
-                      yourself with the platform, you are ready to start using
-                      our services. Whether it's accessing specific features,
-                      making transactions, or utilizing our tools, you'll find
-                      everything you need at your fingertips.
+                      Usamos hosting seguro, actualizaciones, control de acceso y
+                      monitoreo. Ante incidentes relevantes seguimos un protocolo
+                      interno y comunicamos lo necesario según corresponda.
                     </p>
                   </div>
                 </li>
@@ -383,7 +360,7 @@ export default function Faqs() {
                     aria-expanded="false"
                     aria-controls="accordion3-faq-four"
                   >
-                    How Can I Request New Features?
+                    ¿Cómo sugiero una mejora o función nueva?
                     <i className="icon-CaretDown" />
                   </a>
                   <div
@@ -392,11 +369,9 @@ export default function Faqs() {
                     data-bs-parent="#wrapper-faq-3"
                   >
                     <p className="faq-body">
-                      Once your account is set up and you've familiarized
-                      yourself with the platform, you are ready to start using
-                      our services. Whether it's accessing specific features,
-                      making transactions, or utilizing our tools, you'll find
-                      everything you need at your fingertips.
+                      Tu feedback nos ayuda a mejorar. Enviá la propuesta por
+                      contacto o correo con asunto &quot;Sugerencia&quot; y el
+                      equipo la revisa en la planificación de producto.
                     </p>
                   </div>
                 </li>
@@ -408,7 +383,7 @@ export default function Faqs() {
                     aria-expanded="false"
                     aria-controls="accordion3-faq-five"
                   >
-                    Is My Data Protected?
+                    ¿Mis datos personales están protegidos?
                     <i className="icon-CaretDown" />
                   </a>
                   <div
@@ -417,11 +392,9 @@ export default function Faqs() {
                     data-bs-parent="#wrapper-faq-3"
                   >
                     <p className="faq-body">
-                      Once your account is set up and you've familiarized
-                      yourself with the platform, you are ready to start using
-                      our services. Whether it's accessing specific features,
-                      making transactions, or utilizing our tools, you'll find
-                      everything you need at your fingertips.
+                      Tratamos los datos personales de forma confidencial y solo
+                      para fines del servicio, de acuerdo con la ley de protección
+                      de datos aplicable y nuestras políticas publicadas.
                     </p>
                   </div>
                 </li>
@@ -433,7 +406,7 @@ export default function Faqs() {
                     aria-expanded="false"
                     aria-controls="accordion3-faq-six"
                   >
-                    How Do I Report A Technical Issue?
+                    ¿Cómo reporto un problema técnico?
                     <i className="icon-CaretDown" />
                   </a>
                   <div
@@ -442,11 +415,9 @@ export default function Faqs() {
                     data-bs-parent="#wrapper-faq-3"
                   >
                     <p className="faq-body">
-                      Once your account is set up and you've familiarized
-                      yourself with the platform, you are ready to start using
-                      our services. Whether it's accessing specific features,
-                      making transactions, or utilizing our tools, you'll find
-                      everything you need at your fingertips.
+                      Escribinos a soporte con captura de pantalla, navegador y
+                      pasos para reproducir el error. Priorizamos fallos que
+                      afecten a muchos usuarios o impidan usar el sitio.
                     </p>
                   </div>
                 </li>
@@ -456,7 +427,7 @@ export default function Faqs() {
           <div className="col-xl-4 col-lg-5">
             <div className="tf-sidebar sticky-sidebar">
               <form className="form-contact-seller mb-30">
-                <h4 className="heading-title mb-30">Contact Sellers</h4>
+                <h4 className="heading-title mb-30">Contactá al equipo</h4>
                 <div className="seller-info">
                   <div className="avartar">
                     <Image
@@ -467,15 +438,15 @@ export default function Faqs() {
                     />
                   </div>
                   <div className="content">
-                    <h6 className="name">Shara Conner</h6>
+                    <h6 className="name">Equipo Inmo Joven</h6>
                     <ul className="contact">
                       <li>
                         <i className="icon-phone-1" />
-                        <span>1-333-345-6868</span>
+                        <span>+54 11 1234-5678</span>
                       </li>
                       <li>
                         <i className="icon-mail" />
-                        <a href="#">themesflat@gmail.com</a>
+                        <a href="#">hola@inmojoven.com</a>
                       </li>
                     </ul>
                   </div>
@@ -484,7 +455,7 @@ export default function Faqs() {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="Full Name"
+                    placeholder="Nombre completo"
                     name="name"
                     id="name"
                     required=""
@@ -495,14 +466,14 @@ export default function Faqs() {
                     name="message"
                     cols={30}
                     rows={10}
-                    placeholder="How can an agent help"
+                    placeholder="¿En qué podemos ayudarte?"
                     id="message"
                     required=""
                     defaultValue={""}
                   />
                 </fieldset>
                 <a href="#" className="tf-btn bg-color-primary w-full">
-                  Send message
+                  Enviar mensaje
                 </a>
               </form>
               <div className="sidebar-ads">
@@ -528,18 +499,18 @@ export default function Faqs() {
                   <div className="content">
                     <h4 className="title">
                       <Link href={`/property-detail-v1`}>
-                        We can help you find a local real estate agent
+                        Te ayudamos a encontrar un asesor inmobiliario
                       </Link>
                     </h4>
                     <div className="text-addres">
                       <p>
-                        Connect with a trusted agent who knows the market inside
-                        out - whether you’re buying or selling.
+                        Conectate con un profesional que conozca la zona, ya sea
+                        para comprar o para vender.
                       </p>
                     </div>
                   </div>
                   <a href="#" className="tf-btn fw-6 bg-color-primary w-full">
-                    Connect with an agent
+                    Hablar con un asesor
                   </a>
                 </div>
               </div>

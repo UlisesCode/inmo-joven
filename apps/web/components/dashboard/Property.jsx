@@ -9,7 +9,7 @@ export default function Property() {
     <div className="main-content w-100">
       <div className="main-content-inner wrap-dashboard-content">
         <div className="button-show-hide show-mb">
-          <span className="body-1">Show Dashboard</span>
+          <span className="body-1">Ver panel</span>
         </div>
         <div className="row">
           <div className="col-md-3">
@@ -37,7 +37,7 @@ export default function Property() {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Search by title"
+                  placeholder="Buscar por título"
                 />
               </fieldset>
             </form>
@@ -112,7 +112,7 @@ export default function Property() {
                                   strokeLinejoin="round"
                                 />
                               </svg>
-                              Edit
+                              Editar
                             </a>
                           </li>
                           <li>
@@ -150,7 +150,7 @@ export default function Property() {
                                   strokeLinejoin="round"
                                 />
                               </svg>
-                              Delete
+                              Eliminar
                             </a>
                           </li>
                         </ul>

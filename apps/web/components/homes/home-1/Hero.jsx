@@ -136,7 +136,7 @@ export default function Hero() {
                       </div>
                     </div>
                     <a href="#" className="tf-btn bg-color-primary pd-3">
-                      Search <i className="icon-MagnifyingGlass fw-6" />
+                      Buscar <i className="icon-MagnifyingGlass fw-6" />
                     </a>
                   </div>
                 </div>

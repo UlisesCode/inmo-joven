@@ -114,7 +114,7 @@ export default function Register() {
                   </div>
                 </fieldset>
                 <fieldset className="box-fieldset">
-                  <label htmlFor="registerEmail">Email</label>
+                  <label htmlFor="registerEmail">Correo electrónico</label>
                   <div className="ip-field">
                     <input
                       type="email"

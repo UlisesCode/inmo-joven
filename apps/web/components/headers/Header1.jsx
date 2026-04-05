@@ -54,7 +54,7 @@ export default function Header1({ parentClass = "header" }) {
                       className="tf-btn style-border pd-23"
                       href={`/add-property`}
                     >
-                      Add property
+                      Publicar propiedad
                     </Link>
                   </div>
                   <div

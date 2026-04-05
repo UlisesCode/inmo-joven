@@ -14,11 +14,10 @@ export default function Properties2() {
           <div className="col-12">
             <div className="heading-section text-center mb-48">
               <h2 className="title split-text effect-right">
-                <SplitTextAnimation text="Open Houses Listings" />
+                <SplitTextAnimation text="Visitas y aperturas" />
               </h2>
               <p className="text-1 split-text split-lines-transform">
-                Thousands of luxury home enthusiasts just like you visit our
-                website.
+                Propiedades para conocer en persona cuando quieras ir a verlas.
               </p>
             </div>
             <div
@@ -44,17 +43,17 @@ export default function Properties2() {
                         </Link>
                         <ul className="box-tag flex gap-8">
                           <li className="flat-tag text-4 bg-main fw-6 text_white">
-                            For Sale
+                            En venta
                           </li>
                         </ul>
                         <div className="list-btn flex gap-8">
                           <a href="#" className="btn-icon save hover-tooltip">
                             <i className="icon-save" />
-                            <span className="tooltip">Add Favorite</span>
+                            <span className="tooltip">Guardar favorito</span>
                           </a>
                           <a href="#" className="btn-icon find hover-tooltip">
                             <i className="icon-find-plus" />
-                            <span className="tooltip">Quick View</span>
+                            <span className="tooltip">Vista rápida</span>
                           </a>
                         </div>
                       </div>
@@ -71,21 +70,21 @@ export default function Properties2() {
                           <li className="meta-item">
                             <div className="text-9 flex">
                               <i className="icon-bed" />
-                              Beds<span>{property.beds}</span>
+                              Dorm.<span>{property.beds}</span>
                             </div>
                             <div className="text-9 flex">
                               <i className="icon-sqft" />
-                              Sqft<span>{property.sqft}</span>
+                              m²<span>{property.sqft}</span>
                             </div>
                           </li>
                           <li className="meta-item">
                             <div className="text-9 flex">
                               <i className="icon-bath" />
-                              Baths<span>{property.baths}</span>
+                              Baños<span>{property.baths}</span>
                             </div>
                             <div className="text-9 flex">
                               <i className="icon-garage" />
-                              Garage<span>{property.garage}</span>
+                              Coch.<span>{property.garage}</span>
                             </div>
                           </li>
                         </ul>
@@ -98,7 +97,7 @@ export default function Properties2() {
                               href={`/property-detail-v1/${property.id}`}
                               className="tf-btn style-border pd-4"
                             >
-                              Details
+                              Ver detalle
                             </Link>
                           </div>
                         </div>
@@ -134,17 +133,17 @@ export default function Properties2() {
                       </Link>
                       <ul className="box-tag flex gap-8">
                         <li className="flat-tag text-4 bg-main fw-6 text_white">
-                          For Sale
+                          En venta
                         </li>
                       </ul>
                       <div className="list-btn flex gap-8">
                         <a href="#" className="btn-icon save hover-tooltip">
                           <i className="icon-save" />
-                          <span className="tooltip">Add Favorite</span>
+                          <span className="tooltip">Guardar favorito</span>
                         </a>
                         <a href="#" className="btn-icon find hover-tooltip">
                           <i className="icon-find-plus" />
-                          <span className="tooltip">Quick View</span>
+                          <span className="tooltip">Vista rápida</span>
                         </a>
                       </div>
                     </div>
@@ -161,21 +160,21 @@ export default function Properties2() {
                         <li className="meta-item">
                           <div className="text-9 flex">
                             <i className="icon-bed" />
-                            Beds<span>{property.beds}</span>
+                            Dorm.<span>{property.beds}</span>
                           </div>
                           <div className="text-9 flex">
                             <i className="icon-sqft" />
-                            Sqft<span>{property.sqft}</span>
+                            m²<span>{property.sqft}</span>
                           </div>
                         </li>
                         <li className="meta-item">
                           <div className="text-9 flex">
                             <i className="icon-bath" />
-                            Baths<span>{property.baths}</span>
+                            Baños<span>{property.baths}</span>
                           </div>
                           <div className="text-9 flex">
                             <i className="icon-garage" />
-                            Garage<span>{property.garage}</span>
+                            Coch.<span>{property.garage}</span>
                           </div>
                         </li>
                       </ul>
@@ -188,7 +187,7 @@ export default function Properties2() {
                             href={`/property-detail-v1/${property.id}`}
                             className="tf-btn style-border pd-4"
                           >
-                            Details
+                            Ver detalle
                           </Link>
                         </div>
                       </div>

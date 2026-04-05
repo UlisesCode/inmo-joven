@@ -5,7 +5,7 @@ export default function SaveSearch() {
     <div className="main-content w-100">
       <div className="main-content-inner style-3">
         <div className="button-show-hide show-mb">
-          <span className="body-1">Show Dashboard</span>
+          <span className="body-1">Ver panel</span>
         </div>
         <div className="widget-box-2 wd-listing">
           <h3 className="title">My Favorites</h3>
@@ -60,7 +60,7 @@ export default function SaveSearch() {
                                     strokeLinejoin="round"
                                   />
                                 </svg>
-                                Delete
+                                Eliminar
                               </a>
                             </li>
                           </ul>
@@ -102,7 +102,7 @@ export default function SaveSearch() {
                                     strokeLinejoin="round"
                                   />
                                 </svg>
-                                Delete
+                                Eliminar
                               </a>
                             </li>
                           </ul>

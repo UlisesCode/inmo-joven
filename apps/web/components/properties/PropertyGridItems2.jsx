@@ -21,23 +21,23 @@ export default function PropertyGridItems2() {
             <ul className="box-tag flex gap-8">
               {property.featured && (
                 <li className="flat-tag text-4 bg-main fw-6 text_white">
-                  Featured
+                  Destacado
                 </li>
               )}
               {property.forSale && (
                 <li className="flat-tag text-4 bg-3 fw-6 text_white">
-                  For Sale
+                  En venta
                 </li>
               )}{" "}
             </ul>
             <div className="list-btn flex gap-8">
               <a href="#" className="btn-icon save hover-tooltip">
                 <i className="icon-save" />
-                <span className="tooltip">Add Favorite</span>
+                <span className="tooltip">Guardar favorito</span>
               </a>
               <a href="#" className="btn-icon find hover-tooltip">
                 <i className="icon-find-plus" />
-                <span className="tooltip">Quick View</span>
+                <span className="tooltip">Vista rápida</span>
               </a>
             </div>
           </div>
@@ -52,7 +52,7 @@ export default function PropertyGridItems2() {
             </p>
             <ul className="meta-list flex">
               <li className="text-1 flex">
-                <span>{property.beds}</span>Beds
+                <span>{property.beds}</span>Dorm.
               </li>
               <li className="text-1 flex">
                 <span>{property.baths}</span>Baths
@@ -68,7 +68,7 @@ export default function PropertyGridItems2() {
                   href={`/property-detail-v1/${property.id}`}
                   className="tf-btn style-border pd-4"
                 >
-                  Details
+                  Ver detalle
                 </Link>
               </div>
             </div>

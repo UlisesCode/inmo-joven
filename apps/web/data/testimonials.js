@@ -206,7 +206,7 @@ export const testimonials5 = [
   {
     rating: 5, // Number of stars
     description:
-      "My experience with property management services has exceeded expectations. They efficiently manage properties with a professional and attentive approach in every situation. I feel reassured that any issue will be resolved promptly and effectively.",
+      "Mi experiencia con el equipo superó las expectativas: gestión profesional, buena comunicación y resolución rápida de cada consulta.",
     avatar: "/images/avatar/testimonials-4.jpg",
     name: "Annette Black",
     role: "CEO Themesflat",
@@ -236,7 +236,7 @@ export const testimonials5 = [
   {
     rating: 5, // Number of stars
     description:
-      "My experience with property management services has exceeded expectations. They efficiently manage properties with a professional and attentive approach in every situation. I feel reassured that any issue will be resolved promptly and effectively.",
+      "Mi experiencia con el equipo superó las expectativas: gestión profesional, buena comunicación y resolución rápida de cada consulta.",
     avatar: "/images/avatar/testimonials-4.jpg",
     name: "Annette Black",
     role: "CEO Themesflat",
@@ -266,7 +266,7 @@ export const testimonials5 = [
   {
     rating: 5, // Number of stars
     description:
-      "My experience with property management services has exceeded expectations. They efficiently manage properties with a professional and attentive approach in every situation. I feel reassured that any issue will be resolved promptly and effectively.",
+      "Mi experiencia con el equipo superó las expectativas: gestión profesional, buena comunicación y resolución rápida de cada consulta.",
     avatar: "/images/avatar/testimonials-4.jpg",
     name: "Annette Black",
     role: "CEO Themesflat",
@@ -296,7 +296,7 @@ export const testimonials5 = [
   {
     rating: 5, // Number of stars
     description:
-      "My experience with property management services has exceeded expectations. They efficiently manage properties with a professional and attentive approach in every situation. I feel reassured that any issue will be resolved promptly and effectively.",
+      "Mi experiencia con el equipo superó las expectativas: gestión profesional, buena comunicación y resolución rápida de cada consulta.",
     avatar: "/images/avatar/testimonials-4.jpg",
     name: "Annette Black",
     role: "CEO Themesflat",

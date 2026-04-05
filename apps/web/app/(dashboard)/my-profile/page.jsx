@@ -2,8 +2,8 @@ import Profile from "@/components/dashboard/Profile";
 import React from "react";
 
 export const metadata = {
-  title: "My Profile || Proty - Real Estate React Nextjs Template",
-  description: "Proty - Real Estate React Nextjs Template",
+  title: "Mi perfil | Inmo Joven",
+  description: "Datos personales y preferencias de tu cuenta.",
 };
 export default function page() {
   return (

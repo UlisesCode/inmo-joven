@@ -19,7 +19,6 @@ export default function SearchForm({ parentClass = "wd-search-form" }) {
       searchFormToggler.addEventListener("click", handleToggle);
     }
 
-    // Cleanup function to remove the event listener
     return () => {
       if (searchFormToggler) {
         searchFormToggler.removeEventListener("click", handleToggle);
@@ -32,13 +31,13 @@ export default function SearchForm({ parentClass = "wd-search-form" }) {
       <div className="group-price">
         <div className="widget-price">
           <div className="box-title-price">
-            <span className="title-price">Price range</span>
+            <span className="title-price">Rango de precio</span>
             <div className="caption-price">
-              <span>from</span>{" "}
+              <span>desde</span>{" "}
               <span className="value fw-6" id="slider-range-value1">
                 ${priceRange[0].toLocaleString()}
               </span>{" "}
-              <span>to</span>
+              <span>hasta</span>
               <span className="value fw-6" id="slider-range-value2">
                 {" "}
                 ${priceRange[1].toLocaleString()}
@@ -55,13 +54,13 @@ export default function SearchForm({ parentClass = "wd-search-form" }) {
         </div>
         <div className="widget-price">
           <div className="box-title-price">
-            <span className="title-price">Size range</span>
+            <span className="title-price">Superficie (m²)</span>
             <div className="caption-price">
-              <span>from</span>{" "}
+              <span>desde</span>{" "}
               <span className="value fw-6" id="slider-range-value01">
                 {sizeRange[0]}
               </span>{" "}
-              <span>to</span>{" "}
+              <span>hasta</span>{" "}
               <span className="value fw-6" id="slider-range-value02">
                 {sizeRange[1]}
               </span>
@@ -80,148 +79,147 @@ export default function SearchForm({ parentClass = "wd-search-form" }) {
         <div className="box-select">
           <DropdownSelect
             options={[
-              "Province / States",
-              "California",
-              "Texas",
-              "Florida",
-              "New York",
-              "Illinois",
-              "Washington",
-              "Pennsylvania",
+              "Provincia / ciudad",
+              "CABA",
+              "Buenos Aires",
+              "Córdoba",
+              "Santa Fe",
+              "Mendoza",
+              "Tucumán",
             ]}
             addtionalParentClass=""
           />
         </div>
         <div className="box-select">
           <DropdownSelect
-            options={["Rooms", "1", "2", "3", "4", "5", "6", "7", "8"]}
+            options={["Ambientes", "1", "2", "3", "4", "5", "6", "7", "8"]}
             addtionalParentClass=""
           />
         </div>
         <div className="box-select">
           <DropdownSelect
-            options={["Bath: Any", "1", "2", "3"]}
+            options={["Baños: cualquiera", "1", "2", "3"]}
             addtionalParentClass=""
           />
         </div>
         <div className="box-select">
           <DropdownSelect
-            options={["Beds: Any", "1", "2", "3", "4", "5", "6"]}
+            options={["Dormitorios: cualquiera", "1", "2", "3", "4", "5", "6"]}
             addtionalParentClass=""
           />
         </div>
       </div>
       <div className="group-checkbox">
-        <div className=" title text-4 fw-6">Amenities:</div>
+        <div className=" title text-4 fw-6">Comodidades:</div>
         <div className="group-amenities ">
           <fieldset className="checkbox-item style-1  ">
             <label>
-              <span className="text-4">Bed linens</span>
+              <span className="text-4">Ropa de cama</span>
               <input type="checkbox" />
               <span className="btn-checkbox" />
             </label>
           </fieldset>
           <fieldset className="checkbox-item style-1   mt-12">
             <label>
-              <span className="text-4"> Carbon alarm</span>
+              <span className="text-4">Detector de monóxido</span>
               <input type="checkbox" />
               <span className="btn-checkbox" />
             </label>
           </fieldset>
           <fieldset className="checkbox-item style-1   mt-12">
             <label>
-              <span className="text-4">Check-in lockbox </span>
+              <span className="text-4">Caja de llaves</span>
               <input type="checkbox" />
               <span className="btn-checkbox" />
             </label>
           </fieldset>
           <fieldset className="checkbox-item style-1   mt-12">
             <label>
-              <span className="text-4">Coffee maker </span>
+              <span className="text-4">Cafetera</span>
               <input type="checkbox" />
               <span className="btn-checkbox" />
             </label>
           </fieldset>
           <fieldset className="checkbox-item style-1  ">
             <label>
-              <span className="text-4"> Dishwasher</span>
+              <span className="text-4">Lavavajillas</span>
               <input type="checkbox" />
               <span className="btn-checkbox" />
             </label>
           </fieldset>
           <fieldset className="checkbox-item style-1   mt-12">
             <label>
-              <span className="text-4"> Fireplace</span>
+              <span className="text-4">Chimenea</span>
               <input type="checkbox" />
               <span className="btn-checkbox" />
             </label>
           </fieldset>
           <fieldset className="checkbox-item style-1   mt-12">
             <label>
-              <span className="text-4">Extra pillows </span>
+              <span className="text-4">Almohadas extra</span>
               <input type="checkbox" />
               <span className="btn-checkbox" />
             </label>
           </fieldset>
           <fieldset className="checkbox-item style-1   mt-12">
             <label>
-              <span className="text-4">First aid kit </span>
+              <span className="text-4">Botiquín</span>
               <input type="checkbox" />
               <span className="btn-checkbox" />
             </label>
           </fieldset>
           <fieldset className="checkbox-item style-1  ">
             <label>
-              <span className="text-4">Hangers </span>
+              <span className="text-4">Perchas</span>
               <input type="checkbox" />
               <span className="btn-checkbox" />
             </label>
           </fieldset>
           <fieldset className="checkbox-item style-1   mt-12">
             <label>
-              <span className="text-4">Iron</span>
+              <span className="text-4">Plancha</span>
               <input type="checkbox" />
               <span className="btn-checkbox" />
             </label>
           </fieldset>
           <fieldset className="checkbox-item style-1   mt-12">
             <label>
-              <span className="text-4"> Microwave</span>
+              <span className="text-4">Microondas</span>
               <input type="checkbox" />
               <span className="btn-checkbox" />
             </label>
           </fieldset>
           <fieldset className="checkbox-item style-1   mt-12">
             <label>
-              <span className="text-4">Fireplace</span>
+              <span className="text-4">Estufa / calefacción</span>
               <input type="checkbox" />
               <span className="btn-checkbox" />
             </label>
           </fieldset>
           <fieldset className="checkbox-item style-1  ">
             <label>
-              <span className="text-4"> Refrigerator</span>
+              <span className="text-4">Heladera</span>
               <input type="checkbox" />
               <span className="btn-checkbox" />
             </label>
           </fieldset>
           <fieldset className="checkbox-item style-1   mt-12">
             <label>
-              <span className="text-4">Security cameras </span>
+              <span className="text-4">Cámaras de seguridad</span>
               <input type="checkbox" />
               <span className="btn-checkbox" />
             </label>
           </fieldset>
           <fieldset className="checkbox-item style-1   mt-12">
             <label>
-              <span className="text-4"> Smoke alarm</span>
+              <span className="text-4">Alarma de humo</span>
               <input type="checkbox" />
               <span className="btn-checkbox" />
             </label>
           </fieldset>
           <fieldset className="checkbox-item style-1   mt-12">
             <label>
-              <span className="text-4">Fireplace </span>
+              <span className="text-4">Patio / balcón</span>
               <input type="checkbox" />
               <span className="btn-checkbox" />
             </label>

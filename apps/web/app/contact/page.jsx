@@ -7,8 +7,8 @@ import Header1 from "@/components/headers/Header1";
 import React from "react";
 
 export const metadata = {
-  title: "Contact || Proty - Real Estate React Nextjs Template",
-  description: "Proty - Real Estate React Nextjs Template",
+  title: "Contacto | Inmo Joven",
+  description: "Escribinos para consultas sobre propiedades, alquileres o tu primera compra.",
 };
 export default function page() {
   return (

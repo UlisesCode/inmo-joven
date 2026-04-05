@@ -29,10 +29,11 @@ export default function Cta() {
               <div className="content">
                 <div className="heading-section mb-0">
                   <h2 className="title text_white">
-                    Need help? Talk to our expert.
+                    ¿Necesitás ayuda? Hablá con un asesor.
                   </h2>
                   <p className="text-1 text_white">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Te respondemos dudas sobre publicaciones, planes y soporte
+                    técnico de Inmo Joven.
                   </p>
                 </div>
                 <div className="wrap-btn">
@@ -40,7 +41,7 @@ export default function Cta() {
                     href="#"
                     className="tf-btn style-border color-white pd-14 fw-6"
                   >
-                    Contact us
+                    Escribinos
                   </a>
                   <a href="#" className="tf-btn bg-color-primary pd-15 fw-6">
                     <svg
@@ -58,7 +59,7 @@ export default function Cta() {
                         strokeLinejoin="round"
                       />
                     </svg>
-                    (603) 555-0123
+                    +54 11 1234-5678
                   </a>
                 </div>
               </div>

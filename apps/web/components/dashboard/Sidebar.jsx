@@ -52,7 +52,7 @@ export default function Sidebar() {
                     strokeLinejoin="round"
                   />
                 </svg>
-                Dashboards
+                Panel
               </Link>
             </li>
             <li
@@ -104,7 +104,7 @@ export default function Sidebar() {
                     strokeLinejoin="round"
                   />
                 </svg>
-                Profile
+                Mi perfil
               </Link>
             </li>
             <li
@@ -142,7 +142,7 @@ export default function Sidebar() {
                     strokeLinejoin="round"
                   />
                 </svg>
-                My package
+                Mi plan
               </Link>
             </li>
             <li
@@ -180,7 +180,7 @@ export default function Sidebar() {
                     strokeLinejoin="round"
                   />
                 </svg>
-                My favorites (1)
+                Mis favoritos (1)
               </Link>
             </li>
             <li
@@ -218,7 +218,7 @@ export default function Sidebar() {
                     strokeLinejoin="round"
                   />
                 </svg>
-                My save searches
+                Búsquedas guardadas
               </Link>
             </li>
             <li
@@ -256,7 +256,7 @@ export default function Sidebar() {
                     strokeLinejoin="round"
                   />
                 </svg>
-                Reviews
+                Reseñas
               </Link>
             </li>
             <li
@@ -350,7 +350,7 @@ export default function Sidebar() {
                     strokeLinejoin="round"
                   />
                 </svg>
-                My properties
+                Mis propiedades
               </Link>
             </li>
             <li
@@ -388,7 +388,7 @@ export default function Sidebar() {
                     strokeLinejoin="round"
                   />
                 </svg>
-                Add property
+                Publicar propiedad
               </Link>
             </li>
             <li className={`nav-menu-item `}>
@@ -422,7 +422,7 @@ export default function Sidebar() {
                     strokeLinejoin="round"
                   />
                 </svg>
-                Logout
+                Salir
               </Link>
             </li>
           </ul>

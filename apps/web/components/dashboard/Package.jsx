@@ -5,7 +5,7 @@ export default function Package() {
     <div className="main-content w-100">
       <div className="main-content-inner style-3">
         <div className="button-show-hide show-mb">
-          <span className="body-1">Show Dashboard</span>
+          <span className="body-1">Ver panel</span>
         </div>
         <div className="widget-box-2 style-2 package">
           <h3 className="title">My Package</h3>

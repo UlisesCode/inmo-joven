@@ -53,7 +53,7 @@ export default function Slider1() {
                       </svg>
                     </div>
                     <div className="text-16 text_white fw-6 lh-20">
-                      1/16 Photos
+                      1/16 Fotos
                     </div>
                   </div>
                 </div>

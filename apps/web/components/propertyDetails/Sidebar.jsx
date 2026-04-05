@@ -9,7 +9,7 @@ export default function Sidebar() {
         className="form-contact-seller mb-30"
         onSubmit={(e) => e.preventDefault()}
       >
-        <h4 className="heading-title mb-30">Contact Sellers</h4>
+        <h4 className="heading-title mb-30">Contactar al vendedor</h4>
         <div className="seller-info">
           <div className="avartar">
             <Image
@@ -24,11 +24,11 @@ export default function Sidebar() {
             <ul className="contact">
               <li>
                 <i className="icon-phone-1" />
-                <span>1-333-345-6868</span>
+                <span>+54 11 1234-5678</span>
               </li>
               <li>
                 <i className="icon-mail" />
-                <a href="#">themesflat@gmail.com</a>
+                <a href="#">hola@inmojoven.com</a>
               </li>
             </ul>
           </div>
@@ -37,7 +37,7 @@ export default function Sidebar() {
           <input
             type="text"
             className="form-control"
-            placeholder="Full Name"
+            placeholder="Nombre completo"
             name="name"
             id="name1"
             required
@@ -48,14 +48,14 @@ export default function Sidebar() {
             name="message"
             cols={30}
             rows={10}
-            placeholder="How can an agent help"
+            placeholder="¿En qué podemos ayudarte?"
             id="message1"
             required
             defaultValue={""}
           />
         </fieldset>
         <a href="#" className="tf-btn bg-color-primary w-full">
-          Send message
+          Enviar mensaje
         </a>
       </form>
       <div className="sidebar-ads mb-30">
@@ -80,27 +80,27 @@ export default function Sidebar() {
         <div className="box-ads relative z-5">
           <div className="content">
             <h4 className="title">
-              <a href="#">We can help you find a local real estate agent</a>
+              <a href="#">Te conectamos con un asesor inmobiliario</a>
             </h4>
             <div className="text-addres">
               <p>
-                Connect with a trusted agent who knows the market inside out -
-                whether you’re buying or selling.
+                Un profesional que conoce la zona puede ayudarte a comprar o
+                vender con más claridad.
               </p>
             </div>
           </div>
           <a href="#" className="tf-btn fw-6 bg-color-primary fw-6 w-full">
-            Connect with an agent
+            Hablar con un asesor
           </a>
         </div>
       </div>
       <form className="form-contact-agent" onSubmit={(e) => e.preventDefault()}>
-        <h4 className="heading-title mb-30">More About This Property</h4>
+        <h4 className="heading-title mb-30">Más sobre esta propiedad</h4>
         <fieldset>
           <input
             type="text"
             className="form-control"
-            placeholder="Your name"
+            placeholder="Tu nombre"
             name="name"
             id="name2"
             required
@@ -110,7 +110,7 @@ export default function Sidebar() {
           <input
             type="text"
             className="form-control"
-            placeholder="Email"
+            placeholder="Correo electrónico"
             name="email"
             id="email2"
             required
@@ -120,7 +120,7 @@ export default function Sidebar() {
           <input
             type="text"
             className="form-control"
-            placeholder="Phone"
+            placeholder="Teléfono"
             name="phone"
             id="phone"
             required
@@ -131,7 +131,7 @@ export default function Sidebar() {
             name="message"
             cols={30}
             rows={10}
-            placeholder="Message"
+            placeholder="Mensaje"
             id="message3"
             required
             defaultValue={""}
@@ -154,7 +154,7 @@ export default function Sidebar() {
                 strokeLinejoin="round"
               />
             </svg>
-            Email agent
+            Enviar al agente
           </a>
         </div>
       </form>

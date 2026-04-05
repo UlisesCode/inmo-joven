@@ -2,8 +2,8 @@ import AddProperty from "@/components/dashboard/AddProperty";
 import React from "react";
 
 export const metadata = {
-  title: "Add Property || Proty - Real Estate React Nextjs Template",
-  description: "Proty - Real Estate React Nextjs Template",
+  title: "Publicar propiedad | Inmo Joven",
+  description: "Cargá los datos de tu propiedad para publicarla en Inmo Joven.",
 };
 export default function page() {
   return (

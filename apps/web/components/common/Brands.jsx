@@ -13,13 +13,10 @@ export default function Brands({
             <div className="col-12 wrap-partners">
               <div className="heading-section text-center mb-48">
                 <h2 className="title split-text effect-right">
-                  <SplitTextAnimation text="Let’s Work Together" />
+                  <SplitTextAnimation text="Trabajemos juntos" />
                 </h2>
                 <p className="text-1 split-text effect-right">
-                  <SplitTextAnimation
-                    text="Thousands of luxury home enthusiasts just like you visit our
-                  website."
-                  />
+                  <SplitTextAnimation text="Marcas y aliados que acompañan tu primera experiencia inmobiliaria." />
                 </p>
               </div>
               <BrandSlider parentClass="infiniteslide wrap-partners mb-40" />

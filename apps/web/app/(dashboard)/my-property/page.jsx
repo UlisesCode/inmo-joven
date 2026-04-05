@@ -2,8 +2,8 @@ import Property from "@/components/dashboard/Property";
 import React from "react";
 
 export const metadata = {
-  title: "My Property || Proty - Real Estate React Nextjs Template",
-  description: "Proty - Real Estate React Nextjs Template",
+  title: "Mis propiedades | Inmo Joven",
+  description: "Listado de propiedades que publicaste o administrás.",
 };
 export default function page() {
   return (

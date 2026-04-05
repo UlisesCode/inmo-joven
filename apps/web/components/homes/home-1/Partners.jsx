@@ -11,14 +11,14 @@ export default function Partners() {
             <div className="col-12">
               <div className="heading-section  text-center mb-48">
                 <h2 className="title text_white split-text effect-right">
-                  <SplitTextAnimation text="Let’s Work Together" />
+                  <SplitTextAnimation text="Trabajemos juntos" />
                 </h2>
                 <p
                   className="text-1 text_white wow animate__fadeInUp animate__animated"
                   data-wow-duration="1.5s"
                 >
-                  Thousands of luxury home enthusiasts just like you visit our
-                  website.
+                  Asociate con Inmo Joven y llegá a más personas en su primera
+                  experiencia inmobiliaria.
                 </p>
               </div>
               <BrandSlider />
@@ -33,20 +33,20 @@ export default function Partners() {
               <div className="content">
                 <div className="heading-section mb-30">
                   <h2 className="title split-text effect-right">
-                    <SplitTextAnimation text="Are You Selling Or" />
+                    <SplitTextAnimation text="¿Vendés o alquilás" />
                     <br />
-                    <SplitTextAnimation text="Renting Your Property?" />
+                    <SplitTextAnimation text="tu propiedad?" />
                   </h2>
                   <p
                     className="text-1 split-text split-lines-transform"
                     data-wow-duration="1.5s"
                   >
-                    Thousands of luxury home enthusiasts just like you visit our
-                    website.
+                    Publicá con el equipo de Inmo Joven y llegá a compradores y
+                    inquilinos primerizos.
                   </p>
                 </div>
                 <a href="#" className="tf-btn bg-color-primary fw-7 pd-11">
-                  Request your free appraisal
+                  Pedí una tasación sin cargo
                 </a>
                 <div
                   className="person wow animate__fadeInRight animate__animated"

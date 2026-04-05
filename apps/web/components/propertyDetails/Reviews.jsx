@@ -5,7 +5,7 @@ export default function Reviews() {
   return (
     <>
       <div className="wrap-comment">
-        <h4 className="title">Guest Reviews</h4>
+        <h4 className="title">Opiniones de visitantes</h4>
         <ul className="comment-list">
           <li>
             <div className="comment-item">
@@ -21,7 +21,7 @@ export default function Reviews() {
                 <div className="user">
                   <div className="author">
                     <h6 className="name">Viola Lucas</h6>
-                    <div className="time">August 13, 2023</div>
+                    <div className="time">13 de agosto de 2023</div>
                   </div>
                   <div className="ratings">
                     <i className="icon-star" />
@@ -33,10 +33,8 @@ export default function Reviews() {
                 </div>
                 <div className="comment">
                   <p>
-                    It's really easy to use and it is exactly what I am looking
-                    for. A lot of good looking templates &amp; it's highly
-                    customizable. Live support is helpful, solved my issue in no
-                    time.
+                    Muy clara la información y el proceso de contacto; justo lo
+                    que buscaba. Recomiendo coordinar visita con el asesor.
                   </p>
                   <div className="group-image">
                     <Image
@@ -76,7 +74,7 @@ export default function Reviews() {
                           />
                         </svg>
                       </div>
-                      <div className="text-2">Useful</div>
+                      <div className="text-2">Útil</div>
                     </div>
                     <div className="action-item action-button btn-action">
                       <div className="icons">
@@ -95,7 +93,7 @@ export default function Reviews() {
                           />
                         </svg>
                       </div>
-                      <div className="text-2">Not helpful</div>
+                      <div className="text-2">No útil</div>
                     </div>
                   </div>
                 </div>
@@ -116,7 +114,7 @@ export default function Reviews() {
                 <div className="user">
                   <div className="author">
                     <h6 className="name">Viola Lucas</h6>
-                    <div className="time">August 13, 2023</div>
+                    <div className="time">13 de agosto de 2023</div>
                   </div>
                   <div className="ratings">
                     <i className="icon-star" />
@@ -128,10 +126,8 @@ export default function Reviews() {
                 </div>
                 <div className="comment">
                   <p>
-                    It's really easy to use and it is exactly what I am looking
-                    for. A lot of good looking templates &amp; it's highly
-                    customizable. Live support is helpful, solved my issue in no
-                    time.
+                    Muy clara la información y el proceso de contacto; justo lo
+                    que buscaba. Recomiendo coordinar visita con el asesor.
                   </p>
                   <div className="action action-button-list">
                     <div className="action-item action-button btn-action">
@@ -151,7 +147,7 @@ export default function Reviews() {
                           />
                         </svg>
                       </div>
-                      <div className="text-2">Useful</div>
+                      <div className="text-2">Útil</div>
                     </div>
                     <div className="action-item action-button btn-action">
                       <div className="icons">
@@ -170,7 +166,7 @@ export default function Reviews() {
                           />
                         </svg>
                       </div>
-                      <div className="text-2">Not helpful</div>
+                      <div className="text-2">No útil</div>
                     </div>
                   </div>
                 </div>
@@ -191,7 +187,7 @@ export default function Reviews() {
                 <div className="user">
                   <div className="author">
                     <h6 className="name">Viola Lucas</h6>
-                    <div className="time">August 13, 2023</div>
+                    <div className="time">13 de agosto de 2023</div>
                   </div>
                   <div className="ratings">
                     <i className="icon-star" />
@@ -203,10 +199,8 @@ export default function Reviews() {
                 </div>
                 <div className="comment">
                   <p>
-                    It's really easy to use and it is exactly what I am looking
-                    for. A lot of good looking templates &amp; it's highly
-                    customizable. Live support is helpful, solved my issue in no
-                    time.
+                    Muy clara la información y el proceso de contacto; justo lo
+                    que buscaba. Recomiendo coordinar visita con el asesor.
                   </p>
                   <div className="action action-button-list">
                     <div className="action-item action-button btn-action">
@@ -226,7 +220,7 @@ export default function Reviews() {
                           />
                         </svg>
                       </div>
-                      <div className="text-2">Useful</div>
+                      <div className="text-2">Útil</div>
                     </div>
                     <div className="action-item action-button btn-action">
                       <div className="icons">
@@ -245,7 +239,7 @@ export default function Reviews() {
                           />
                         </svg>
                       </div>
-                      <div className="text-2">Not helpful</div>
+                      <div className="text-2">No útil</div>
                     </div>
                   </div>
                 </div>
@@ -255,25 +249,26 @@ export default function Reviews() {
         </ul>
         <a href="#" className="tf-btn style-border fw-7 pd-1">
           <span>
-            View all reivew <i className="icon-arrow-right-2 fw-4" />
+            Ver todas las opiniones{" "}
+            <i className="icon-arrow-right-2 fw-4" />
           </span>
         </a>
       </div>
       <div className="box-send">
         <div className="heading-box">
-          <h4 className="title fw-7">Add Review</h4>
-          <p>Your email address will not be published</p>
+          <h4 className="title fw-7">Dejá tu opinión</h4>
+          <p>Tu correo no se publicará.</p>
         </div>
         <form className="form-add-review" onSubmit={(e) => e.preventDefault()}>
           <div className="cols">
             <fieldset className="name">
               <label className="text-1 fw-6" htmlFor="name">
-                Name
+                Nombre
               </label>
               <input
                 type="text"
                 className="tf-input style-2"
-                placeholder="Your Name*"
+                placeholder="Tu nombre*"
                 tabIndex={2}
                 aria-required="true"
                 id="name"
@@ -283,12 +278,12 @@ export default function Reviews() {
             </fieldset>
             <fieldset className="email">
               <label className="text-1 fw-6" htmlFor="email">
-                Email
+                Correo
               </label>
               <input
                 type="email"
                 className="tf-input style-2"
-                placeholder="Your Email*"
+                placeholder="Tu correo*"
                 tabIndex={2}
                 aria-required="true"
                 id="email1"
@@ -300,7 +295,7 @@ export default function Reviews() {
           <div className="checkbox-item style-1">
             <label>
               <span className="text-1 fw-4">
-                Save your name, email for the next time review
+                Recordar mi nombre y correo para la próxima vez
               </span>
               <input type="checkbox" />
               <span className="btn-checkbox" />
@@ -308,14 +303,14 @@ export default function Reviews() {
           </div>
           <fieldset className="message">
             <label className="text-1 fw-6" htmlFor="message">
-              Review
+              Comentario
             </label>
             <textarea
               id="message"
               className="tf-input"
               name="message"
               rows={4}
-              placeholder="Your review"
+              placeholder="Tu comentario"
               tabIndex={4}
               aria-required="true"
               required
@@ -323,7 +318,7 @@ export default function Reviews() {
             />
           </fieldset>
           <button className="tf-btn bg-color-primary pd-24 fw-7" type="submit">
-            Post Comment <i className="icon-arrow-right-2 fw-4" />
+            Publicar comentario <i className="icon-arrow-right-2 fw-4" />
           </button>
         </form>
       </div>

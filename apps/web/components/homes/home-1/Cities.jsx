@@ -9,10 +9,10 @@ export default function Cities() {
         <div className="col-12">
           <div className="heading-section text-center mb-48">
             <h2 className="title split-text effect-right">
-              <SplitTextAnimation text="Explore The Neighborhoods" />
+              <SplitTextAnimation text="Explorá los barrios" />
             </h2>
             <p className="text-1 split-text split-lines-transform">
-              Find your dream apartment with our listing
+              Encontrá tu próximo hogar según zona y estilo de vida.
             </p>
           </div>
           <div className="wrap-neighborhoods">

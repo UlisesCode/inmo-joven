@@ -23,46 +23,47 @@ export default function Properties5() {
           <div className="form-title style-2">
             <form className="w-226">
               <fieldset>
-                <input type="text" placeholder="Address, City, ZIP..." />
+                <input
+                  type="text"
+                  placeholder="Dirección, barrio, ciudad..."
+                />
               </fieldset>
             </form>
 
             <DropdownSelect
               options={[
-                "Status",
-                "Bungalow",
-                "Apartment",
-                "House",
-                "Smart Home",
-                "Office",
+                "Estado",
+                "En venta",
+                "En alquiler",
+                "Reservado",
               ]}
             />
             <DropdownSelect
               options={[
-                "Type",
-                "Bungalow",
-                "Apartment",
-                "House",
-                "Smart Home",
-                "Office",
+                "Tipo",
+                "Departamento",
+                "Casa",
+                "PH",
+                "Local / Oficina",
+                "Terreno",
               ]}
             />
             <DropdownSelect
               options={[
-                "Baths",
-                "Floating baths",
-                "Massage baths",
-                "Floor-standing bath",
-                "Built-in baths",
+                "Baños",
+                "1",
+                "2",
+                "3",
+                "4+",
               ]}
             />
             <DropdownSelect
               options={[
-                "Beds",
-                "Twin beds",
-                "Bunk beds",
-                "Kids beds",
-                "Single bed",
+                "Dormitorios",
+                "1",
+                "2",
+                "3",
+                "4+",
               ]}
             />
             <div className="wrap-btn searchFormToggler">
@@ -142,18 +143,18 @@ export default function Properties5() {
                 </div>
               </div>
               <a href="#" className="tf-btn bg-color-primary pd-3 pd-20">
-                Search <i className="icon-MagnifyingGlass fw-6" />
+                Buscar <i className="icon-MagnifyingGlass fw-6" />
               </a>
             </div>
           </div>
           <SearchForm parentClass="wd-search-form style-2" />
         </div>
         <div className="box-title">
-          <h2>Property listing</h2>
+          <h2>Listado de propiedades</h2>
           <div className="group-layout">
             <DropdownSelect
               addtionalParentClass="select-filter list-sort"
-              options={["Sort by (Default)", "Newest", "Oldest"]}
+              options={["Ordenar (predeterminado)", "Más recientes", "Más antiguas"]}
             />
           </div>
         </div>
@@ -161,7 +162,7 @@ export default function Properties5() {
           <PropertyGridItems2 />
         </div>
         <div className="wrap-pagination">
-          <p className="text-1">Showing 1-8 of 42 results.</p>
+          <p className="text-1">Mostrando 1-8 de 42 resultados.</p>
           <ul className="wg-pagination justify-center">
             <li className="arrow">
               <a href="#">

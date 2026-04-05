@@ -4,33 +4,33 @@ export default function Features() {
   return (
     <>
       <div className="wg-title text-11 fw-6 text-color-heading">
-        Amenities And Features
+        Comodidades y características
       </div>
       <div className="wrap-feature">
         <div className="box-feature">
           <ul>
-            <li className="feature-item">Smoke alarm</li>
-            <li className="feature-item">Carbon monoxide alarm</li>
-            <li className="feature-item">First aid kit</li>
-            <li className="feature-item">Self check-in with lockbox</li>
-            <li className="feature-item">Security cameras</li>
+            <li className="feature-item">Detector de humo</li>
+            <li className="feature-item">Detector de monóxido</li>
+            <li className="feature-item">Botiquín de primeros auxilios</li>
+            <li className="feature-item">Ingreso autónomo con caja de llaves</li>
+            <li className="feature-item">Cámaras de seguridad</li>
           </ul>
         </div>
         <div className="box-feature">
           <ul>
-            <li className="feature-item">Hangers</li>
-            <li className="feature-item">Bed linens</li>
-            <li className="feature-item">Extra pillows &amp; blankets</li>
-            <li className="feature-item">Iron</li>
-            <li className="feature-item">TV with standard cable</li>
+            <li className="feature-item">Perchas</li>
+            <li className="feature-item">Ropa de cama</li>
+            <li className="feature-item">Almohadas y mantas extra</li>
+            <li className="feature-item">Plancha</li>
+            <li className="feature-item">TV con cable</li>
           </ul>
         </div>
         <div className="box-feature">
           <ul>
-            <li className="feature-item">Refrigerator</li>
-            <li className="feature-item">Microwave</li>
-            <li className="feature-item">Dishwasher</li>
-            <li className="feature-item">Coffee maker</li>
+            <li className="feature-item">Heladera</li>
+            <li className="feature-item">Microondas</li>
+            <li className="feature-item">Lavavajillas</li>
+            <li className="feature-item">Cafetera</li>
           </ul>
         </div>
       </div>

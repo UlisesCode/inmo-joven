@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-export default function Breadcumb({ pageName = "Property Listing" }) {
+export default function Breadcumb({ pageName = "Listado" }) {
   return (
     <section className="flat-title">
       <div className="tf-container">
@@ -10,7 +10,7 @@ export default function Breadcumb({ pageName = "Property Listing" }) {
               <ul className="breadcrumb">
                 <li>
                   <Link className="home fw-6 text-color-3" href={`/`}>
-                    Home
+                    Inicio
                   </Link>
                 </li>
                 <li>{pageName}</li>

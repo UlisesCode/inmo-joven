@@ -11,11 +11,11 @@ export default function Testimonials() {
           <div className="col-12">
             <div className="heading-section text-center mb-48">
               <h2 className="title split-text effect-right">
-                <SplitTextAnimation text="Clients Testimonials" />
+                <SplitTextAnimation text="Lo que dicen quienes ya pasaron" />
               </h2>
               <p className="text-1 split-text split-lines-transform">
-                Thousands of luxury home enthusiasts just like you visit our
-                website.
+                Historias reales de personas que encontraron su primer hogar con
+                nosotros.
               </p>
             </div>
             <div
@@ -326,7 +326,7 @@ export default function Testimonials() {
                   onClick={() => setShowMore((pre) => !pre)}
                   className="tf-btn bg-color-primary fw-7 mx-auto btn-loadmore view-more-button"
                 >
-                  Show more...
+                  Ver más…
                 </button>
               )}
             </div>

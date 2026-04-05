@@ -7,7 +7,7 @@ export default function Favorites() {
     <div className="main-content w-100">
       <div className="main-content-inner">
         <div className="button-show-hide show-mb">
-          <span className="body-1">Show Dashboard</span>
+          <span className="body-1">Ver panel</span>
         </div>
         <div className="widget-box-2 wd-listing">
           <h3 className="title">My Favorites</h3>
@@ -73,7 +73,7 @@ export default function Favorites() {
                                   strokeLinejoin="round"
                                 />
                               </svg>
-                              Edit
+                              Editar
                             </a>
                           </li>
                           <li>
@@ -111,7 +111,7 @@ export default function Favorites() {
                                   strokeLinejoin="round"
                                 />
                               </svg>
-                              Delete
+                              Eliminar
                             </a>
                           </li>
                         </ul>

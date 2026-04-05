@@ -4,7 +4,7 @@ export default function VirtualTour() {
   return (
     <>
       <div className="wg-title text-11 fw-6 text-color-heading">
-        360 Virtual Tour
+        Recorrido virtual 360°
       </div>
       <div className="image-wrap">
         <Image

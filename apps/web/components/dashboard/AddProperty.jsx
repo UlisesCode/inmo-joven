@@ -7,7 +7,7 @@ export default function AddProperty() {
     <div className="main-content w-100">
       <div className="main-content-inner">
         <div className="button-show-hide show-mb">
-          <span className="body-1">Show Dashboard</span>
+          <span className="body-1">Ver panel</span>
         </div>
         <div className="widget-box-2 mb-20">
           <h3 className="title">Upload Media</h3>
@@ -102,14 +102,14 @@ export default function AddProperty() {
               <input
                 type="text"
                 className="form-control"
-                placeholder="Choose"
+                placeholder="Elegí"
               />
             </fieldset>
             <fieldset className="box box-fieldset">
-              <label htmlFor="desc">Description:</label>
+              <label htmlFor="desc">Descripción:</label>
               <textarea
                 className="textarea"
-                placeholder="Your Decscription"
+                placeholder="Descripción de la propiedad"
                 defaultValue={""}
               />
             </fieldset>
@@ -121,7 +121,7 @@ export default function AddProperty() {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Enter property full address"
+                  placeholder="Dirección completa de la propiedad"
                 />
               </fieldset>
               <fieldset className="box-fieldset">
@@ -131,7 +131,7 @@ export default function AddProperty() {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Enter property zip code"
+                  placeholder="Código postal"
                 />
               </fieldset>
               <fieldset className="box-fieldset">
@@ -169,7 +169,7 @@ export default function AddProperty() {
             </div>
             <div className="box box-fieldset">
               <label htmlFor="location">
-                Location:<span>*</span>
+                Ubicación:<span>*</span>
               </label>
               <div className="box-ip">
                 <input
@@ -208,7 +208,7 @@ export default function AddProperty() {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="Example value: 12345.67"
+                  placeholder="Ejemplo: 12345.67"
                 />
               </fieldset>
               <fieldset className="box-fieldset mb-30">
@@ -258,17 +258,17 @@ export default function AddProperty() {
                 </label>
 
                 <DropdownSelect
-                  options={["Choose", "For Rent", "For Sale"]}
+                  options={["Elegí", "En alquiler", "En venta"]}
                   addtionalParentClass=""
                 />
               </fieldset>
               <fieldset className="box-fieldset">
                 <label htmlFor="label">
-                  Property Label:<span>*</span>
+                  Etiqueta de la propiedad:<span>*</span>
                 </label>
 
                 <DropdownSelect
-                  options={["Choose", "New Listing", "Open House"]}
+                  options={["Elegí", "Publicación nueva", "Visita / apertura"]}
                   addtionalParentClass=""
                 />
               </fieldset>
@@ -276,19 +276,19 @@ export default function AddProperty() {
             <div className="box grid-layout-3 gap-30">
               <fieldset className="box-fieldset">
                 <label htmlFor="size">
-                  Size (SqFt):<span>*</span>
+                  Superficie (m²):<span>*</span>
                 </label>
                 <input type="text" className="form-control" />
               </fieldset>
               <fieldset className="box-fieldset">
                 <label htmlFor="land">
-                  Land Area (SqFt):<span>*</span>
+                  Terreno (m²):<span>*</span>
                 </label>
                 <input type="text" className="form-control" />
               </fieldset>
               <fieldset className="box-fieldset">
                 <label htmlFor="id">
-                  Property ID:<span>*</span>
+                  ID de propiedad:<span>*</span>
                 </label>
                 <input type="text" className="form-control" />
               </fieldset>
@@ -483,7 +483,7 @@ export default function AddProperty() {
               <input
                 type="text"
                 className="form-control"
-                placeholder="Youtube, vimeo url"
+                placeholder="URL de YouTube o Vimeo"
               />
             </fieldset>
           </form>
@@ -574,14 +574,16 @@ export default function AddProperty() {
                           strokeLinejoin="round"
                         />
                       </svg>
-                      Choose File
+                      Elegir archivo
                       <input type="file" className="ip-file" />
                     </a>
-                    <p className="file-name">Or drop file here to upload</p>
+                    <p className="file-name">
+                      O arrastrá el archivo aquí para subirlo
+                    </p>
                   </div>
                 </fieldset>
                 <fieldset className="box-fieldset">
-                  <label htmlFor="bathrooms">Description:</label>
+                  <label htmlFor="bathrooms">Descripción:</label>
                   <textarea className="textarea" defaultValue={""} />
                 </fieldset>
               </div>
@@ -594,19 +596,21 @@ export default function AddProperty() {
           </div>
         </div>
         <div className="widget-box-2 mb-20">
-          <h3 className="title">Agent Infomation</h3>
+          <h3 className="title">Datos del agente</h3>
           <div className="box-radio-check">
-            <div className="text-1 mb-16">Choose type agent information?</div>
+            <div className="text-1 mb-16">
+              ¿Qué datos de contacto querés mostrar?
+            </div>
             <fieldset className="radio-item mb-8">
               <label>
-                <span className="text-1">Your current user information</span>
+                <span className="text-1">Mis datos de usuario actuales</span>
                 <input type="radio" name="radio" id=" floor-plan-1" />
                 <span className="btn-radio" />
               </label>
             </fieldset>
             <fieldset className="radio-item  style-1  ">
               <label>
-                <span className="text-1">Other contact</span>
+                <span className="text-1">Otro contacto</span>
                 <input type="radio" name="radio" id="  floor-plan-2 " />
                 <span className="btn-radio" />
               </label>
@@ -618,7 +622,7 @@ export default function AddProperty() {
             Add Property
           </a>
           <a href="#" className="tf-btn style-border pd-10">
-            Save &amp; Preview
+            Guardar y previsualizar
           </a>
         </div>
         {/* .footer-dashboard */}

@@ -43,7 +43,7 @@ export default function AgencyDetails({ agency }) {
             </div>
             <div className="box-description mb-48">
               <div className="widget about">
-                <h6 className="title">About Lorem House</h6>
+                <h6 className="title">Sobre la inmobiliaria</h6>
                 <p className="text-1 mb-12">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Aliquam risus leo, blandit vitae diam a, vestibulum viverra
@@ -58,7 +58,7 @@ export default function AgencyDetails({ agency }) {
                 </p>
               </div>
               <div className="widget location">
-                <h6 className="title">Location</h6>
+                <h6 className="title">Ubicación</h6>
                 <iframe
                   className="map"
                   src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d135905.11693909427!2d-73.95165795400088!3d41.17584829642291!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1727094281524!5m2!1sen!2s"
@@ -106,7 +106,7 @@ export default function AgencyDetails({ agency }) {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="Your name"
+                    placeholder="Tu nombre"
                     name="name"
                     id="name"
                     required
@@ -116,7 +116,7 @@ export default function AgencyDetails({ agency }) {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="Email"
+                    placeholder="Correo electrónico"
                     name="email"
                     id="email-contact"
                     required
@@ -126,7 +126,7 @@ export default function AgencyDetails({ agency }) {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="Phone"
+                    placeholder="Teléfono"
                     name="phone"
                     id="phone"
                     required
@@ -137,7 +137,7 @@ export default function AgencyDetails({ agency }) {
                     name="message"
                     cols={30}
                     rows={10}
-                    placeholder="Message"
+                    placeholder="Mensaje"
                     id="message-contact"
                     required
                     defaultValue={""}
@@ -183,7 +183,7 @@ export default function AgencyDetails({ agency }) {
                 </div>
               </form>
               <div className="sidebar-item sidebar-featured style-2 mb-28 pb-36">
-                <h4 className="sidebar-title mb-28">Featured Listings</h4>
+                <h4 className="sidebar-title mb-28">Propiedades destacadas</h4>
                 <ul>
                   {properties4.map((property, i) => (
                     <li key={i} className="box-listings style-2 hover-img">

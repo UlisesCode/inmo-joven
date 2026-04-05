@@ -6,7 +6,9 @@ export default function VideoReview() {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <div className="wg-title text-11 fw-6 text-color-heading">Video</div>
+      <div className="wg-title text-11 fw-6 text-color-heading">
+        Video de la propiedad
+      </div>
       <div className="widget-video style-1">
         <Image
           className="lazyload"

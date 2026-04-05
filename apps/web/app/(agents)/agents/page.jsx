@@ -6,8 +6,8 @@ import Header1 from "@/components/headers/Header1";
 import React from "react";
 
 export const metadata = {
-  title: "Agents || Proty - Real Estate React Nextjs Template",
-  description: "Proty - Real Estate React Nextjs Template",
+  title: "Agentes | Inmo Joven",
+  description: "Conocé a los agentes y asesores inmobiliarios de Inmo Joven.",
 };
 export default function page() {
   return (
@@ -15,7 +15,7 @@ export default function page() {
       <div id="wrapper">
         <Header1 />
         <div className="page-content">
-          <Breadcumb pageName="Agents" />
+          <Breadcumb pageName="Agentes" />
           <Agents />
           <Cta />
         </div>
