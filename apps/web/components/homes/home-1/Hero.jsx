@@ -21,8 +21,8 @@ export default function Hero() {
   return (
     <div className="page-title home01">
       <div className="tf-container ">
-        <div className="row justify-center relative">
-          <div className="col-lg-8 ">
+        <div className="row relative">
+          <div className="col-12 col-lg-8">
             <div className="content-inner">
               <div className="heading-title">
                 <h1 className="title">Buscá tu mono ambiente</h1>
@@ -144,8 +144,8 @@ export default function Hero() {
               </div>
             </div>
           </div>
-          <div className="col-lg-4 md-hide">
-            <div className="area-cursor-custom">
+          <div className="col-12 col-lg-4 md-hide">
+            <div className="area-cursor-custom w-100">
               <Cursor />
               <Swiper
                 modules={[Thumbs]}
