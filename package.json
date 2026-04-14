@@ -9,12 +9,14 @@
     "packages/*"
   ],
   "scripts": {
+    "dev": "npm run dev --workspace=@inmo-joven/web",
     "dev:web": "npm run dev --workspace=@inmo-joven/web",
     "dev:api": "npm run dev --workspace=@inmo-joven/api",
     "dev:worker": "npm run dev --workspace=@inmo-joven/worker",
     "build:web": "npm run build --workspace=@inmo-joven/web",
     "lint:web": "npm run lint --workspace=@inmo-joven/web",
-    "tokko:smoke": "npm run tokko:smoke --workspace=@inmo-joven/api",
+    "inmo": "npm run inmo --workspace=@inmo-joven/api --",
+    "seed-demo": "npm run seed-demo --workspace=@inmo-joven/api",
     "db:generate": "prisma generate --schema=packages/database/prisma/schema.prisma",
     "db:migrate": "npm run db:migrate --workspace=@inmo-joven/database",
     "db:push": "npm run db:push --workspace=@inmo-joven/database"

@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "node --watch src/main.js",
     "start": "node src/main.js",
-    "tokko:smoke": "node scripts/tokko-smoke.mjs",
-    "properties:seed-demo": "npm run db:generate --prefix ../.. && node scripts/seed-demo-properties.mjs"
+    "inmo": "node scripts/inmo-cli.mjs",
+    "seed-demo": "npm run db:generate --prefix ../.. && node scripts/inmo-cli.mjs seed-demo"
   },
   "dependencies": {
     "@fastify/cors": "^10.0.2",

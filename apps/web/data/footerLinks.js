@@ -10,12 +10,8 @@ export const footerData = [
     className: "style-2",
   },
   {
-    title: "Explorar",
-    links: [
-      { text: "Agentes", href: "/agents" },
-      { text: "Inmobiliarias", href: "/agency-list" },
-      { text: "Mi cuenta", href: "/dashboard" },
-    ],
+    title: "Cuenta",
+    links: [{ text: "Mi cuenta", href: "/dashboard" }],
   },
   {
     title: "Legal",
