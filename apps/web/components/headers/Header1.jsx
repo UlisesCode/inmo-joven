@@ -1,8 +1,8 @@
 import React from "react";
 import Nav from "./Nav";
 import Link from "next/link";
-import Image from "next/image";
 import DashboardNav from "./DashboardNav";
+import HeaderAuthCta from "./HeaderAuthCta";
 export default function Header1({ parentClass = "header" }) {
   return (
     <header id="header-main" className={parentClass}>
@@ -49,14 +49,7 @@ export default function Header1({ parentClass = "header" }) {
                     <p>(603) 555-0123</p>
                   </div>
                   <DashboardNav />
-                  <div className="btn-add">
-                    <Link
-                      className="tf-btn style-border pd-23"
-                      href={`/add-property`}
-                    >
-                      Add property
-                    </Link>
-                  </div>
+                  <HeaderAuthCta />
                   <div
                     className="mobile-button"
                     data-bs-toggle="offcanvas"
