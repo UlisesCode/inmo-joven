@@ -68,6 +68,14 @@
                 }
             }
         }
+        // CTA login / publicar (no usar .btn-add: el tema lo oculta en ≤550px)
+        .header-auth-cta {
+            @include mixin.d-flex();
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
         .box-user {
             position: relative;
             @include mixin.d-flex();

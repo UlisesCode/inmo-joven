@@ -1,9 +1,35 @@
 "use client";
 import Link from "next/link";
 import React, { useState } from "react";
+import { signOut, useSession } from "next-auth/react";
 
 export default function DashboardNav({ color = "" }) {
+  const { status } = useSession();
   const [isDDOpen, setIsDDOpen] = useState(false);
+  const authed = status === "authenticated";
+
+  async function handleSignOut(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDDOpen(false);
+    await signOut({ callbackUrl: "/" });
+  }
+
+  if (status === "loading") {
+    return (
+      <div
+        className="box-user tf-action-btns"
+        style={{ minWidth: 120, minHeight: 44 }}
+        aria-hidden
+      />
+    );
+  }
+
+  // Sin sesión: el CTA del header (Iniciar sesión / Registrarse) alcanza; evitamos duplicar.
+  if (!authed) {
+    return null;
+  }
+
   return (
     <div
       className={`box-user tf-action-btns ${isDDOpen ? "active" : ""} `}
@@ -364,39 +390,18 @@ export default function DashboardNav({ color = "" }) {
           </svg>
           Publicar propiedad
         </Link>
-        <div className="dropdown-item ">
-          <svg
-            width={20}
-            height={20}
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M15.749 6C15.749 6.99456 15.3539 7.94839 14.6507 8.65165C13.9474 9.35491 12.9936 9.75 11.999 9.75C11.0044 9.75 10.0506 9.35491 9.34735 8.65165C8.64409 7.94839 8.249 6.99456 8.249 6C8.249 5.00544 8.64409 4.05161 9.34735 3.34835C10.0506 2.64509 11.0044 2.25 11.999 2.25C12.9936 2.25 13.9474 2.64509 14.6507 3.34835C15.3539 4.05161 15.749 5.00544 15.749 6ZM4.5 20.118C4.53213 18.1504 5.33634 16.2742 6.73918 14.894C8.14202 13.5139 10.0311 12.7405 11.999 12.7405C13.9669 12.7405 15.856 13.5139 17.2588 14.894C18.6617 16.2742 19.4659 18.1504 19.498 20.118C17.1454 21.1968 14.5871 21.7535 11.999 21.75C9.323 21.75 6.783 21.166 4.5 20.118Z"
-              stroke="#A8ABAE"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-          <div className="d-flex wrap-login">
-            <a href="#modalLogin" data-bs-toggle="modal">
-              Ingresar
-            </a>
-            <span>/</span>
-            <a href="#modalRegister" data-bs-toggle="modal">
-              Registrate{" "}
-            </a>
-          </div>
-        </div>
-        <Link className="dropdown-item" href={`/`}>
+        <button
+          type="button"
+          className="dropdown-item text-start border-0 bg-transparent w-100"
+          onClick={handleSignOut}
+        >
           <svg
             width={20}
             height={20}
             viewBox="0 0 20 20"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            className="d-inline-block align-middle me-1"
           >
             <path
               d="M7.5 17.5H4.16667C3.72464 17.5 3.30072 17.3244 2.98816 17.0118C2.67559 16.6993 2.5 16.2754 2.5 15.8333V4.16667C2.5 3.72464 2.67559 3.30072 2.98816 2.98816C3.30072 2.67559 3.72464 2.5 4.16667 2.5H7.5"
@@ -421,7 +426,7 @@ export default function DashboardNav({ color = "" }) {
             />
           </svg>
           Salir
-        </Link>
+        </button>
       </div>
     </div>
   );

@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "images:populate-section": "node ./scripts/populate-section-images.mjs"
   },
   "dependencies": {
     "@inmo-joven/database": "*",

@@ -1,33 +1,21 @@
 "use client";
 import SearchForm from "@/components/common/SearchForm";
-import Cursor from "@/components/common/Cursor";
-import Image from "next/image";
 import React, { useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Thumbs } from "swiper/modules";
-import { mainSlidesData, paginationSlidesData } from "@/data/heroSlides";
-import "swiper/css";
-import "swiper/css/free-mode";
-import "swiper/css/thumbs";
 
 export default function Hero() {
-  // State to track the active item
   const [activeItem, setActiveItem] = useState("Venta");
-
-  // Array of items to render
   const items = ["Venta", "Alquiler"];
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   return (
     <div className="page-title home01">
       <div className="tf-container ">
         <div className="row relative">
-          <div className="col-12 col-lg-8">
+          <div className="col-12">
             <div className="content-inner">
               <div className="heading-title">
                 <h1 className="title">Buscá tu mono ambiente</h1>
                 <p className="h6 fw-4">
-                 Encontrá tu mono ambiente con Inmo Joven 
+                  Encontrá tu mono ambiente con Inmo Joven
                 </p>
               </div>
               <div className="wg-filter">
@@ -44,7 +32,7 @@ export default function Hero() {
                           className={`select-item ${
                             activeItem === item ? "active" : ""
                           }`}
-                          onClick={() => setActiveItem(item)} // Set the active item on click
+                          onClick={() => setActiveItem(item)}
                         >
                           <span className="text-value-item">{item}</span>
                         </div>
@@ -142,62 +130,6 @@ export default function Hero() {
                 </div>
                 <SearchForm />
               </div>
-            </div>
-          </div>
-          <div className="col-12 col-lg-4 md-hide">
-            <div className="area-cursor-custom w-100">
-              <Cursor />
-              <Swiper
-                modules={[Thumbs]}
-                thumbs={{
-                  swiper:
-                    thumbsSwiper && !thumbsSwiper.destroyed
-                      ? thumbsSwiper
-                      : null,
-                }}
-                spaceBetween={12}
-                className="thumbs-main"
-              >
-                {mainSlidesData.map((slide, i) => (
-                  <SwiperSlide key={i}>
-                    <div className="image-wrap">
-                      <Image
-                        className="lazyload"
-                        data-src={slide.image.dataSrc ?? slide.image.src}
-                        alt={slide.image.alt}
-                        src={slide.image.src}
-                        width={slide.image.width}
-                        height={slide.image.height}
-                        sizes="(max-width: 991px) 100vw, 33vw"
-                      />
-                    </div>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-              <Swiper
-                modules={[FreeMode, Thumbs]}
-                onSwiper={setThumbsSwiper}
-                watchSlidesProgress
-                slidesPerView={3}
-                spaceBetween={12}
-                freeMode
-                className="mt-3"
-              >
-                {paginationSlidesData.map((slide, i) => (
-                  <SwiperSlide key={i} style={{ width: "auto" }}>
-                    <div className="img-thumb-pagi">
-                      <Image
-                        className="lazyload"
-                        alt={slide.image.alt}
-                        src={slide.image.src}
-                        width={slide.image.width}
-                        height={slide.image.height}
-                        sizes="120px"
-                      />
-                    </div>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
             </div>
           </div>
         </div>

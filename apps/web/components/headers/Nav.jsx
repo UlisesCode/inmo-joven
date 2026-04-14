@@ -137,8 +137,8 @@ export default function Nav() {
           </ul>
         </li>
       ) : null}
-      <li className={"/contact" == pathname ? "current-menu" : ""}>
-        <Link href={`/contact`}>Contact</Link>
+      <li className={pathname === "/contact" ? "current-menu" : ""}>
+        <Link href="/contact">Contacto</Link>
       </li>
     </>
   );

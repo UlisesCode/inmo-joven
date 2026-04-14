@@ -11,9 +11,20 @@ export default function HeaderAuthCta() {
   const { status } = useSession();
   const authed = status === "authenticated";
 
+  // Sin sesión inicial en el provider, status empieza en "loading" y parpadea el CTA.
+  if (status === "loading") {
+    return (
+      <div
+        className="header-auth-cta d-flex gap-2 align-items-center justify-content-end"
+        style={{ minHeight: 48, minWidth: 120 }}
+        aria-hidden
+      />
+    );
+  }
+
   if (authed) {
     return (
-      <div className="btn-add">
+      <div className="header-auth-cta">
         <Link className="tf-btn style-border pd-23" href="/add-property">
           Publicar propiedad
         </Link>
@@ -22,7 +33,7 @@ export default function HeaderAuthCta() {
   }
 
   return (
-    <div className="btn-add d-flex gap-2 align-items-center flex-wrap justify-content-end">
+    <div className="header-auth-cta d-flex gap-2 align-items-center flex-wrap justify-content-end">
       <a
         className="tf-btn style-border pd-23"
         href="#modalLogin"

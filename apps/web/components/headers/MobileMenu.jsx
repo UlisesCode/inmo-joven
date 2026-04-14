@@ -281,12 +281,11 @@ export default function MobileMenu() {
             ) : null}
             <li
               className={`menu-item ${
-                "/contact" == pathname ? "current-item" : ""
+                pathname === "/contact" ? "current-item" : ""
               }`}
             >
-              <Link href={`/contact`} className="tem-menu-mobile">
-                {" "}
-                Contact
+              <Link href="/contact" className="tem-menu-mobile">
+                Contacto
               </Link>
             </li>
           </ul>
