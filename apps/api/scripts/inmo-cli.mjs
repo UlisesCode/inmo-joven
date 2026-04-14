@@ -5,10 +5,13 @@
  *   node scripts/inmo-cli.mjs
  *   node scripts/inmo-cli.mjs tokko-smoke [--webcontact]
  *   node scripts/inmo-cli.mjs seed-demo
+ *   node scripts/inmo-cli.mjs create-user --demo
+ *   node scripts/inmo-cli.mjs create-user email@x.com MiClave123 [Nombre]
  *
- * Desde la raíz del monorepo:
+ * Desde la raíz:
  *   npm run inmo -- tokko-smoke
- *   npm run seed-demo
+ *   npm run setup:local          (Postgres ya corriendo; ver .env.example)
+ *   npm run setup:local:docker (levanta Postgres con Docker y luego setup:local)
  */
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -16,14 +19,41 @@ import dotenv from "dotenv";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
+function loadDatabaseEnv() {
+  dotenv.config({ path: path.resolve(__dirname, "../.env") });
+  dotenv.config({ path: path.resolve(__dirname, "../../../.env") });
+}
+
+function requireDatabaseUrl() {
+  if (!process.env.DATABASE_URL?.trim()) {
+    console.error(
+      "Falta DATABASE_URL.\n" +
+        "  · Creá `inmo-joven/.env` (copiá desde .env.example)\n" +
+        "  · Con Docker: npm run docker:up y la URL del example\n",
+    );
+    process.exit(1);
+  }
+}
+
 function usage() {
   console.info(`Uso:
   npm run inmo -- <comando>     (desde la raíz)
   node scripts/inmo-cli.mjs <comando>
 
 Comandos:
-  tokko-smoke   Prueba la API Tokko (feed + opcional --webcontact)
-  seed-demo     Inserta 2 propiedades demo en la DB (requiere DATABASE_URL)
+  tokko-smoke     Prueba Tokko (opcional --webcontact + TOKKO_API_KEY)
+  seed-demo       Inserta 2 propiedades demo (requiere DATABASE_URL)
+  create-user     Crea usuario para login (misma contraseña que /api/register)
+                  --demo → demo@inmo-joven.test / DemoDemo123
+                  o: create-user email password [nombre]
+                  o variables: DEV_LOGIN_EMAIL, DEV_LOGIN_PASSWORD [, DEV_LOGIN_NAME]
+
+Arranque local (tablas Prisma + usuario demo; Postgres tiene que estar arriba):
+  cp .env.example .env   # DATABASE_URL + AUTH_SECRET
+  npm run setup:local
+  npm run dev
+
+Si usás sólo Docker para Postgres: npm run setup:local:docker  (instalá Docker Desktop)
 `);
 }
 
@@ -109,17 +139,8 @@ async function cmdTokkoSmoke() {
 }
 
 async function cmdSeedDemo() {
-  dotenv.config({ path: path.resolve(__dirname, "../.env") });
-  dotenv.config({ path: path.resolve(__dirname, "../../../.env") });
-
-  if (!process.env.DATABASE_URL?.trim()) {
-    console.error(
-      "Falta DATABASE_URL.\n" +
-        "  · Creá `inmo-joven/.env` o `apps/api/.env` (podés copiar desde .env.example)\n" +
-        "  · Incluí una línea: DATABASE_URL=\"postgresql://...\"",
-    );
-    process.exit(1);
-  }
+  loadDatabaseEnv();
+  requireDatabaseUrl();
 
   const { prisma } = await import("@inmo-joven/database");
   const DEMO_PREFIX = "inmo-joven-demo";
@@ -195,8 +216,82 @@ async function cmdSeedDemo() {
   await prisma.$disconnect();
 }
 
-const raw = process.argv.slice(2).filter((a) => a !== "--");
-const cmd = raw[0];
+/**
+ * @param {string[]} args sin flags (args[0] === "create-user")
+ * @param {Set<string>} flags sin "--" (ej. demo, webcontact)
+ */
+async function cmdCreateUser(args, flags) {
+  loadDatabaseEnv();
+  requireDatabaseUrl();
+
+  let email;
+  let password;
+  let name = null;
+
+  if (flags.has("demo")) {
+    email = "demo@inmo-joven.test";
+    password = "DemoDemo123";
+    name = "Usuario demo";
+  } else if (args[1] && args[2]) {
+    email = String(args[1]).trim().toLowerCase();
+    password = String(args[2]);
+    name = args[3] ? String(args[3]).trim() : null;
+  } else {
+    const e = process.env.DEV_LOGIN_EMAIL?.trim().toLowerCase();
+    const p = process.env.DEV_LOGIN_PASSWORD;
+    const n = process.env.DEV_LOGIN_NAME?.trim();
+    if (e && p) {
+      email = e;
+      password = p;
+      name = n || null;
+    } else {
+      console.error(
+        "Indicá --demo, o email+password como argumentos, o DEV_LOGIN_EMAIL + DEV_LOGIN_PASSWORD en .env",
+      );
+      process.exit(1);
+    }
+  }
+
+  if (!email || !password) {
+    console.error("Email y contraseña son obligatorios.");
+    process.exit(1);
+  }
+  if (password.length < 8) {
+    console.error("La contraseña debe tener al menos 8 caracteres.");
+    process.exit(1);
+  }
+
+  const { default: bcrypt } = await import("bcryptjs");
+  const { prisma } = await import("@inmo-joven/database");
+
+  const existing = await prisma.user.findUnique({ where: { email } });
+  if (existing) {
+    console.info(`Ya existe un usuario con email ${email}. No se modificó nada.`);
+    await prisma.$disconnect();
+    return;
+  }
+
+  const hashed = await bcrypt.hash(password, 12);
+  const user = await prisma.user.create({
+    data: {
+      email,
+      password: hashed,
+      name,
+    },
+    select: { id: true, email: true, name: true, memberNo: true },
+  });
+
+  console.info("Usuario creado:", user);
+  console.info("\nPodés iniciar sesión en el sitio con ese email y contraseña.\n");
+  await prisma.$disconnect();
+}
+
+const argv = process.argv.slice(2);
+const flags = new Set(
+  argv.filter((a) => a.startsWith("--")).map((a) => a.replace(/^--/, "")),
+);
+const args = argv.filter((a) => !a.startsWith("--"));
+const cmd = args[0];
 
 async function main() {
   switch (cmd) {
@@ -205,6 +300,9 @@ async function main() {
       break;
     case "seed-demo":
       await cmdSeedDemo();
+      break;
+    case "create-user":
+      await cmdCreateUser(args, flags);
       break;
     default:
       usage();

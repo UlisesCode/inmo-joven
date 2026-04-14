@@ -9,6 +9,7 @@
     "packages/*"
   ],
   "scripts": {
+    "postinstall": "npm run db:generate",
     "dev": "npm run dev --workspace=@inmo-joven/web",
     "dev:web": "npm run dev --workspace=@inmo-joven/web",
     "dev:api": "npm run dev --workspace=@inmo-joven/api",
@@ -19,7 +20,11 @@
     "seed-demo": "npm run seed-demo --workspace=@inmo-joven/api",
     "db:generate": "prisma generate --schema=packages/database/prisma/schema.prisma",
     "db:migrate": "npm run db:migrate --workspace=@inmo-joven/database",
-    "db:push": "npm run db:push --workspace=@inmo-joven/database"
+    "db:push": "npm run db:push --workspace=@inmo-joven/database",
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down",
+    "setup:local": "npm run db:generate && npm run db:push && npm run inmo -- create-user --demo",
+    "setup:local:docker": "npm run docker:up && npm run setup:local"
   },
   "dependencies": {
     "@prisma/client": "^6.19.2"
