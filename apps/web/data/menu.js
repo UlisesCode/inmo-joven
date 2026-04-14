@@ -9,24 +9,8 @@ export const propertyLinks = [
   },
 ];
 
+/** MVP: pocas rutas visibles; el resto del template sigue en /app por si lo necesitás. */
 export const otherPages = [
-  {
-    title: "Profesionales",
-    className: "has-child",
-    submenu: [
-      { href: "/agents", label: "Agentes" },
-      { href: "/agents-details/1", label: "Detalle agente" },
-    ],
-  },
-  {
-    title: "Inmobiliarias",
-    className: "has-child",
-    submenu: [
-      { href: "/agency-grid", label: "Grilla" },
-      { href: "/agency-list", label: "Listado" },
-      { href: "/agency-details/1", label: "Detalle" },
-    ],
-  },
   { href: "/faq", label: "Preguntas frecuentes" },
   { href: "/dashboard", label: "Mi cuenta" },
 ];
