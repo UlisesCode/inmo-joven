@@ -2,6 +2,7 @@ import "dotenv/config";
 import Fastify from "fastify";
 import cors from "@fastify/cors";
 import { prisma } from "@inmo-joven/database";
+import { registerPropertyRoutes } from "./routes/properties.js";
 
 const port = Number(process.env.API_PORT || process.env.PORT || 4000);
 const webOrigin =
@@ -30,6 +31,8 @@ app.get("/health/db", async (request, reply) => {
     return reply.status(503).send({ ok: false, database: "down" });
   }
 });
+
+registerPropertyRoutes(app);
 
 try {
   await app.listen({ port, host: "0.0.0.0" });
