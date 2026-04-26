@@ -2,6 +2,7 @@ import {
   TOKKO_FREEPORTALS_BASE,
   TOKKO_WEBCONTACT_URL,
 } from "./constants.js";
+import { tokkoRequest } from "./http.js";
 
 /**
  * Arma la URL del feed de propiedades publicables (full, updated, deleted).
@@ -35,10 +36,23 @@ export function buildFreePortalsUrl(params) {
 
 export async function fetchFreePortals(params) {
   const url = buildFreePortalsUrl(params);
-  const res = await fetch(url);
-  const text = await res.text();
-  if (!res.ok) {
-    throw new Error(`Tokko freeportals HTTP ${res.status}: ${text.slice(0, 800)}`);
+  const useNative = process.env.TOKKO_INSECURE_TLS !== "1";
+  let status;
+  let text;
+  if (useNative) {
+    const res = await fetch(url);
+    status = res.status;
+    text = await res.text();
+    if (!res.ok) {
+      throw new Error(`Tokko freeportals HTTP ${status}: ${text.slice(0, 800)}`);
+    }
+  } else {
+    const res = await tokkoRequest(url, { method: "GET" });
+    status = res.status;
+    text = res.text;
+    if (!res.ok) {
+      throw new Error(`Tokko freeportals HTTP ${status}: ${text.slice(0, 800)}`);
+    }
   }
   try {
     return JSON.parse(text);
@@ -53,17 +67,35 @@ export async function fetchFreePortals(params) {
  * @param {Record<string, unknown>} body
  */
 export async function postWebContact(body) {
-  const res = await fetch(TOKKO_WEBCONTACT_URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json", Accept: "application/json" },
-    body: JSON.stringify(body),
-  });
-  const text = await res.text();
+  const payload = JSON.stringify(body);
+  const useNative = process.env.TOKKO_INSECURE_TLS !== "1";
+  let status;
+  let text;
+  if (useNative) {
+    const res = await fetch(TOKKO_WEBCONTACT_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: payload,
+    });
+    status = res.status;
+    text = await res.text();
+  } else {
+    const res = await tokkoRequest(TOKKO_WEBCONTACT_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: payload,
+    });
+    status = res.status;
+    text = res.text;
+  }
   let json;
   try {
     json = JSON.parse(text);
   } catch {
     json = text;
   }
-  return { status: res.status, body: json };
+  return { status, body: json };
 }
