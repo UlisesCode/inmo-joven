@@ -7,7 +7,14 @@ import {
 
 function portalApiKey() {
   const k = process.env.TOKKO_PORTAL_API_KEY?.trim();
-  return k || TOKKO_DEMO_PORTAL_API_KEY;
+  if (!k) return TOKKO_DEMO_PORTAL_API_KEY;
+  const normalized = k.toLowerCase();
+  const placeholder =
+    normalized === "tu_key" ||
+    normalized === "tokko_portal_api_key" ||
+    normalized === "your_key" ||
+    normalized === "changeme";
+  return placeholder ? TOKKO_DEMO_PORTAL_API_KEY : k;
 }
 
 /**

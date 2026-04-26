@@ -12,10 +12,10 @@ function insecureAgent() {
 
 /**
  * @param {string} urlString
- * @param {{ method?: string; headers?: Record<string, string>; body?: string }} [opts]
+ * @param {{ method?: string; headers?: Record<string, string>; body?: string; insecureTls?: boolean }} [opts]
  */
 export function tokkoRequest(urlString, opts = {}) {
-  const insecure = process.env.TOKKO_INSECURE_TLS === "1";
+  const insecure = opts.insecureTls === true || process.env.TOKKO_INSECURE_TLS === "1";
   const u = new URL(urlString);
   const isHttps = u.protocol === "https:";
   const lib = isHttps ? https : http;

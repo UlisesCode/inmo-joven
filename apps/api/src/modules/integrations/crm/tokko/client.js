@@ -5,6 +5,25 @@ import {
 import { tokkoRequest } from "./http.js";
 
 /**
+ * @param {unknown} err
+ */
+function isTlsChainError(err) {
+  if (!(err instanceof Error)) return false;
+  const cause =
+    err.cause && typeof err.cause === "object"
+      ? /** @type {{ code?: unknown; message?: unknown }} */ (err.cause)
+      : null;
+  const code = String(cause?.code ?? "");
+  const msg = String(err.message ?? "");
+  const causeMsg = String(cause?.message ?? "");
+  return (
+    code === "SELF_SIGNED_CERT_IN_CHAIN" ||
+    msg.includes("self-signed certificate") ||
+    causeMsg.includes("self-signed certificate")
+  );
+}
+
+/**
  * Arma la URL del feed de propiedades publicables (full, updated, deleted).
  * @param {object} params
  * @param {string} params.apiKey
@@ -40,11 +59,23 @@ export async function fetchFreePortals(params) {
   let status;
   let text;
   if (useNative) {
-    const res = await fetch(url);
-    status = res.status;
-    text = await res.text();
-    if (!res.ok) {
-      throw new Error(`Tokko freeportals HTTP ${status}: ${text.slice(0, 800)}`);
+    try {
+      const res = await fetch(url);
+      status = res.status;
+      text = await res.text();
+      if (!res.ok) {
+        throw new Error(`Tokko freeportals HTTP ${status}: ${text.slice(0, 800)}`);
+      }
+    } catch (err) {
+      if (!isTlsChainError(err)) {
+        throw err;
+      }
+      const res = await tokkoRequest(url, { method: "GET", insecureTls: true });
+      status = res.status;
+      text = res.text;
+      if (!res.ok) {
+        throw new Error(`Tokko freeportals HTTP ${status}: ${text.slice(0, 800)}`);
+      }
     }
   } else {
     const res = await tokkoRequest(url, { method: "GET" });
