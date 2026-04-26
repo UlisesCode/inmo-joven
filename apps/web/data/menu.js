@@ -5,7 +5,10 @@ export const homes = [{ href: "/", label: "Inicio" }];
 export const propertyLinks = [
   {
     title: "Propiedades",
-    submenu: [{ href: "/buscar", label: "Buscar (mapa)" }],
+    submenu: [
+      { href: "/departamentos-venta", label: "Departamentos en venta" },
+      { href: "/departamentos-alquiler", label: "Departamentos en alquiler" },
+    ],
   },
 ];
 

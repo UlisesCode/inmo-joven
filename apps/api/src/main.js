@@ -1,4 +1,13 @@
-import "dotenv/config";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import dotenv from "dotenv";
+
+// Monorepo: el `.env` está en la raíz; `dotenv/config` solo mira el cwd (a veces `apps/api/`).
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const monorepoRoot = path.resolve(__dirname, "..", "..", "..");
+dotenv.config({ path: path.join(monorepoRoot, ".env") });
+dotenv.config({ path: path.join(monorepoRoot, ".env.local") });
+
 import Fastify from "fastify";
 import cors from "@fastify/cors";
 import { prisma } from "@inmo-joven/database";

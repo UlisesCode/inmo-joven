@@ -1,23 +1,18 @@
-import Footer1 from "@/components/footers/Footer1";
-import Header1 from "@/components/headers/Header1";
-import Properties5 from "@/components/properties/Properties5";
-import { Suspense } from "react";
+import { redirect } from "next/navigation";
 
 export const metadata = {
-  title: "Buscar propiedades | Inmo Joven",
-  description: "Encontrá propiedades en mapa y listado.",
+  title: "Buscar | Inmo Joven",
+  description: "Redirige al listado de departamentos en venta.",
 };
 
-export default function BuscarPage() {
-  return (
-    <div id="wrapper">
-      <Header1 />
-      <div className="main-content">
-        <Suspense fallback={<p className="text-1 tf-container py-40">Cargando…</p>}>
-          <Properties5 />
-        </Suspense>
-      </div>
-      <Footer1 />
-    </div>
-  );
+/**
+ * Compatibilidad: /buscar?q=… → /departamentos-venta/q/…
+ */
+export default async function BuscarPage({ searchParams }) {
+  const sp = await searchParams;
+  const q = typeof sp?.q === "string" ? sp.q.trim() : "";
+  if (q) {
+    redirect(`/departamentos-venta/q/${encodeURIComponent(q)}`);
+  }
+  redirect("/departamentos-venta");
 }

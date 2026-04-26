@@ -1,13 +1,36 @@
 import { fetchFreePortals } from "../modules/integrations/crm/tokko/client.js";
 import { TOKKO_DEMO_PORTAL_API_KEY } from "../modules/integrations/crm/tokko/constants.js";
 import {
-  tokkoObjectToListingDto,
   tokkoObjectMatchesQuery,
+  tokkoObjectToListingDto,
 } from "../lib/tokko-listing-dto.js";
 
 function portalApiKey() {
   const k = process.env.TOKKO_PORTAL_API_KEY?.trim();
   return k || TOKKO_DEMO_PORTAL_API_KEY;
+}
+
+/**
+ * @param {unknown} raw
+ * @returns {"sale" | "rent" | null}
+ */
+function parseListingOperationFilter(raw) {
+  if (typeof raw !== "string") return null;
+  const o = raw.trim().toLowerCase();
+  if (o === "sale" || o === "venta") return "sale";
+  if (o === "rent" || o === "alquiler") return "rent";
+  return null;
+}
+
+/**
+ * @param {ReturnType<typeof tokkoObjectToListingDto>} dto
+ * @param {"sale" | "rent" | null} op
+ */
+function listingDtoMatchesOperation(dto, op) {
+  if (!op) return true;
+  if (op === "sale") return dto.operation === "sale" || dto.forSale === true;
+  if (op === "rent") return dto.operation === "rent";
+  return true;
 }
 
 /**
@@ -18,38 +41,97 @@ export function registerTokkoListingRoutes(app) {
     const limit = Math.min(Math.max(Number(request.query.limit) || 24, 1), 50);
     const qRaw = request.query.q;
     const q = typeof qRaw === "string" ? qRaw.trim() : "";
-    let tokkoOffset = Math.max(Number(request.query.offset) || 0, 0);
+    const operationFilter = parseListingOperationFilter(
+      typeof request.query.operation === "string"
+        ? request.query.operation
+        : "",
+    );
+    const skip = Math.max(Number(request.query.offset) || 0, 0);
 
     try {
       if (!q) {
-        const data = await fetchFreePortals({
-          apiKey: portalApiKey(),
-          limit,
-          offset: tokkoOffset,
-          lang: "es-AR",
-        });
-        const objects = (data.objects || []).filter(Boolean);
-        const items = objects.map(tokkoObjectToListingDto);
-        const meta = data.meta && typeof data.meta === "object" ? data.meta : {};
-        const total =
-          typeof meta.total_count === "number"
-            ? meta.total_count
-            : items.length;
+        if (!operationFilter) {
+          const data = await fetchFreePortals({
+            apiKey: portalApiKey(),
+            limit,
+            offset: skip,
+            lang: "es-AR",
+          });
+          const objects = (data.objects || []).filter(Boolean);
+          const items = objects.map(tokkoObjectToListingDto);
+          const meta = data.meta && typeof data.meta === "object" ? data.meta : {};
+          const total =
+            typeof meta.total_count === "number"
+              ? meta.total_count
+              : items.length;
+          return {
+            items,
+            total,
+            limit,
+            offset: skip,
+            source: "tokko",
+          };
+        }
+
+        const batch = 50;
+        const maxTokkoScan = 8000;
+        let tokkoOff = 0;
+        let tokkoScanned = 0;
+        /** @type {ReturnType<typeof tokkoObjectToListingDto>[]} */
+        const items = [];
+        let passed = 0;
+
+        while (items.length < limit && tokkoScanned < maxTokkoScan) {
+          const data = await fetchFreePortals({
+            apiKey: portalApiKey(),
+            limit: batch,
+            offset: tokkoOff,
+            lang: "es-AR",
+          });
+          const objects = (data.objects || []).filter(Boolean);
+          if (!objects.length) break;
+
+          for (const raw of objects) {
+            tokkoScanned += 1;
+            const dto = tokkoObjectToListingDto(
+              raw && typeof raw === "object"
+                ? /** @type {Record<string, unknown>} */ (raw)
+                : /** @type {Record<string, unknown>} */ ({}),
+            );
+            if (!listingDtoMatchesOperation(dto, operationFilter)) continue;
+            if (passed < skip) {
+              passed += 1;
+              continue;
+            }
+            items.push(dto);
+            if (items.length >= limit) break;
+          }
+
+          if (items.length >= limit) break;
+          if (objects.length < batch) break;
+          tokkoOff += objects.length;
+        }
+
+        const hasMore = items.length === limit;
+
         return {
           items,
-          total,
+          total: skip + items.length,
           limit,
-          offset: tokkoOffset,
+          offset: skip,
           source: "tokko",
+          operation: operationFilter,
+          has_more: hasMore,
         };
       }
 
       const needle = q.toLowerCase();
       const batch = 50;
       const maxScan = 400;
-      let scanned = 0;
+      let tokkoOffset = Math.max(Number(request.query.offset) || 0, 0);
       /** @type {ReturnType<typeof tokkoObjectToListingDto>[]} */
       const matches = [];
+      let scanned = 0;
 
       while (matches.length < limit && scanned < maxScan) {
         const data = await fetchFreePortals({
@@ -67,9 +149,10 @@ export function registerTokkoListingRoutes(app) {
             raw && typeof raw === "object"
               ? /** @type {Record<string, unknown>} */ (raw)
               : {};
-          if (tokkoObjectMatchesQuery(o, needle)) {
-            matches.push(tokkoObjectToListingDto(o));
-          }
+          if (!tokkoObjectMatchesQuery(o, needle)) continue;
+          const dto = tokkoObjectToListingDto(o);
+          if (!listingDtoMatchesOperation(dto, operationFilter)) continue;
+          matches.push(dto);
           if (matches.length >= limit) break;
         }
 
@@ -87,6 +170,7 @@ export function registerTokkoListingRoutes(app) {
         q,
         scanned,
         truncated: scanned >= maxScan && matches.length < limit,
+        ...(operationFilter ? { operation: operationFilter } : {}),
       };
     } catch (err) {
       request.log.error(err);

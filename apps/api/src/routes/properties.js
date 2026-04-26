@@ -2,6 +2,22 @@ import { prisma } from "@inmo-joven/database";
 import { propertyToListingDto } from "../lib/listing-dto.js";
 
 /**
+ * @param {unknown} err
+ */
+function isDatabaseUnreachable(err) {
+  if (!err || typeof err !== "object") return false;
+  const o = /** @type {{ name?: string; code?: string; message?: string }} */ (
+    err
+  );
+  const msg = String(o.message || "");
+  return (
+    o.name === "PrismaClientInitializationError" ||
+    o.code === "P1001" ||
+    msg.includes("Can't reach database server")
+  );
+}
+
+/**
  * @param {import("fastify").FastifyInstance} app
  */
 export function registerPropertyRoutes(app) {
@@ -19,22 +35,40 @@ export function registerPropertyRoutes(app) {
       where.city = { contains: city, mode: "insensitive" };
     }
 
-    const [total, rows] = await prisma.$transaction([
-      prisma.property.count({ where }),
-      prisma.property.findMany({
-        where,
-        orderBy: { updatedAt: "desc" },
-        take: limit,
-        skip: offset,
-      }),
-    ]);
+    try {
+      const [total, rows] = await prisma.$transaction([
+        prisma.property.count({ where }),
+        prisma.property.findMany({
+          where,
+          orderBy: { updatedAt: "desc" },
+          take: limit,
+          skip: offset,
+        }),
+      ]);
 
-    return {
-      items: rows.map(propertyToListingDto),
-      total,
-      limit,
-      offset,
-    };
+      return {
+        items: rows.map(propertyToListingDto),
+        total,
+        limit,
+        offset,
+      };
+    } catch (err) {
+      if (isDatabaseUnreachable(err)) {
+        request.log.warn(
+          { err },
+          "Base de datos no disponible: /properties devuelve listado vacío.",
+        );
+        return {
+          items: [],
+          total: 0,
+          limit,
+          offset,
+          database: "unavailable",
+        };
+      }
+      request.log.error(err);
+      return reply.status(500).send({ error: "internal_error" });
+    }
   });
 
   app.get("/properties/:id", async (request, reply) => {
@@ -42,12 +76,21 @@ export function registerPropertyRoutes(app) {
     if (typeof id !== "string" || !id) {
       return reply.status(400).send({ error: "invalid_id" });
     }
-    const row = await prisma.property.findFirst({
-      where: { id, status: "active" },
-    });
-    if (!row) {
-      return reply.status(404).send({ error: "not_found" });
+    try {
+      const row = await prisma.property.findFirst({
+        where: { id, status: "active" },
+      });
+      if (!row) {
+        return reply.status(404).send({ error: "not_found" });
+      }
+      return propertyToListingDto(row);
+    } catch (err) {
+      if (isDatabaseUnreachable(err)) {
+        request.log.warn({ err }, "Base de datos no disponible: /properties/:id");
+        return reply.status(503).send({ error: "database_unavailable" });
+      }
+      request.log.error(err);
+      return reply.status(500).send({ error: "internal_error" });
     }
-    return propertyToListingDto(row);
   });
 }

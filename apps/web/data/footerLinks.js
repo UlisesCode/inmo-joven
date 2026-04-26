@@ -3,7 +3,8 @@ export const footerData = [
     title: "Sitio",
     links: [
       { text: "Inicio", href: "/" },
-      { text: "Buscar propiedades", href: "/buscar" },
+      { text: "Departamentos en venta", href: "/departamentos-venta" },
+      { text: "Departamentos en alquiler", href: "/departamentos-alquiler" },
       { text: "Contacto", href: "/contact" },
       { text: "Preguntas frecuentes", href: "/faq" },
     ],
