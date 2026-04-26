@@ -11,6 +11,14 @@ dotenv.config({ path: path.join(monorepoRoot, ".env.local") });
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    remotePatterns: [
+      { protocol: "https", hostname: "www.tokkobroker.com", pathname: "/**" },
+      { protocol: "https", hostname: "tokkobroker.com", pathname: "/**" },
+      { protocol: "http", hostname: "www.tokkobroker.com", pathname: "/**" },
+      { protocol: "http", hostname: "tokkobroker.com", pathname: "/**" },
+    ],
+  },
   serverExternalPackages: [
     "@prisma/client",
     "@prisma/engines",

@@ -1,10 +1,19 @@
 "use client";
 import SearchForm from "@/components/common/SearchForm";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 export default function Hero() {
+  const router = useRouter();
   const [activeItem, setActiveItem] = useState("Venta");
+  const [heroQuery, setHeroQuery] = useState("");
   const items = ["Venta", "Alquiler"];
+
+  const goBuscar = (e) => {
+    e.preventDefault();
+    const q = heroQuery.trim();
+    router.push(q ? `/buscar?q=${encodeURIComponent(q)}` : "/buscar");
+  };
 
   return (
     <div className="page-title home01">
@@ -39,11 +48,14 @@ export default function Hero() {
                       ))}
                     </div>
                   </div>
-                  <form onSubmit={(e) => e.preventDefault()}>
+                  <form onSubmit={goBuscar}>
                     <fieldset>
                       <input
                         type="text"
                         placeholder="Avenida, barrio, comuna..."
+                        value={heroQuery}
+                        onChange={(e) => setHeroQuery(e.target.value)}
+                        name="q"
                       />
                     </fieldset>
                   </form>
@@ -123,9 +135,13 @@ export default function Hero() {
                         </svg>
                       </div>
                     </div>
-                    <a href="#" className="tf-btn bg-color-primary pd-3">
+                    <button
+                      type="button"
+                      className="tf-btn bg-color-primary pd-3"
+                      onClick={goBuscar}
+                    >
                       Buscar <i className="icon-MagnifyingGlass fw-6" />
-                    </a>
+                    </button>
                   </div>
                 </div>
                 <SearchForm />

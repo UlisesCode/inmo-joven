@@ -3,19 +3,36 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-export default function PropertyGridItems2() {
+/**
+ * @param {{ items?: typeof properties11; emptyMessage?: string }} props
+ */
+export default function PropertyGridItems2({
+  items = properties11,
+  emptyMessage = "No hay propiedades para mostrar.",
+}) {
+  if (!items?.length) {
+    return <p className="text-1 py-40 text-center">{emptyMessage}</p>;
+  }
+
   return (
     <>
-      {properties11.map((property) => (
-        <div className="box-house hover-img" key={property.id}>
+      {items.map((property) => {
+        const remote =
+          typeof property.imageSrc === "string" &&
+          property.imageSrc.startsWith("http");
+        return (
+        <div className="box-house hover-img" key={String(property.id)}>
           <div className="image-wrap">
-            <Link href={`/property-detail-v1/${property.id}`}>
+            <Link
+              href={`/property-detail-v1/${encodeURIComponent(String(property.id))}`}
+            >
               <Image
                 className="lazyload"
                 alt={property.title}
                 src={property.imageSrc}
-                width={property.imageWidth}
-                height={property.imageHeight}
+                width={property.imageWidth ?? 615}
+                height={property.imageHeight ?? 405}
+                unoptimized={remote}
               />
             </Link>
             <ul className="box-tag flex gap-8">
@@ -43,7 +60,9 @@ export default function PropertyGridItems2() {
           </div>
           <div className="content">
             <h5 className="title">
-              <Link href={`/property-detail-v1/${property.id}`}>
+              <Link
+                href={`/property-detail-v1/${encodeURIComponent(String(property.id))}`}
+              >
                 {property.title}
               </Link>{" "}
             </h5>
@@ -58,14 +77,19 @@ export default function PropertyGridItems2() {
                 <span>{property.baths}</span>Baths
               </li>
               <li className="text-1 flex">
-                <span>{property.sqft}</span>Sqft
+                <span>{property.sqft}</span>
               </li>
             </ul>
             <div className="bot flex justify-between items-center">
-              <h5 className="price">${property.price.toLocaleString()}</h5>
+              <h5 className="price">
+                {property.currency && property.currency !== "USD"
+                  ? `${property.currency} `
+                  : "$"}
+                {Number(property.price).toLocaleString("es-AR")}
+              </h5>
               <div className="wrap-btn flex">
                 <Link
-                  href={`/property-detail-v1/${property.id}`}
+                  href={`/property-detail-v1/${encodeURIComponent(String(property.id))}`}
                   className="tf-btn style-border pd-4"
                 >
                   Ver detalle
@@ -74,7 +98,8 @@ export default function PropertyGridItems2() {
             </div>
           </div>
         </div>
-      ))}
+        );
+      })}
     </>
   );
 }

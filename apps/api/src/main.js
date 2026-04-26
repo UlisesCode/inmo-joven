@@ -3,6 +3,7 @@ import Fastify from "fastify";
 import cors from "@fastify/cors";
 import { prisma } from "@inmo-joven/database";
 import { registerPropertyRoutes } from "./routes/properties.js";
+import { registerTokkoListingRoutes } from "./routes/tokko-listings.js";
 
 const port = Number(process.env.API_PORT || process.env.PORT || 4000);
 const webOrigin =
@@ -33,6 +34,7 @@ app.get("/health/db", async (request, reply) => {
 });
 
 registerPropertyRoutes(app);
+registerTokkoListingRoutes(app);
 
 try {
   await app.listen({ port, host: "0.0.0.0" });

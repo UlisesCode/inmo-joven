@@ -5,18 +5,35 @@ import Cta from "@/components/common/Cta";
 import Details1 from "@/components/propertyDetails/Details1";
 import RelatedProperties from "@/components/propertyDetails/RelatedProperties";
 import Slider1 from "@/components/propertyDetails/sliders/Slider1";
-import React from "react";
 import { allProperties } from "@/data/properties";
+import { fetchTokkoPublication } from "@/lib/server-tokko";
+import { notFound } from "next/navigation";
+import React from "react";
 
 export const metadata = {
   title: "Detalle de propiedad | Inmo Joven",
   description: "Información de la propiedad.",
 };
 export default async function page({ params }) {
-  const { id } = await params;
+  const { id: rawId } = await params;
+  const id = decodeURIComponent(String(rawId));
 
-  const property =
-    allProperties.filter((elm) => elm.id == id)[0] || allProperties[0];
+  let property = allProperties.find((elm) => String(elm.id) === String(id));
+  if (!property) {
+    const tokko = await fetchTokkoPublication(id);
+    if (tokko) {
+      property = {
+        ...tokko,
+        long:
+          tokko.lng != null && !Number.isNaN(Number(tokko.lng))
+            ? Number(tokko.lng)
+            : tokko.long,
+      };
+    }
+  }
+  if (!property) {
+    notFound();
+  }
 
   return (
     <>

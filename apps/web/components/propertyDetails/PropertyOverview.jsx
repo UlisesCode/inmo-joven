@@ -1,6 +1,14 @@
 import React from "react";
 
 export default function PropertyOverview({ property }) {
+  const price = Number(property.price) || 0;
+  const currency = property.currency || "USD";
+  const priceLabel =
+    currency === "USD"
+      ? `$${price.toLocaleString("es-AR")}`
+      : `${currency} ${price.toLocaleString("es-AR")}`;
+  const rentSuffix = property.operation === "rent";
+
   return (
     <>
       <div className="heading flex justify-between">
@@ -8,25 +16,27 @@ export default function PropertyOverview({ property }) {
           {property.title}
         </div>
         <div className="price text-5 fw-6 text-color-heading">
-          $250,00{" "}
-          <span className="h5 lh-30 fw-4 text-color-default">/mes</span>
+          {priceLabel}{" "}
+          {rentSuffix ? (
+            <span className="h5 lh-30 fw-4 text-color-default">/mes</span>
+          ) : null}
         </div>
       </div>
       <div className="info flex justify-between">
         <div className="feature">
           <p className="location text-1 flex items-center gap-10">
             <i className="icon-location" />
-            Av. Santa Fe 2345, CABA
+            {property.location || "—"}
           </p>
           <ul className="meta-list flex">
             <li className="text-1 flex">
-              <span>3</span>Dorm.
+              <span>{property.beds ?? 0}</span>Dorm.
             </li>
             <li className="text-1 flex">
-              <span>3</span>Baños
+              <span>{property.baths ?? 0}</span>Baños
             </li>
             <li className="text-1 flex">
-              <span>4,043</span>m²
+              <span>{property.sqft ?? "—"}</span>
             </li>
           </ul>
         </div>
