@@ -12,9 +12,9 @@ export default function Hero() {
   const goBuscar = (e) => {
     e.preventDefault();
     const q = heroQuery.trim();
-    router.push(
-      q ? `/departamentos-venta/q/${encodeURIComponent(q)}` : "/departamentos-venta",
-    );
+    const base =
+      activeItem === "Alquiler" ? "/departamentos-alquiler" : "/departamentos-venta";
+    router.push(q ? `${base}/q/${encodeURIComponent(q)}` : base);
   };
 
   return (
