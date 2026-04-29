@@ -221,6 +221,11 @@
   }
 }
 
+/* Header: CTAs login no se achican en layouts apretados */
+.header .header-right .header-auth-cta {
+  flex-shrink: 0;
+}
+
 /* --- Listado ecommerce /departamentos-venta --- */
 .main-content--listing-ec {
   padding-top: 0;

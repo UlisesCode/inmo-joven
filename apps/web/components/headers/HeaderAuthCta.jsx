@@ -11,14 +11,21 @@ export default function HeaderAuthCta() {
   const { status } = useSession();
   const authed = status === "authenticated";
 
-  // Sin sesión inicial en el provider, status empieza en "loading" y parpadea el CTA.
+  // Sin bloque vacío: durante loading el usuario sigue viendo CTAs (evita “sin login”).
   if (status === "loading") {
     return (
       <div
         className="header-auth-cta d-flex gap-2 align-items-center justify-content-end"
-        style={{ minHeight: 48, minWidth: 120 }}
-        aria-hidden
-      />
+        aria-busy="true"
+        aria-label="Cargando sesión"
+      >
+        <span className="tf-btn style-border pd-23 disabled opacity-75" style={{ pointerEvents: "none" }}>
+          Iniciar sesión
+        </span>
+        <span className="tf-btn bg-color-primary pd-23 disabled opacity-75" style={{ pointerEvents: "none" }}>
+          Registrarse
+        </span>
+      </div>
     );
   }
 

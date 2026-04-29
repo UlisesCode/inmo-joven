@@ -1,5 +1,6 @@
 "use client";
 import { blogMenu, homes, otherPages, propertyLinks } from "@/data/menu";
+import MobileMenuAuth from "@/components/headers/MobileMenuAuth";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -42,6 +43,7 @@ export default function MobileMenu() {
         </div>
       </div>
       <div className="offcanvas-body inner-mobile-nav">
+        <MobileMenuAuth />
         <div className="mb-body">
           <ul id="menu-mobile-menu">
             {homes.length === 1 ? (
