@@ -41,10 +41,18 @@ function formatListingPrice(property) {
 
 /** @param {Record<string, unknown>} property */
 function secondaryTag(property) {
+  const op =
+    typeof property.operation === "string"
+      ? property.operation.trim().toLowerCase()
+      : "";
+  if (op === "rent" || op === "alquiler") return "Alquiler";
+  if (op === "sale" || op === "venta") return "Venta";
   if (typeof property.operation === "string" && property.operation.trim()) {
     return property.operation.trim();
   }
-  return "For Sale";
+  if (property.forSale === false) return "Alquiler";
+  if (property.forSale === true) return "Venta";
+  return "Venta";
 }
 
 /** @param {Record<string, unknown>} property */
@@ -71,7 +79,9 @@ function ListingCard({ property }) {
           <ListingImage src={imageSrc} alt={title} />
         </Link>
         <ul className="box-tag flex gap-8 ">
-          <li className="flat-tag text-4 bg-main fw-6 text_white">Featured</li>
+          {property.featured ? (
+            <li className="flat-tag text-4 bg-main fw-6 text_white">Destacado</li>
+          ) : null}
           <li className="flat-tag text-4 bg-3 fw-6 text_white">
             {secondaryTag(property)}
           </li>

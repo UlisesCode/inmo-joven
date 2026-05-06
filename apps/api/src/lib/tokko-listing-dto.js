@@ -163,6 +163,38 @@ function pickTokkoId(obj) {
 }
 
 /**
+ * Tokko / portal suele exponer distintos flags para “destacado” en web.
+ * @param {Record<string, unknown>} obj
+ */
+function pickTokkoFeatured(obj) {
+  const attr =
+    getTokkoAttribute(obj, "destacado") ??
+    getTokkoAttribute(obj, "destacada") ??
+    getTokkoAttribute(obj, "highlight");
+  if (attr != null) {
+    const s = String(attr).trim().toLowerCase();
+    if (s === "1" || s === "true" || s === "sí" || s === "si" || s === "yes") {
+      return true;
+    }
+  }
+  const flags = [
+    obj.highlighted,
+    obj.featured,
+    obj.web_highlight,
+    obj.in_highlight,
+    obj.show_in_home,
+    obj.portal_highlighted,
+  ];
+  for (const f of flags) {
+    if (f === true || f === 1) return true;
+    if (typeof f === "string" && ["1", "true", "yes", "sí", "si"].includes(f.trim().toLowerCase())) {
+      return true;
+    }
+  }
+  return false;
+}
+
+/**
  * @param {unknown} raw
  */
 export function tokkoObjectToListingDto(raw) {
@@ -216,7 +248,7 @@ export function tokkoObjectToListingDto(raw) {
     operation,
     imageSrc: pickPrimaryImageUrl(obj),
     forSale: operation !== "rent",
-    featured: false,
+    featured: pickTokkoFeatured(obj),
     imageWidth: 615,
     imageHeight: 405,
     lat,
