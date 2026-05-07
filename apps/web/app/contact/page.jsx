@@ -7,7 +7,7 @@ import Header1 from "@/components/headers/Header1";
 import React from "react";
 
 export const metadata = {
-  title: "Contacto | Inmo Joven",
+  title: "Contacto | Monoambiente",
   description: "Escribinos para consultas sobre propiedades, alquileres o tu primera compra.",
 };
 export default function page() {

@@ -17,7 +17,7 @@ const HOME_LISTINGS_MAX = 12;
 const HOME_TOKKO_PREFETCH = 8;
 
 export const metadata = {
-  title: "Inmo Joven | Tu primera experiencia inmobiliaria",
+  title: "Monoambiente | Tu primera experiencia inmobiliaria",
   description:
     "Plataforma inmobiliaria pensada para quienes compran, alquilan o invierten por primera vez.",
 };

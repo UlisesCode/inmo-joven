@@ -1,5 +1,5 @@
 {
-  "name": "@inmo-joven/worker",
+  "name": "@monoambiente/worker",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -8,6 +8,6 @@
     "start": "node src/main.js"
   },
   "dependencies": {
-    "@inmo-joven/shared": "*"
+    "@monoambiente/shared": "*"
   }
 }

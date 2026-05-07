@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
-import { prisma } from "@inmo-joven/database";
+import { prisma } from "@monoambiente/database";
 
 export async function POST(request) {
   let body;

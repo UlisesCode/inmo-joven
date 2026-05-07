@@ -106,7 +106,7 @@ export default function Footer1({ logo = "/images/logo/logo-2@2x.png" }) {
                   <div className="content">
                     <div className="title text-1">Soporte</div>
                     <h6 className="fw-4">
-                      <a href="#">hola@inmojoven.com</a>
+                      <a href="#">hola@monoambiente.com</a>
                     </h6>
                   </div>
                 </div>
@@ -282,7 +282,7 @@ export default function Footer1({ logo = "/images/logo/logo-2@2x.png" }) {
           <div className="footer-bottom">
             <p>
               © {new Date().getFullYear()}{" "}
-              <span className="fw-7">Inmo Joven</span>. Todos los derechos
+              <span className="fw-7">Monoambiente</span>. Todos los derechos
               reservados.
             </p>
             <div className="wrap-social">

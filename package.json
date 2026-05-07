@@ -1,5 +1,5 @@
 {
-  "name": "inmo-joven",
+  "name": "monoambiente",
   "private": true,
   "devDependencies": {
     "prisma": "^6.19.2"
@@ -10,20 +10,20 @@
   ],
   "scripts": {
     "postinstall": "npm run db:generate",
-    "dev": "npm run dev --workspace=@inmo-joven/web",
-    "dev:web": "npm run dev --workspace=@inmo-joven/web",
-    "dev:api": "npm run dev --workspace=@inmo-joven/api",
-    "dev:worker": "npm run dev --workspace=@inmo-joven/worker",
-    "build:web": "npm run build --workspace=@inmo-joven/web",
-    "lint:web": "npm run lint --workspace=@inmo-joven/web",
-    "inmo": "npm run inmo --workspace=@inmo-joven/api --",
-    "seed-demo": "npm run seed-demo --workspace=@inmo-joven/api",
+    "dev": "npm run dev --workspace=@monoambiente/web",
+    "dev:web": "npm run dev --workspace=@monoambiente/web",
+    "dev:api": "npm run dev --workspace=@monoambiente/api",
+    "dev:worker": "npm run dev --workspace=@monoambiente/worker",
+    "build:web": "npm run build --workspace=@monoambiente/web",
+    "lint:web": "npm run lint --workspace=@monoambiente/web",
+    "mono": "npm run mono --workspace=@monoambiente/api --",
+    "seed-demo": "npm run seed-demo --workspace=@monoambiente/api",
     "db:generate": "prisma generate --schema=packages/database/prisma/schema.prisma",
-    "db:migrate": "npm run db:migrate --workspace=@inmo-joven/database",
-    "db:push": "npm run db:push --workspace=@inmo-joven/database",
+    "db:migrate": "npm run db:migrate --workspace=@monoambiente/database",
+    "db:push": "npm run db:push --workspace=@monoambiente/database",
     "docker:up": "docker compose up -d",
     "docker:down": "docker compose down",
-    "setup:local": "npm run db:generate && npm run db:push && npm run inmo -- create-user --demo",
+    "setup:local": "npm run db:generate && npm run db:push && npm run mono -- create-user --demo",
     "setup:local:docker": "npm run docker:up && npm run setup:local"
   },
   "dependencies": {

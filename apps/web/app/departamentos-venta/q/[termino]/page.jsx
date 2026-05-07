@@ -16,7 +16,7 @@ export async function generateMetadata({ params }) {
     q = raw;
   }
   return {
-    title: `Departamentos en venta: ${q} | Inmo Joven`,
+    title: `Departamentos en venta: ${q} | Monoambiente`,
     description: `Departamentos en venta. Resultados para «${q}».`,
   };
 }

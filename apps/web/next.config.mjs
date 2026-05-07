@@ -24,7 +24,7 @@ const nextConfig = {
   serverExternalPackages: [
     "@prisma/client",
     "@prisma/engines",
-    "@inmo-joven/database",
+    "@monoambiente/database",
   ],
 };
 

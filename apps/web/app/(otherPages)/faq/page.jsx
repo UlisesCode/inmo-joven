@@ -7,8 +7,8 @@ import Faqs from "@/components/otherPages/faq/Faqs";
 import React from "react";
 
 export const metadata = {
-  title: "Preguntas frecuentes | Inmo Joven",
-  description: "Respuestas a las dudas más comunes sobre compra, alquiler e Inmo Joven.",
+  title: "Preguntas frecuentes | Monoambiente",
+  description: "Respuestas a las dudas más comunes sobre compra, alquiler y Monoambiente.",
 };
 
 export default function page() {

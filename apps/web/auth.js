@@ -1,7 +1,7 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
-import { prisma } from "@inmo-joven/database";
+import { prisma } from "@monoambiente/database";
 
 // Sin PrismaAdapter: sesión JWT + credentials; el adapter suele chocar con este flujo en Auth.js v5.
 export const { handlers, auth, signIn, signOut } = NextAuth({

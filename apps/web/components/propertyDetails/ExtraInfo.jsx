@@ -8,7 +8,7 @@ export default function ExtraInfo() {
       </div>
       <div className="content">
         <p className="description text-1">
-          Propiedad de ejemplo en Inmo Joven: luminosa, buena orientación y
+          Propiedad de ejemplo en Monoambiente: luminosa, buena orientación y
           accesos a transporte. Los datos reales se mostrarán cuando la
           publicación esté conectada a tu CRM o base de datos. Consultá
           superficies, estado y documentación con el asesor.

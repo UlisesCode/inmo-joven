@@ -22,7 +22,7 @@ export default function Faqs() {
                     aria-expanded="false"
                     aria-controls="accordion-faq-one"
                   >
-                    ¿Por qué elegir Inmo Joven?
+                    ¿Por qué elegir Monoambiente?
                     <i className="icon-CaretDown" />
                   </a>
                   <div
@@ -46,7 +46,7 @@ export default function Faqs() {
                     aria-expanded="false"
                     aria-controls="accordion-faq-two"
                   >
-                    ¿Para quién está pensado Inmo Joven?
+                    ¿Para quién está pensado Monoambiente?
                     <i className="icon-CaretDown" />
                   </a>
                   <div
@@ -105,7 +105,7 @@ export default function Faqs() {
                     <p className="faq-body">
                       Sí. Podés escribirnos por el formulario de contacto, correo
                       o los canales que figuren en el sitio; en horario hábil te
-                      responde una persona del equipo de Inmo Joven.
+                      responde una persona del equipo de Monoambiente.
                     </p>
                   </div>
                 </li>
@@ -314,7 +314,7 @@ export default function Faqs() {
                     aria-expanded="false"
                     aria-controls="accordion3-faq-two"
                   >
-                    ¿Puedo integrar Inmo Joven con otros sistemas?
+                    ¿Puedo integrar Monoambiente con otros sistemas?
                     <i className="icon-CaretDown" />
                   </a>
                   <div
@@ -438,7 +438,7 @@ export default function Faqs() {
                     />
                   </div>
                   <div className="content">
-                    <h6 className="name">Equipo Inmo Joven</h6>
+                    <h6 className="name">Equipo Monoambiente</h6>
                     <ul className="contact">
                       <li>
                         <i className="icon-phone-1" />
@@ -446,7 +446,7 @@ export default function Faqs() {
                       </li>
                       <li>
                         <i className="icon-mail" />
-                        <a href="#">hola@inmojoven.com</a>
+                        <a href="#">hola@monoambiente.com</a>
                       </li>
                     </ul>
                   </div>

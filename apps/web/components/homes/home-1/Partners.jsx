@@ -17,7 +17,7 @@ export default function Partners() {
                   className="text-1 text_white wow animate__fadeInUp animate__animated"
                   data-wow-duration="1.5s"
                 >
-                  Asociate con Inmo Joven y llegá a más personas en su primera
+                  Asociate con Monoambiente y llegá a más personas en su primera
                   experiencia inmobiliaria.
                 </p>
               </div>
@@ -41,7 +41,7 @@ export default function Partners() {
                     className="text-1 split-text split-lines-transform"
                     data-wow-duration="1.5s"
                   >
-                    Publicá con el equipo de Inmo Joven y llegá a compradores y
+                    Publicá con el equipo de Monoambiente y llegá a compradores y
                     inquilinos primerizos.
                   </p>
                 </div>

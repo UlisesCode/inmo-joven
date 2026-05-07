@@ -5,21 +5,21 @@
 services:
   postgres:
     image: postgres:16-alpine
-    container_name: inmo-joven-postgres
+    container_name: monoambiente-postgres
     restart: unless-stopped
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_USER: inmo_joven
-      POSTGRES_PASSWORD: inmo_joven_dev
-      POSTGRES_DB: inmo_joven
+      POSTGRES_USER: monoambiente
+      POSTGRES_PASSWORD: monoambiente_dev
+      POSTGRES_DB: monoambiente
     volumes:
-      - inmo_joven_pgdata:/var/lib/postgresql/data
+      - monoambiente_pgdata:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U inmo_joven -d inmo_joven"]
+      test: ["CMD-SHELL", "pg_isready -U monoambiente -d monoambiente"]
       interval: 3s
       timeout: 5s
       retries: 15
 
 volumes:
-  inmo_joven_pgdata:
+  monoambiente_pgdata:

@@ -10,7 +10,7 @@ dotenv.config({ path: path.join(monorepoRoot, ".env.local") });
 
 import Fastify from "fastify";
 import cors from "@fastify/cors";
-import { prisma } from "@inmo-joven/database";
+import { prisma } from "@monoambiente/database";
 import { registerPropertyRoutes } from "./routes/properties.js";
 import { registerTokkoListingRoutes } from "./routes/tokko-listings.js";
 
@@ -29,7 +29,7 @@ await app.register(cors, {
 
 app.get("/health", async () => ({
   ok: true,
-  service: "@inmo-joven/api",
+  service: "@monoambiente/api",
 }));
 
 app.get("/health/db", async (request, reply) => {

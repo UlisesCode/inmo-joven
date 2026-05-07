@@ -28,7 +28,7 @@ export default function Sidebar() {
               </li>
               <li>
                 <i className="icon-mail" />
-                <a href="#">hola@inmojoven.com</a>
+                <a href="#">hola@monoambiente.com</a>
               </li>
             </ul>
           </div>

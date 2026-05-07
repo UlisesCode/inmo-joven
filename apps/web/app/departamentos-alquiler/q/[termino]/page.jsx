@@ -16,7 +16,7 @@ export async function generateMetadata({ params }) {
     q = raw;
   }
   return {
-    title: `Departamentos en alquiler: ${q} | Inmo Joven`,
+    title: `Departamentos en alquiler: ${q} | Monoambiente`,
     description: `Departamentos en alquiler. Resultados para «${q}».`,
   };
 }

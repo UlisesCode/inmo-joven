@@ -6,7 +6,7 @@ import Link from "next/link";
 import React from "react";
 
 export const metadata = {
-  title: "Página no encontrada | Inmo Joven",
+  title: "Página no encontrada | Monoambiente",
   description: "La página que buscás no existe o fue movida.",
 };
 export default function page() {

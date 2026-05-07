@@ -31,7 +31,7 @@ export function tokkoRequest(urlString, opts = {}) {
         agent,
         headers: {
           Accept: "application/json",
-          "User-Agent": "inmo-joven-api",
+          "User-Agent": "monoambiente-api",
           ...opts.headers,
         },
       },

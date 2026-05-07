@@ -33,7 +33,7 @@ export default function Cta() {
                   </h2>
                   <p className="text-1 text_white">
                     Te respondemos dudas sobre publicaciones, planes y soporte
-                    técnico de Inmo Joven.
+                    técnico de Monoambiente.
                   </p>
                 </div>
                 <div className="wrap-btn">

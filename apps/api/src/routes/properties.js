@@ -1,4 +1,4 @@
-import { prisma } from "@inmo-joven/database";
+import { prisma } from "@monoambiente/database";
 import { propertyToListingDto } from "../lib/listing-dto.js";
 
 /**

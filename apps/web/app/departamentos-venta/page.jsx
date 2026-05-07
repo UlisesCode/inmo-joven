@@ -3,7 +3,7 @@ import DepartamentosListingShell from "@/components/listings/DepartamentosListin
 import { Suspense } from "react";
 
 export const metadata = {
-  title: "Departamentos en venta | Inmo Joven",
+  title: "Departamentos en venta | Monoambiente",
   description:
     "Departamentos en venta. Listado desde Tokko con filtros y ordenamiento.",
 };

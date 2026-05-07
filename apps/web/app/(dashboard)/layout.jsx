@@ -3,8 +3,8 @@ import Header1 from "@/components/headers/Header1";
 import React from "react";
 
 export const metadata = {
-  title: "Mi cuenta | Inmo Joven",
-  description: "Panel de usuario: perfil, favoritos y propiedades en Inmo Joven.",
+  title: "Mi cuenta | Monoambiente",
+  description: "Panel de usuario: perfil, favoritos y propiedades en Monoambiente.",
 };
 export default function page({ children }) {
   return (

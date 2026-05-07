@@ -2,14 +2,14 @@
 /**
  * Herramientas de desarrollo (un solo entrypoint).
  *
- *   node scripts/inmo-cli.mjs
- *   node scripts/inmo-cli.mjs tokko-smoke [--webcontact]
- *   node scripts/inmo-cli.mjs seed-demo
- *   node scripts/inmo-cli.mjs create-user --demo
- *   node scripts/inmo-cli.mjs create-user email@x.com MiClave123 [Nombre]
+ *   node scripts/mono-cli.mjs
+ *   node scripts/mono-cli.mjs tokko-smoke [--webcontact]
+ *   node scripts/mono-cli.mjs seed-demo
+ *   node scripts/mono-cli.mjs create-user --demo
+ *   node scripts/mono-cli.mjs create-user email@x.com MiClave123 [Nombre]
  *
  * Desde la raíz:
- *   npm run inmo -- tokko-smoke
+ *   npm run mono -- tokko-smoke
  *   npm run setup:local          (Postgres ya corriendo; ver .env.example)
  *   npm run setup:local:docker (levanta Postgres con Docker y luego setup:local)
  */
@@ -28,7 +28,7 @@ function requireDatabaseUrl() {
   if (!process.env.DATABASE_URL?.trim()) {
     console.error(
       "Falta DATABASE_URL.\n" +
-        "  · Creá `inmo-joven/.env` (copiá desde .env.example)\n" +
+        "  · Creá `.env` en la raíz del monorepo (copiá desde .env.example)\n" +
         "  · Con Docker: npm run docker:up y la URL del example\n",
     );
     process.exit(1);
@@ -37,14 +37,14 @@ function requireDatabaseUrl() {
 
 function usage() {
   console.info(`Uso:
-  npm run inmo -- <comando>     (desde la raíz)
-  node scripts/inmo-cli.mjs <comando>
+  npm run mono -- <comando>     (desde la raíz)
+  node scripts/mono-cli.mjs <comando>
 
 Comandos:
   tokko-smoke     Prueba Tokko (opcional --webcontact + TOKKO_API_KEY)
   seed-demo       Inserta 2 propiedades demo (requiere DATABASE_URL)
   create-user     Crea usuario para login (misma contraseña que /api/register)
-                  --demo → demo@inmo-joven.test / DemoDemo123
+                  --demo → demo@monoambiente.test / DemoDemo123
                   o: create-user email password [nombre]
                   o variables: DEV_LOGIN_EMAIL, DEV_LOGIN_PASSWORD [, DEV_LOGIN_NAME]
 
@@ -125,12 +125,12 @@ async function cmdTokkoSmoke() {
   console.info("\n=== Tokko — webcontact (POST) ===");
   const payload = {
     first_name: "Prueba",
-    last_name: "InmoJoven",
-    email: "prueba-inmo-joven@example.com",
+    last_name: "Monoambiente",
+    email: "prueba-monoambiente@example.com",
     phone: "+5490000000000",
-    message: "Consulta de prueba generada por apps/api/scripts/inmo-cli.mjs",
+    message: "Consulta de prueba generada por apps/api/scripts/mono-cli.mjs",
     subject: "Consulta de propiedades",
-    source: "inmo-joven / smoke",
+    source: "monoambiente / smoke",
     key: crmKey,
   };
   const contact = await postWebContact(payload);
@@ -142,8 +142,8 @@ async function cmdSeedDemo() {
   loadDatabaseEnv();
   requireDatabaseUrl();
 
-  const { prisma } = await import("@inmo-joven/database");
-  const DEMO_PREFIX = "inmo-joven-demo";
+  const { prisma } = await import("@monoambiente/database");
+  const DEMO_PREFIX = "monoambiente-demo";
 
   const existing = await prisma.property.count({
     where: { publicationId: { startsWith: DEMO_PREFIX } },
@@ -170,7 +170,7 @@ async function cmdSeedDemo() {
       bedrooms: 1,
       bathrooms: 1,
       areaSqm: 32,
-      description: "Propiedad de prueba generada por inmo-cli seed-demo",
+      description: "Propiedad de prueba generada por mono-cli seed-demo",
       images: ["/images/section/box-house.jpg"],
     },
     {
@@ -188,7 +188,7 @@ async function cmdSeedDemo() {
       bedrooms: 3,
       bathrooms: 2,
       areaSqm: 180,
-      description: "Propiedad de prueba generada por inmo-cli seed-demo",
+      description: "Propiedad de prueba generada por mono-cli seed-demo",
       images: ["/images/section/box-house-2.jpg"],
     },
   ];
@@ -229,7 +229,7 @@ async function cmdCreateUser(args, flags) {
   let name = null;
 
   if (flags.has("demo")) {
-    email = "demo@inmo-joven.test";
+    email = "demo@monoambiente.test";
     password = "DemoDemo123";
     name = "Usuario demo";
   } else if (args[1] && args[2]) {
@@ -262,7 +262,7 @@ async function cmdCreateUser(args, flags) {
   }
 
   const { default: bcrypt } = await import("bcryptjs");
-  const { prisma } = await import("@inmo-joven/database");
+  const { prisma } = await import("@monoambiente/database");
 
   const existing = await prisma.user.findUnique({ where: { email } });
   if (existing) {

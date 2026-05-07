@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 
 export const metadata = {
-  title: "Buscar | Inmo Joven",
+  title: "Buscar | Monoambiente",
   description: "Redirige al listado de departamentos en venta o alquiler.",
 };
 

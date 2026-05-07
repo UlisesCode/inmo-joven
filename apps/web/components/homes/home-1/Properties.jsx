@@ -176,7 +176,7 @@ export default function Properties({ listings }) {
                 <SplitTextAnimation text="Propiedades destacadas" />
               </h2>
               <p className="text-1 split-text split-lines-transform">
-                Miles de personas como vos buscan su primer hogar con Inmo Joven.
+                Miles de personas como vos buscan su primer hogar con Monoambiente.
               </p>
             </div>
             <div

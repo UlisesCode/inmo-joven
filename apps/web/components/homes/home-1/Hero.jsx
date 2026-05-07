@@ -26,30 +26,32 @@ export default function Hero() {
               <div className="heading-title">
                 <h1 className="title">Buscá tu mono ambiente</h1>
                 <p className="h6 fw-4">
-                  Encontrá tu mono ambiente con Inmo Joven
+                  Encontrá tu próximo hogar en monoambiente.com
                 </p>
               </div>
               <div className="wg-filter">
+                <div
+                  className="hero-operation-toggle d-flex flex-wrap justify-content-center gap-12 mb-16"
+                  role="group"
+                  aria-label="Tipo de operación"
+                >
+                  {items.map((item) => (
+                    <button
+                      key={item}
+                      type="button"
+                      className={`tf-btn pd-3 ${
+                        activeItem === item
+                          ? "bg-color-primary"
+                          : "style-border color-white"
+                      }`}
+                      aria-pressed={activeItem === item}
+                      onClick={() => setActiveItem(item)}
+                    >
+                      {item}
+                    </button>
+                  ))}
+                </div>
                 <div className="form-title">
-                  <div className="tf-dropdown-sort " data-bs-toggle="dropdown">
-                    <div className="btn-select">
-                      <span className="text-sort-value">{activeItem}</span>
-                      <i className="icon-CaretDown" />
-                    </div>
-                    <div className="dropdown-menu">
-                      {items.map((item) => (
-                        <div
-                          key={item}
-                          className={`select-item ${
-                            activeItem === item ? "active" : ""
-                          }`}
-                          onClick={() => setActiveItem(item)}
-                        >
-                          <span className="text-value-item">{item}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
                   <form onSubmit={goBuscar}>
                     <fieldset>
                       <input

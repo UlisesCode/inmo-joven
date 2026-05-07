@@ -11,7 +11,7 @@ import { notFound } from "next/navigation";
 import React from "react";
 
 export const metadata = {
-  title: "Detalle de propiedad | Inmo Joven",
+  title: "Detalle de propiedad | Monoambiente",
   description: "Información de la propiedad.",
 };
 export default async function page({ params }) {
