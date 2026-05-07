@@ -15,6 +15,8 @@ const nextConfig = {
     remotePatterns: [
       { protocol: "https", hostname: "www.tokkobroker.com", pathname: "/**" },
       { protocol: "https", hostname: "tokkobroker.com", pathname: "/**" },
+      /** Fotos del feed freeportals (CDN distinta al dominio de la API). */
+      { protocol: "https", hostname: "static.tokkobroker.com", pathname: "/**" },
       { protocol: "http", hostname: "www.tokkobroker.com", pathname: "/**" },
       { protocol: "http", hostname: "tokkobroker.com", pathname: "/**" },
     ],
