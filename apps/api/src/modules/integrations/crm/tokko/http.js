@@ -31,7 +31,7 @@ export function tokkoRequest(urlString, opts = {}) {
         agent,
         headers: {
           Accept: "application/json",
-          "User-Agent": "monoambiente-api",
+          "User-Agent": "monoambientes-api",
           ...opts.headers,
         },
       },

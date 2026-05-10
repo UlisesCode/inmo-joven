@@ -2,6 +2,75 @@
   animation-timing-function: linear !important;
   transition-timing-function: linear !important;
 }
+
+/* Home: sincroniza contraste de texto con el fondo activo del Theme Mode. */
+.home-main-content {
+  --home-bg: #ffffff;
+  --home-heading: #2c2e33;
+  --home-text: #5c5e61;
+  --home-text-muted: rgba(44, 46, 51, 0.6);
+
+  background-color: var(--home-bg);
+  color: var(--home-text);
+
+  .heading-section .title,
+  .box-house .title a,
+  .icons-box .title a,
+  .form-pre-approved label {
+    color: var(--home-heading);
+  }
+
+  .heading-section p,
+  .box-house .location,
+  .box-house .meta-list,
+  .icons-box p,
+  .form-pre-approved p {
+    color: var(--home-text-muted);
+  }
+
+  /* Tarjetas de "Explorá los barrios": el texto siempre va en blanco
+     sobre la imagen. Si la imagen tarda en cargar, el fallback oscuro evita
+     que los rótulos queden blanco-sobre-blanco. */
+  .section-neighborhoods .box-location {
+    background-color: #2c2e33;
+
+    .image-wrap a::after {
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0) 45%,
+        rgba(0, 0, 0, 0.65) 100%
+      );
+    }
+
+    .content {
+      h6,
+      .tf-btn {
+        color: #ffffff !important;
+      }
+    }
+  }
+}
+
+body.dark-theme .home-main-content {
+  --home-bg: #1f2124;
+  --home-heading: #ffffff;
+  --home-text: rgba(255, 255, 255, 0.8);
+  --home-text-muted: rgba(255, 255, 255, 0.65);
+
+  .box-house,
+  .icons-box,
+  .form-pre-approved {
+    background-color: #2c2e33;
+  }
+}
+
+body:not(.dark-theme) .home-main-content {
+  .box-house,
+  .icons-box,
+  .form-pre-approved {
+    background-color: #ffffff;
+  }
+}
 .swiper.autoplay-linear .swiper-wrapper {
   animation-timing-function: linear !important;
   transition-timing-function: linear !important;

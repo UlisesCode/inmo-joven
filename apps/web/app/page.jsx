@@ -51,7 +51,7 @@ export default async function Home() {
     <>
       <Header1 />
       <Hero />
-      <div className="main-content ">
+      <div className="main-content home-main-content">
         <Categories />
         <Properties
           {...(homeListings !== undefined ? { listings: homeListings } : {})}

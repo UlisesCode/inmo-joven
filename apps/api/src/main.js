@@ -14,7 +14,7 @@ import { prisma } from "@monoambiente/database";
 import { registerPropertyRoutes } from "./routes/properties.js";
 import { registerTokkoListingRoutes } from "./routes/tokko-listings.js";
 
-const port = Number(process.env.API_PORT || process.env.PORT || 4000);
+const port = Number(process.env.PORT || process.env.API_PORT || 4000);
 const webOrigin =
   process.env.WEB_ORIGIN || "http://localhost:3000";
 

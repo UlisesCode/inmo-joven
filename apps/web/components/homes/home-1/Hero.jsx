@@ -26,7 +26,7 @@ export default function Hero() {
               <div className="heading-title">
                 <h1 className="title">Buscá tu mono ambiente</h1>
                 <p className="h6 fw-4">
-                  Encontrá tu próximo hogar en monoambiente.com
+                  Encontrá tu próximo hogar en monoambientes.com
                 </p>
               </div>
               <div className="wg-filter">

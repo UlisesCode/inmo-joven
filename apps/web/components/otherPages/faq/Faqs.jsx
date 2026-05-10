@@ -446,7 +446,7 @@ export default function Faqs() {
                       </li>
                       <li>
                         <i className="icon-mail" />
-                        <a href="#">hola@monoambiente.com</a>
+                        <a href="#">hola@monoambientes.com</a>
                       </li>
                     </ul>
                   </div>

@@ -23,6 +23,8 @@
     "db:push": "npm run db:push --workspace=@monoambiente/database",
     "docker:up": "docker compose up -d",
     "docker:down": "docker compose down",
+    "docker:api:build": "docker build -f apps/api/Dockerfile -t monoambiente-api .",
+    "docker:api:run": "docker run --rm -p 4000:4000 -e DATABASE_URL -e WEB_ORIGIN=http://localhost:3000 monoambiente-api",
     "setup:local": "npm run db:generate && npm run db:push && npm run mono -- create-user --demo",
     "setup:local:docker": "npm run docker:up && npm run setup:local"
   },

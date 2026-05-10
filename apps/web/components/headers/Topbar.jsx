@@ -17,7 +17,7 @@ export default function Topbar() {
                 <li>
                   <i className="icon-mail" />
                   <p>
-                    Correo: <a href="#">hola@monoambiente.com</a>
+                    Correo: <a href="#">hola@monoambientes.com</a>
                   </p>
                 </li>
               </ul>

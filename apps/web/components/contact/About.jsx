@@ -168,7 +168,7 @@ export default function About() {
                   </div>
                   <div className="content">
                     <div className="sub">Correo</div>
-                    <a href="#">hola@monoambiente.com</a>
+                    <a href="#">hola@monoambientes.com</a>
                   </div>
                 </li>
               </ul>
