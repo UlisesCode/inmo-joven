@@ -5,7 +5,9 @@ import RootLayoutClient from "./RootLayoutClient";
 export const dynamic = "force-dynamic";
 
 export default async function RootLayout({ children }) {
-  const session = await auth();
+  const raw = await auth();
+  // Solo pasar sesión al cliente si hay usuario (evita estados raros de Auth.js / caché).
+  const session = raw?.user ? raw : null;
 
   return (
     <html lang="es">

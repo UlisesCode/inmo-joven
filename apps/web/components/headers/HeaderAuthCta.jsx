@@ -8,8 +8,8 @@ import { useSession } from "next-auth/react";
  * con sesión, va a publicar propiedad.
  */
 export default function HeaderAuthCta() {
-  const { status } = useSession();
-  const authed = status === "authenticated";
+  const { data: session, status } = useSession();
+  const authed = status === "authenticated" && Boolean(session?.user);
 
   // Sin bloque vacío: durante loading el usuario sigue viendo CTAs (evita “sin login”).
   if (status === "loading") {

@@ -3,8 +3,11 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import axios from "axios";
+import { useSession } from "next-auth/react";
 import { footerData } from "@/data/footerLinks";
 export default function Footer1({ logo = "/images/logo/logo-2@2x.png" }) {
+  const { data: session, status } = useSession();
+  const authed = status === "authenticated" && Boolean(session?.user);
   useEffect(() => {
     const headings = document.querySelectorAll(".title-mobile");
 
@@ -127,15 +130,55 @@ export default function Footer1({ logo = "/images/logo/logo-2@2x.png" }) {
                     </h5>
                     <h5 className="title lh-30 title-mobile">{column.title}</h5>
                     <ul className="tf-collapse-content">
-                      {column.links.map((link, linkIndex) => (
-                        <li key={linkIndex}>
-                          {link.href.startsWith("/") ? (
-                            <Link href={link.href}>{link.text}</Link>
+                      {column.title === "Cuenta" ? (
+                        <>
+                          {status === "loading" ? (
+                            <li>
+                              <span className="text-muted small">Cargando…</span>
+                            </li>
+                          ) : authed ? (
+                            <>
+                              <li>
+                                <Link href="/dashboard">Mi cuenta</Link>
+                              </li>
+                              <li>
+                                <Link href="/add-property">Publicar propiedad</Link>
+                              </li>
+                            </>
                           ) : (
-                            <a href={link.href}>{link.text}</a>
+                            <>
+                              <li>
+                                <a
+                                  href="#modalLogin"
+                                  data-bs-toggle="modal"
+                                  role="button"
+                                >
+                                  Iniciar sesión
+                                </a>
+                              </li>
+                              <li>
+                                <a
+                                  href="#modalRegister"
+                                  data-bs-toggle="modal"
+                                  role="button"
+                                >
+                                  Registrarse
+                                </a>
+                              </li>
+                            </>
                           )}
-                        </li>
-                      ))}
+                        </>
+                      ) : (
+                        column.links.map((link, linkIndex) => (
+                          <li key={linkIndex}>
+                            {link.href.startsWith("/") ? (
+                              <Link href={link.href}>{link.text}</Link>
+                            ) : (
+                              <a href={link.href}>{link.text}</a>
+                            )}
+                          </li>
+                        ))
+                      )}
                     </ul>
                   </div>
                 </div>

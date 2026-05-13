@@ -4,9 +4,9 @@ import React, { useState } from "react";
 import { signOut, useSession } from "next-auth/react";
 
 export default function DashboardNav({ color = "" }) {
-  const { status } = useSession();
+  const { data: session, status } = useSession();
   const [isDDOpen, setIsDDOpen] = useState(false);
-  const authed = status === "authenticated";
+  const authed = status === "authenticated" && Boolean(session?.user);
 
   async function handleSignOut(e) {
     e.preventDefault();

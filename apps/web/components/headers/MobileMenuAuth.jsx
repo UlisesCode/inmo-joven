@@ -9,7 +9,8 @@ import React from "react";
  * el header desktop usa HeaderAuthCta; en móvil el drawbar no los repetía.
  */
 export default function MobileMenuAuth() {
-  const { status } = useSession();
+  const { data: session, status } = useSession();
+  const authed = status === "authenticated" && Boolean(session?.user);
 
   if (status === "loading") {
     return (
@@ -36,7 +37,7 @@ export default function MobileMenuAuth() {
     );
   }
 
-  if (status === "authenticated") {
+  if (authed) {
     return (
       <div className="mobile-menu-auth px-3 pb-3 border-bottom border-light d-flex flex-column gap-2">
         <Link className="tf-btn bg-color-primary text-center" href="/dashboard">

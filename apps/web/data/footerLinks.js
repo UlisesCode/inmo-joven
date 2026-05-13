@@ -12,7 +12,8 @@ export const footerData = [
   },
   {
     title: "Cuenta",
-    links: [{ text: "Mi cuenta", href: "/dashboard" }],
+    /** Los enlaces de esta columna se arman en Footer1 según sesión (next-auth). */
+    links: [],
   },
   {
     title: "Legal",

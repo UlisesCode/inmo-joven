@@ -13,10 +13,8 @@ export const propertyLinks = [
 ];
 
 /** MVP: pocas rutas visibles; el resto del template sigue en /app por si lo necesitás. */
-export const otherPages = [
-  { href: "/faq", label: "Preguntas frecuentes" },
-  { href: "/dashboard", label: "Mi cuenta" },
-];
+/** "Mi cuenta" no va aquí: es solo con sesión (dropdown en header / footer dinámico). */
+export const otherPages = [{ href: "/faq", label: "Preguntas frecuentes" }];
 
 /** Reservado para fase contenidos / comunidad. Vacío = oculta el ítem Blog en el header. */
 export const blogMenu = [];

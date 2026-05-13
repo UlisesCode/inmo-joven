@@ -5,7 +5,8 @@ import { prisma } from "@monoambiente/database";
 
 // Sin PrismaAdapter: sesión JWT + credentials; el adapter suele chocar con este flujo en Auth.js v5.
 export const { handlers, auth, signIn, signOut } = NextAuth({
-  secret: process.env.AUTH_SECRET,
+  // Vercel / legado: muchos proyectos siguen con NEXTAUTH_SECRET en el dashboard.
+  secret: process.env.AUTH_SECRET || process.env.NEXTAUTH_SECRET,
   trustHost: true,
   session: {
     strategy: "jwt",
