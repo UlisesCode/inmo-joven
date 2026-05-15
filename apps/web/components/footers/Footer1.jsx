@@ -142,7 +142,7 @@ export default function Footer1({ logo = "/images/logo/logo-2@2x.png" }) {
                                 <Link href="/dashboard">Mi cuenta</Link>
                               </li>
                               <li>
-                                <Link href="/add-property">Publicar propiedad</Link>
+                                <Link href="/add-property">Publicar mi mono</Link>
                               </li>
                             </>
                           ) : (

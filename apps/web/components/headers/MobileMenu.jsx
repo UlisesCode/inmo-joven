@@ -1,25 +1,47 @@
 "use client";
-import { blogMenu, homes, otherPages, propertyLinks } from "@/data/menu";
+
+import {
+  blogMenu,
+  homes,
+  monoShop,
+  otherPages,
+  propertyLinks,
+} from "@/data/menu";
 import MobileMenuAuth from "@/components/headers/MobileMenuAuth";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useSession } from "next-auth/react";
 import React from "react";
+
+function isExternalHref(href) {
+  return typeof href === "string" && /^https?:\/\//i.test(href);
+}
 
 export default function MobileMenu() {
   const pathname = usePathname();
+  const { data: session, status } = useSession();
+  const authed = status === "authenticated" && Boolean(session?.user);
+
   const isParentActive = (menus) =>
     menus.some((menu) =>
       menu.submenu
         ? menu.submenu.some((item) =>
             item.submenu
               ? item.submenu.some(
-                  (item) => item.href.split("/")[1] === pathname.split("/")[1]
+                  (seg) => seg.href.split("/")[1] === pathname.split("/")[1],
                 )
-              : item.href.split("/")[1] === pathname.split("/")[1]
+              : item.href.split("/")[1] === pathname.split("/")[1],
           )
-        : menu.href.split("/")[1] === pathname.split("/")[1]
+        : menu.href.split("/")[1] === pathname.split("/")[1],
     );
+
+  const buscarTitle = propertyLinks[0]?.title ?? "Buscar un mono";
+  const communityOuter =
+    otherPages.length === 1 && otherPages[0].submenu
+      ? otherPages[0].title
+      : "Comunidad";
+
   return (
     <div
       className="offcanvas offcanvas-start mobile-nav-wrap"
@@ -95,240 +117,201 @@ export default function MobileMenu() {
                 </div>
               </li>
             )}
+
             <li
               className={`menu-item menu-item-has-children-mobile  ${
                 isParentActive(propertyLinks) ? "current-menu-item" : ""
               } `}
             >
               <a
-                href="#dropdown-menu-two"
+                href="#mobile-dd-buscar"
                 className="item-menu-mobile collapsed"
                 data-bs-toggle="collapse"
-                aria-expanded="true"
-                aria-controls="dropdown-menu-two"
+                aria-expanded="false"
+                aria-controls="mobile-dd-buscar"
               >
-                Propiedades
+                {buscarTitle}
               </a>
               <div
-                id="dropdown-menu-two"
+                id="mobile-dd-buscar"
                 className="collapse"
                 data-bs-parent="#menu-mobile-menu"
               >
                 <ul className="sub-mobile">
-                  {propertyLinks.map((links, i) => (
-                    <li
-                      key={i}
-                      className={`menu-item menu-item-has-children-mobile-2 ${
-                        isParentActive(links.submenu) ? "current-menu-item" : ""
-                      }`}
-                    >
-                      <a
-                        href="#sub-layout"
-                        className="item-menu-mobile collapsed"
-                        data-bs-toggle="collapse"
-                        aria-expanded="true"
-                        aria-controls="sub-agents"
+                  {propertyLinks.flatMap((group) =>
+                    group.submenu.map((link, i2) => (
+                      <li
+                        key={`${group.title}-${link.href}-${i2}`}
+                        className={
+                          pathname.split("/")[1] == link.href.split("/")[1]
+                            ? "menu-item current-item"
+                            : "menu-item "
+                        }
                       >
-                        {links.title}
-                      </a>
-                      <div
-                        id="sub-layout"
-                        className="collapse"
-                        data-bs-parent="#dropdown-menu-two"
-                      >
-                        <ul className="sub-mobile">
-                          {links.submenu.map((link, i2) => (
-                            <li
-                              key={i2}
-                              className={
-                                pathname.split("/")[1] ==
-                                link.href.split("/")[1]
-                                  ? "menu-item current-item"
-                                  : "menu-item "
-                              }
-                            >
-                              <Link
-                                href={link.href}
-                                className="item-menu-mobile"
-                              >
-                                {link.label}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </li>
-                  ))}
+                        {isExternalHref(link.href) ? (
+                          <a
+                            href={link.href}
+                            className="item-menu-mobile"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {link.label}
+                          </a>
+                        ) : (
+                          <Link
+                            href={link.href}
+                            className="item-menu-mobile"
+                          >
+                            {link.label}
+                          </Link>
+                        )}
+                      </li>
+                    )),
+                  )}
                 </ul>
               </div>
             </li>
+
             <li
               className={`menu-item menu-item-has-children-mobile   ${
                 isParentActive(otherPages) ? "current-menu-item" : ""
               } `}
             >
               <a
-                href="#dropdown-menu-four"
+                href="#mobile-dd-community"
                 className="item-menu-mobile collapsed"
                 data-bs-toggle="collapse"
-                aria-expanded="true"
-                aria-controls="dropdown-menu-four"
+                aria-expanded="false"
+                aria-controls="mobile-dd-community"
               >
-                Más
+                {communityOuter}
               </a>
               <div
-                id="dropdown-menu-four"
+                id="mobile-dd-community"
                 className="collapse"
                 data-bs-parent="#menu-mobile-menu"
               >
                 <ul className="sub-mobile">
-                  {otherPages.map((links, i) => (
-                    <React.Fragment key={i}>
-                      {links.submenu ? (
-                        <li
-                          className={`menu-item menu-item-has-children-mobile-2   ${
-                            isParentActive(links.submenu || [])
-                              ? "current-menu-item"
-                              : ""
-                          }   `}
-                        >
+                  {otherPages.flatMap((group, gi) =>
+                    (group.submenu || []).map((link, i2) => (
+                      <li
+                        key={`${gi}-${link.href}-${i2}`}
+                        className={`menu-item ${
+                          link.href?.split("/")[1] == pathname.split("/")[1]
+                            ? "current-item"
+                            : ""
+                        }`}
+                      >
+                        {isExternalHref(link.href) ? (
                           <a
-                            href="#sub-agents"
-                            className="item-menu-mobile collapsed"
-                            data-bs-toggle="collapse"
-                            aria-expanded="true"
-                            aria-controls="sub-agents"
+                            href={link.href}
+                            className="item-menu-mobile"
+                            target="_blank"
+                            rel="noopener noreferrer"
                           >
-                            {links.title}
+                            {link.label}
                           </a>
-                          <div
-                            id="sub-agents"
-                            className="collapse"
-                            data-bs-parent="#dropdown-menu-four"
+                        ) : (
+                          <Link
+                            href={link.href}
+                            className="item-menu-mobile"
                           >
-                            <ul className="sub-mobile">
-                              {links.submenu.map((link, i2) => (
-                                <li
-                                  className={`menu-item ${
-                                    link.href?.split("/")[1] ==
-                                    pathname.split("/")[1]
-                                      ? "current-item"
-                                      : ""
-                                  }`}
-                                  key={i2}
-                                >
-                                  <Link
-                                    href={link.href}
-                                    className="item-menu-mobile"
-                                  >
-                                    {link.label}
-                                  </Link>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        </li>
-                      ) : (
-                        <li
-                          className={`menu-item ${
-                            links.href?.split("/")[1] == pathname.split("/")[1]
-                              ? "current-item"
-                              : ""
-                          }`}
-                        >
-                          <Link href={links.href}>{links.label}</Link>
-                        </li>
-                      )}
-                    </React.Fragment>
-                  ))}
+                            {link.label}
+                          </Link>
+                        )}
+                      </li>
+                    )),
+                  )}
                 </ul>
               </div>
             </li>
-            {blogMenu.length > 0 ? (
-              <li
-                className={`menu-item menu-item-has-children-mobile ${
-                  isParentActive(blogMenu) ? "current-menu-item" : ""
-                } `}
+
+            <li className="menu-item">
+              <a
+                href={monoShop.href}
+                className="tem-menu-mobile"
+                target="_blank"
+                rel="noopener noreferrer"
               >
+                {monoShop.label}
+              </a>
+            </li>
+
+            {blogMenu.length >= 1 ? (
+              <li
+                className={`menu-item ${
+                  pathname.split("/")[1] === blogMenu[0].href.split("/")[1]
+                    ? "current-item"
+                    : ""
+                }`}
+              >
+                <Link href={blogMenu[0].href} className="tem-menu-mobile">
+                  {blogMenu[0].label}
+                </Link>
+              </li>
+            ) : null}
+
+            <li
+              className={`menu-item ${
+                pathname.split("/")[1] === "add-property"
+                  ? "current-item"
+                  : ""
+              }`}
+            >
+              <Link href="/add-property" className="tem-menu-mobile">
+                Publicar mi mono
+              </Link>
+            </li>
+
+            {!authed && status !== "loading" ? (
+              <li className="menu-item menu-item-has-children-mobile">
                 <a
-                  href="#dropdown-menu-five"
+                  href="#mobile-dd-ingresar"
                   className="item-menu-mobile collapsed"
                   data-bs-toggle="collapse"
-                  aria-expanded="true"
-                  aria-controls="dropdown-menu-five"
+                  aria-expanded="false"
+                  aria-controls="mobile-dd-ingresar"
                 >
-                  Blogs
+                  Ingresar
                 </a>
                 <div
-                  id="dropdown-menu-five"
+                  id="mobile-dd-ingresar"
                   className="collapse"
                   data-bs-parent="#menu-mobile-menu"
                 >
                   <ul className="sub-mobile">
-                    {blogMenu.map((link, i) => (
-                      <li
-                        key={i}
-                        className={
-                          link.href.split("/")[1] == pathname.split("/")[1]
-                            ? "menu-item current-item"
-                            : "menu-item"
-                        }
+                    <li className="menu-item">
+                      <a
+                        href="#modalLogin"
+                        className="item-menu-mobile"
+                        data-bs-toggle="modal"
+                        role="button"
                       >
-                        <Link href={link.href}>{link.label}</Link>
-                      </li>
-                    ))}
+                        Login
+                      </a>
+                    </li>
+                    <li className="menu-item">
+                      <a
+                        href="#modalRegister"
+                        className="item-menu-mobile"
+                        data-bs-toggle="modal"
+                        role="button"
+                      >
+                        Quiero ser un monero
+                      </a>
+                    </li>
                   </ul>
                 </div>
               </li>
             ) : null}
-            <li
-              className={`menu-item ${
-                pathname === "/contact" ? "current-item" : ""
-              }`}
-            >
-              <Link href="/contact" className="tem-menu-mobile">
-                Contacto
-              </Link>
-            </li>
           </ul>
           <div className="support">
-            <a href="#" className="text-need">
-              {" "}
-              Need help?
+            <a href="/contact" className="text-need">
+              ¿Necesitás ayuda?
             </a>
             <ul className="mb-info">
               <li>
-                Call Us Now: <span className="number">1-555-678-8888</span>
-              </li>
-              <li>
-                Support 24/7: <a href="#">themesflat@gmail.com</a>
-              </li>
-              <li>
-                <div className="wrap-social">
-                  <p>Follow us:</p>
-                  <ul className="tf-social style-2">
-                    <li>
-                      <a href="#">
-                        <i className="icon-fb" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i className="icon-X" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i className="icon-linked" />
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i className="icon-ins" />
-                      </a>
-                    </li>
-                  </ul>
-                </div>
+                <Link href="/contact">Escribinos</Link>
               </li>
             </ul>
           </div>

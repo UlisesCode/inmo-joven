@@ -388,7 +388,7 @@ export default function DashboardNav({ color = "" }) {
               strokeLinejoin="round"
             />
           </svg>
-          Publicar propiedad
+          Publicar mi mono
         </Link>
         <button
           type="button"

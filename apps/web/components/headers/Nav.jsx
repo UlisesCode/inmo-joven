@@ -1,23 +1,46 @@
 "use client";
-import { blogMenu, homes, otherPages, propertyLinks } from "@/data/menu";
+
+import {
+  blogMenu,
+  homes,
+  monoShop,
+  otherPages,
+  propertyLinks,
+} from "@/data/menu";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useSession } from "next-auth/react";
 import React from "react";
+
+function isExternalHref(href) {
+  return typeof href === "string" && /^https?:\/\//i.test(href);
+}
 
 export default function Nav() {
   const pathname = usePathname();
+  const { data: session, status } = useSession();
+  const authed = status === "authenticated" && Boolean(session?.user);
+
   const isParentActive = (menus) =>
     menus.some((menu) =>
       menu.submenu
         ? menu.submenu.some((item) =>
             item.submenu
               ? item.submenu.some(
-                  (item) => item.href.split("/")[1] === pathname.split("/")[1]
+                  (seg) => seg.href.split("/")[1] === pathname.split("/")[1],
                 )
-              : item.href.split("/")[1] === pathname.split("/")[1]
+              : item.href.split("/")[1] === pathname.split("/")[1],
           )
-        : menu.href.split("/")[1] === pathname.split("/")[1]
+        : menu.href.split("/")[1] === pathname.split("/")[1],
     );
+
+  const communityTriggerLabel =
+    otherPages.length === 1 && otherPages[0].submenu
+      ? otherPages[0].title
+      : "Comunidad";
+
+  const buscarTriggerLabel = propertyLinks[0]?.title ?? "Buscar un mono";
+
   return (
     <>
       {homes.length === 1 ? (
@@ -43,12 +66,13 @@ export default function Nav() {
           </ul>
         </li>
       )}
+
       <li
         className={`has-child style-2 ${
           isParentActive(propertyLinks) ? "current-menu" : ""
         } `}
       >
-        <a href="#">Propiedades</a>
+        <a href="#">{buscarTriggerLabel}</a>
         <ul className="submenu">
           {propertyLinks.map((menu, index) => (
             <li key={index}>
@@ -63,7 +87,17 @@ export default function Nav() {
                         : ""
                     }
                   >
-                    <Link href={item.href}>{item.label}</Link>
+                    {isExternalHref(item.href) ? (
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {item.label}
+                      </a>
+                    ) : (
+                      <Link href={item.href}>{item.label}</Link>
+                    )}
                   </li>
                 ))}
               </ul>
@@ -71,12 +105,13 @@ export default function Nav() {
           ))}
         </ul>
       </li>
+
       <li
         className={`has-child  ${
           isParentActive(otherPages) ? "current-menu" : ""
         } `}
       >
-        <a href="#">Más</a>
+        <a href="#">{communityTriggerLabel}</a>
         <ul className="submenu">
           {otherPages.map((menu, index) => (
             <li
@@ -102,7 +137,17 @@ export default function Nav() {
                             : ""
                         }
                       >
-                        <Link href={item.href}>{item.label}</Link>
+                        {isExternalHref(item.href) ? (
+                          <a
+                            href={item.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {item.label}
+                          </a>
+                        ) : (
+                          <Link href={item.href}>{item.label}</Link>
+                        )}
                       </li>
                     ))}
                   </ul>
@@ -114,7 +159,28 @@ export default function Nav() {
           ))}
         </ul>
       </li>
-      {blogMenu.length > 0 ? (
+
+      <li>
+        <a
+          href={monoShop.href}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {monoShop.label}
+        </a>
+      </li>
+
+      {blogMenu.length === 1 ? (
+        <li
+          className={
+            pathname.split("/")[1] === blogMenu[0].href.split("/")[1]
+              ? "current-menu"
+              : ""
+          }
+        >
+          <Link href={blogMenu[0].href}>{blogMenu[0].label}</Link>
+        </li>
+      ) : blogMenu.length > 1 ? (
         <li
           className={`has-child ${
             isParentActive(blogMenu) ? "current-menu" : ""
@@ -137,9 +203,42 @@ export default function Nav() {
           </ul>
         </li>
       ) : null}
-      <li className={pathname === "/contact" ? "current-menu" : ""}>
-        <Link href="/contact">Contacto</Link>
+
+      <li
+        className={
+          pathname.split("/")[1] === "add-property" ? "current-menu" : ""
+        }
+      >
+        <Link href="/add-property">Publicar mi mono</Link>
       </li>
+
+      {!authed && status !== "loading" ? (
+        <li className="has-child nav-ingresar">
+          <a href="#">Ingresar</a>
+          <ul className="submenu">
+            <li>
+              <a
+                href="#modalLogin"
+                data-bs-toggle="modal"
+                role="button"
+                className="nav-modal-link"
+              >
+                Login
+              </a>
+            </li>
+            <li>
+              <a
+                href="#modalRegister"
+                data-bs-toggle="modal"
+                role="button"
+                className="nav-modal-link"
+              >
+                Quiero ser un monero
+              </a>
+            </li>
+          </ul>
+        </li>
+      ) : null}
     </>
   );
 }

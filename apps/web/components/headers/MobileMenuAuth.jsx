@@ -6,7 +6,7 @@ import React from "react";
 
 /**
  * Login / registro (modales Bootstrap) y cuenta cuando hay sesión —
- * el header desktop usa HeaderAuthCta; en móvil el drawbar no los repetía.
+ * arriba del menú móvil; en desktop el menú principal incluye Ingresar.
  */
 export default function MobileMenuAuth() {
   const { data: session, status } = useSession();
@@ -44,7 +44,7 @@ export default function MobileMenuAuth() {
           Mi cuenta
         </Link>
         <Link className="tf-btn style-border text-center" href="/add-property">
-          Publicar propiedad
+          Publicar mi mono
         </Link>
         <button
           type="button"

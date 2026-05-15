@@ -388,7 +388,7 @@ export default function Sidebar() {
                     strokeLinejoin="round"
                   />
                 </svg>
-                Publicar propiedad
+                Publicar mi mono
               </Link>
             </li>
             <li className={`nav-menu-item `}>

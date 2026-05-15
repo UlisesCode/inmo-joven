@@ -1,8 +1,7 @@
 import React from "react";
-import Nav from "./Nav";
 import Link from "next/link";
+import Nav from "./Nav";
 import DashboardNav from "./DashboardNav";
-import HeaderAuthCta from "./HeaderAuthCta";
 export default function Header1({ parentClass = "header" }) {
   return (
     <header id="header-main" className={parentClass}>
@@ -29,7 +28,6 @@ export default function Header1({ parentClass = "header" }) {
                 </nav>
                 <div className="header-right">
                   <DashboardNav />
-                  <HeaderAuthCta />
                   <div
                     className="mobile-button"
                     data-bs-toggle="offcanvas"
